@@ -8,13 +8,12 @@ export default function Home() {
     <div className="sunset-background">
       {/* Background Effects */}
       <div className="sunset-rays"></div>
-      <div className="cloud-layer"></div>
       
       {/* Main Content Container */}
       <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 py-8">
         {/* Logo Card */}
         <div className="w-full max-w-sm mx-auto mb-6">
-          <GlassCard className="p-8 text-center animate-float" hover>
+          <GlassCard className="p-8 text-center" hover>
             <PediatriaLogo />
             
             <h1 className="text-white text-xl font-semibold mb-2">

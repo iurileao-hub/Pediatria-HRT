@@ -61,7 +61,6 @@ export default function Routines() {
   return (
     <div className="sunset-background">
       <div className="sunset-rays"></div>
-      <div className="cloud-layer"></div>
       
       <div className="relative z-10 min-h-screen px-4 py-8">
         {/* Header with back button */}
@@ -102,8 +101,7 @@ export default function Routines() {
             filteredRoutines.map((routine) => (
               <GlassCard 
                 key={routine.id}
-                className="p-4 hover:bg-white/20 transition-colors cursor-pointer"
-                hover
+                className="p-4 cursor-pointer"
               >
                 <h3 className="text-white font-semibold mb-2">{routine.title}</h3>
                 <p className="text-white/70 text-sm mb-2">{routine.description}</p>

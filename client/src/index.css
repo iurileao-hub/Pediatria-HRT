@@ -143,18 +143,6 @@
       rgba(255, 215, 63, 0.3) 0%, 
       rgba(255, 107, 53, 0.2) 40%, 
       transparent 70%);
-    animation: pulse-slow 4s ease-in-out infinite;
-  }
-  
-  .cloud-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 60c0-8 6-15 15-15s15 7 15 15c3-5 8-8 14-8s11 3 14 8c5-3 11-2 15 2s6 10 3 15H18c-3-5-2-11 2-17z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E") repeat;
-    opacity: 0.6;
-    animation: float 8s ease-in-out infinite;
   }
   
   .glass-card {
@@ -165,20 +153,4 @@
   }
 }
 
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px); 
-  }
-  50% { 
-    transform: translateY(-10px); 
-  }
-}
 
-@keyframes pulse-slow {
-  0%, 100% { 
-    opacity: 1; 
-  }
-  50% { 
-    opacity: 0.7; 
-  }
-}
