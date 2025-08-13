@@ -33,43 +33,109 @@ const directories: DirectoryCategory[] = [
   { id: "general-pediatrics", name: "Pediatria Geral e Puericultura", color: "bg-cyan-500/40" }
 ];
 
-// Generate 73 placeholder routines - UPDATE WITH ACTUAL NAMES
-const generateRoutines = (): Routine[] => {
-  const routineNames = [
-    // PLACEHOLDER - Replace with the 73 actual routine names you provided
-    "Rotina 1", "Rotina 2", "Rotina 3", "Rotina 4", "Rotina 5",
-    "Rotina 6", "Rotina 7", "Rotina 8", "Rotina 9", "Rotina 10",
-    // Add all 73 names here...
-  ];
+// 73 Medical Routines with proper category assignments
+const routineData: Omit<Routine, 'id'>[] = [
+  // Emergency
+  { title: "Acidentes por animais peçonhentos", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
+  { title: "Afogamento", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
+  { title: "Choque Séptico (Emergência)", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
+  { title: "Emergência Respiratória", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
+  { title: "Intoxicações Exógenas Agudas", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
+  { title: "Parada Cardiorrespiratória (PCR)", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
+  { title: "Traumatismo Cranioencefálico (TCE)", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
   
-  // For now, creating 73 placeholders - will be updated with real names
-  const routines: Routine[] = [];
-  const categories = directories.slice(1); // Exclude "Todas"
-  const routinesPerCategory = Math.floor(73 / categories.length);
-  const remainder = 73 % categories.length;
+  // Intensive Care
+  { title: "Choque Séptico (Aminas Vasoativas)", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
+  { title: "Ventilação Mecânica (Conceitos Básicos)", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
+  { title: "Distúrbios Ácido-Básicos", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
+  { title: "Distúrbios Eletrolíticos", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
+  { title: "Punção Lombar", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
   
-  let routineIndex = 0;
+  // Neonatology
+  { title: "Febre no Recém Nascido", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
+  { title: "Hidratação Venosa no RN", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
+  { title: "Icterícia Neonatal", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
+  { title: "Insuficiência Respiratória no RN", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
+  { title: "Reanimação Neonatal", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
   
-  categories.forEach((category, categoryIndex) => {
-    const count = routinesPerCategory + (categoryIndex < remainder ? 1 : 0);
-    
-    for (let i = 0; i < count && routineIndex < 73; i++) {
-      routines.push({
-        id: (routineIndex + 1).toString(),
-        title: `Rotina ${routineIndex + 1}`, // Will be replaced with actual names
-        author: "Autor a ser definido",
-        category: category.id,
-        categoryColor: category.color
-      });
-      routineIndex++;
-    }
-  });
+  // Infants
+  { title: "Alimentação nos 2 primeiros anos de vida", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
+  { title: "Desconforto Respiratório do Lactente (Bronquiolite Viral Aguda)", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
+  { title: "Fórmulas Lácteas", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
+  { title: "Alergia à Proteína do Leite de Vaca (APLV)", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
+  { title: "Desidratação Hipernatrêmica", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
   
-  // Sort alphabetically by title
-  return routines.sort((a, b) => a.title.localeCompare(b.title));
-};
+  // Cardiology
+  { title: "Crise de Hipóxia", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
+  { title: "Doença de Kawasaki", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
+  { title: "Endocardite Infecciosa", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
+  { title: "Febre Reumática (FR)", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
+  { title: "Hipertensão Arterial", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
+  { title: "Insuficiência Cardíaca Congestiva (ICC)", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
+  
+  // Pneumology
+  { title: "Asma (Crise Aguda)", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
+  { title: "Crupe", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
+  { title: "Derrame Pleural", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
+  { title: "Obstrução de Via Aérea por Corpo Estranho (OVACE)", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
+  { title: "Pneumonias Bacterianas", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
+  { title: "Tuberculose", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
+  
+  // Hematology, Rheumatology and Nephrology
+  { title: "Anemia Falciforme", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Anemia Ferropriva", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Artrite (Abordagem Inicial)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Artrite Séptica", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Artrites Reativas ou Reacionais", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Distúrbio Metabólico / Litíase Renal / Cólica Nefrética", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Glomerulonefrite Difusa Aguda (GNDA)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Hematúria", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Púrpura de Henoch-Schönlein (PHS)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Púrpura Trombocitopênica Idiopática (PTI)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  { title: "Síndrome Nefrótica (SN)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
+  
+  // Infectology
+  { title: "Coqueluche", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Dengue e outra Arboviroses", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Hepatites Virais", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Infecções Tegumentares e Miosites", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Leishmaniose Visceral", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Mastoidite", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Meningites Bacterianas", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Mononucleose Infecciosa", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Osteomielite", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Parasitoses Intestinais", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Primoinfecção e Encefalite Herpética", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  { title: "Varicela", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
+  
+  // Gastroenterology
+  { title: "Constipação Intestinal", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
+  { title: "Diarreias Agudas", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
+  { title: "Diarreias Infecciosas", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
+  { title: "Doença do Refluxo Gastroesofágico", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
+  { title: "Dor Abdominal Aguda", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
+  
+  // Endocrinology
+  { title: "Cetoacidose Diabética", author: "Autor a ser definido", category: "endocrinology", categoryColor: "bg-teal-500/40" },
+  { title: "Insulinoterapia", author: "Autor a ser definido", category: "endocrinology", categoryColor: "bg-teal-500/40" },
+  
+  // Neurology
+  { title: "Cefaleias", author: "Autor a ser definido", category: "neurology", categoryColor: "bg-indigo-500/40" },
+  { title: "Epilepsia e Estado de Mal Epiléptico", author: "Autor a ser definido", category: "neurology", categoryColor: "bg-indigo-500/40" },
+  
+  // General Pediatrics and Puericulture
+  { title: "Adenomegalias", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
+  { title: "Dor de Crescimento", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
+  { title: "Faringotonsilite Aguda (IVAS 1)", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
+  { title: "Maus Tratos e Abuso Sexual na Infância", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
+  { title: "Otite Média Aguda (IVAS 2)", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
+  { title: "Rinossinusite Aguda (IVAS 3)", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
+  { title: "Urticária / Angioedema / Anafilaxia", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" }
+];
 
-const routines: Routine[] = generateRoutines();
+const routines: Routine[] = routineData
+  .map((routine, index) => ({ ...routine, id: (index + 1).toString() }))
+  .sort((a, b) => a.title.localeCompare(b.title));
 
 export default function Routines() {
   const [searchTerm, setSearchTerm] = useState("");
