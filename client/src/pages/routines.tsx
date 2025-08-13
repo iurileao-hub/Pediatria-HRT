@@ -112,20 +112,19 @@ export default function Routines() {
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-3 pb-2" style={{ width: 'max-content' }}>
               {directories.map((directory) => (
-                <GlassCard
+                <div
                   key={directory.id}
-                  className={`p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 ${
+                  className={`glass-card ${directory.color} p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
                     selectedCategory === directory.id 
-                      ? 'ring-2 ring-white/50 bg-white/20' 
-                      : 'hover:bg-white/10'
+                      ? 'ring-2 ring-white/50 scale-105' 
+                      : 'hover:scale-102'
                   }`}
                   onClick={() => setSelectedCategory(directory.id)}
                 >
-                  <div className={`w-8 h-8 rounded-full ${directory.color} mx-auto mb-2`}></div>
-                  <h3 className="text-white text-sm font-medium leading-tight">
+                  <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full">
                     {directory.name}
                   </h3>
-                </GlassCard>
+                </div>
               ))}
             </div>
           </div>
