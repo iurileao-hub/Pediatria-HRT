@@ -186,21 +186,48 @@ export default function Routines() {
         <div className="mb-6 px-4">
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-3 pb-2" style={{ width: 'max-content' }}>
-              {directories.map((directory) => (
-                <div
-                  key={directory.id}
-                  className={`glass-card ${directory.color} p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
-                    selectedCategory === directory.id 
-                      ? 'ring-2 ring-white/50 scale-105' 
-                      : 'hover:scale-102'
-                  }`}
-                  onClick={() => setSelectedCategory(directory.id)}
-                >
-                  <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full">
-                    {directory.name}
-                  </h3>
-                </div>
-              ))}
+              {directories.map((directory) => {
+                const getBackgroundColor = (color: string) => {
+                  switch(color) {
+                    case 'bg-slate-500/40': return 'rgba(100, 116, 139, 0.4)';
+                    case 'bg-red-500/40': return 'rgba(239, 68, 68, 0.4)';
+                    case 'bg-orange-500/40': return 'rgba(249, 115, 22, 0.4)';
+                    case 'bg-pink-500/40': return 'rgba(236, 72, 153, 0.4)';
+                    case 'bg-blue-500/40': return 'rgba(59, 130, 246, 0.4)';
+                    case 'bg-rose-500/40': return 'rgba(244, 63, 94, 0.4)';
+                    case 'bg-sky-500/40': return 'rgba(14, 165, 233, 0.4)';
+                    case 'bg-purple-500/40': return 'rgba(168, 85, 247, 0.4)';
+                    case 'bg-green-500/40': return 'rgba(34, 197, 94, 0.4)';
+                    case 'bg-amber-500/40': return 'rgba(245, 158, 11, 0.4)';
+                    case 'bg-teal-500/40': return 'rgba(20, 184, 166, 0.4)';
+                    case 'bg-indigo-500/40': return 'rgba(99, 102, 241, 0.4)';
+                    case 'bg-cyan-500/40': return 'rgba(6, 182, 212, 0.4)';
+                    default: return 'rgba(255, 255, 255, 0.15)';
+                  }
+                };
+
+                return (
+                  <div
+                    key={directory.id}
+                    className={`p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
+                      selectedCategory === directory.id 
+                        ? 'ring-2 ring-white/50 scale-105' 
+                        : 'hover:scale-102'
+                    }`}
+                    style={{
+                      background: getBackgroundColor(directory.color),
+                      backdropFilter: 'blur(20px)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+                    }}
+                    onClick={() => setSelectedCategory(directory.id)}
+                  >
+                    <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full">
+                      {directory.name}
+                    </h3>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
