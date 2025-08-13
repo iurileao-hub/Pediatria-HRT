@@ -13,7 +13,7 @@ export default function Home() {
       <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 py-8">
         {/* Logo Card */}
         <div className="w-full max-w-sm mx-auto mb-6">
-          <GlassCard className="p-8 text-center" hover>
+          <GlassCard className="p-8 text-center">
             <PediatriaLogo />
             
             <h1 className="text-white text-xl font-semibold mb-2">
@@ -29,8 +29,7 @@ export default function Home() {
         <div className="w-full max-w-sm mx-auto">
           <Link href="/routines">
             <GlassCard 
-              className="p-6 w-full text-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/30" 
-              hover
+              className="p-6 w-full text-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95 transition-transform duration-150" 
             >
               <div className="flex items-center justify-center mb-3">
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mr-3">
