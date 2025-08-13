@@ -61,7 +61,6 @@ export default function Routines() {
   return (
     <div className="sunset-background">
       <div className="sunset-rays"></div>
-      
       <div className="relative z-10 min-h-screen px-4 py-8">
         {/* Header with back button */}
         <div className="w-full max-w-md mx-auto mb-6">
@@ -71,7 +70,7 @@ export default function Routines() {
                 <ArrowLeft className="w-5 h-5 text-white" />
               </button>
             </Link>
-            <h1 className="text-white text-lg font-semibold">Rotinas Médicas</h1>
+            <h1 className="text-white text-lg font-semibold">Início</h1>
           </GlassCard>
         </div>
         
