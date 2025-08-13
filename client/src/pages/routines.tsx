@@ -6,7 +6,7 @@ import { ArrowLeft, Search } from "lucide-react";
 interface Routine {
   id: string;
   title: string;
-  description: string;
+  author: string;
   category: string;
   categoryColor: string;
 }
@@ -18,46 +18,55 @@ interface DirectoryCategory {
 }
 
 const directories: DirectoryCategory[] = [
-  { id: "all", name: "Todas", color: "bg-slate-500/20" },
-  { id: "emergency", name: "Emergência", color: "bg-red-500/20" },
-  { id: "intensive-care", name: "Terapia Intensiva", color: "bg-orange-500/20" },
-  { id: "neonatology", name: "Neonatologia", color: "bg-pink-500/20" },
-  { id: "infants", name: "Lactentes", color: "bg-blue-500/20" },
-  { id: "cardiology", name: "Cardiologia", color: "bg-rose-500/20" },
-  { id: "pneumology", name: "Pneumologia", color: "bg-sky-500/20" },
-  { id: "hematology-rheumatology-nephrology", name: "Hematologia, Reumatologia e Nefrologia", color: "bg-purple-500/20" },
-  { id: "infectology", name: "Infectologia", color: "bg-green-500/20" },
-  { id: "gastroenterology", name: "Gastroenterologia", color: "bg-amber-500/20" },
-  { id: "endocrinology", name: "Endocrinologia", color: "bg-teal-500/20" },
-  { id: "neurology", name: "Neurologia", color: "bg-indigo-500/20" },
-  { id: "general-pediatrics", name: "Pediatria Geral e Puericultura", color: "bg-cyan-500/20" }
+  { id: "all", name: "Todas", color: "bg-slate-500/40" },
+  { id: "emergency", name: "Emergência", color: "bg-red-500/40" },
+  { id: "intensive-care", name: "Terapia Intensiva", color: "bg-orange-500/40" },
+  { id: "neonatology", name: "Neonatologia", color: "bg-pink-500/40" },
+  { id: "infants", name: "Lactentes", color: "bg-blue-500/40" },
+  { id: "cardiology", name: "Cardiologia", color: "bg-rose-500/40" },
+  { id: "pneumology", name: "Pneumologia", color: "bg-sky-500/40" },
+  { id: "hematology-rheumatology-nephrology", name: "Hematologia, Reumatologia e Nefrologia", color: "bg-purple-500/40" },
+  { id: "infectology", name: "Infectologia", color: "bg-green-500/40" },
+  { id: "gastroenterology", name: "Gastroenterologia", color: "bg-amber-500/40" },
+  { id: "endocrinology", name: "Endocrinologia", color: "bg-teal-500/40" },
+  { id: "neurology", name: "Neurologia", color: "bg-indigo-500/40" },
+  { id: "general-pediatrics", name: "Pediatria Geral e Puericultura", color: "bg-cyan-500/40" }
 ];
 
-// Generate 76 placeholder routines distributed across categories
+// Generate 73 placeholder routines - UPDATE WITH ACTUAL NAMES
 const generateRoutines = (): Routine[] => {
+  const routineNames = [
+    // PLACEHOLDER - Replace with the 73 actual routine names you provided
+    "Rotina 1", "Rotina 2", "Rotina 3", "Rotina 4", "Rotina 5",
+    "Rotina 6", "Rotina 7", "Rotina 8", "Rotina 9", "Rotina 10",
+    // Add all 73 names here...
+  ];
+  
+  // For now, creating 73 placeholders - will be updated with real names
   const routines: Routine[] = [];
   const categories = directories.slice(1); // Exclude "Todas"
-  const routinesPerCategory = Math.floor(76 / categories.length);
-  const remainder = 76 % categories.length;
+  const routinesPerCategory = Math.floor(73 / categories.length);
+  const remainder = 73 % categories.length;
   
-  let id = 1;
+  let routineIndex = 0;
   
-  categories.forEach((category, index) => {
-    const count = routinesPerCategory + (index < remainder ? 1 : 0);
+  categories.forEach((category, categoryIndex) => {
+    const count = routinesPerCategory + (categoryIndex < remainder ? 1 : 0);
     
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count && routineIndex < 73; i++) {
       routines.push({
-        id: id.toString(),
-        title: `Rotina ${id}`,
-        description: `Protocolo médico da área de ${category.name.toLowerCase()}`,
+        id: (routineIndex + 1).toString(),
+        title: `Rotina ${routineIndex + 1}`, // Will be replaced with actual names
+        author: "Autor a ser definido",
         category: category.id,
         categoryColor: category.color
       });
-      id++;
+      routineIndex++;
     }
   });
   
-  return routines;
+  // Sort alphabetically by title
+  return routines.sort((a, b) => a.title.localeCompare(b.title));
 };
 
 const routines: Routine[] = generateRoutines();
@@ -68,7 +77,7 @@ export default function Routines() {
   
   const filteredRoutines = routines.filter(routine => {
     const matchesSearch = routine.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      routine.description.toLowerCase().includes(searchTerm.toLowerCase());
+      routine.author.toLowerCase().includes(searchTerm.toLowerCase());
     
     const matchesCategory = selectedCategory === "all" || routine.category === selectedCategory;
     
@@ -144,8 +153,8 @@ export default function Routines() {
                   key={routine.id}
                   className="p-4 cursor-pointer"
                 >
-                  <h3 className="text-white font-semibold mb-2">{routine.title}</h3>
-                  <p className="text-white/70 text-sm mb-2">{routine.description}</p>
+                  <h3 className="text-white font-semibold mb-1">{routine.title}</h3>
+                  <p className="text-white/60 text-sm mb-3">{routine.author}</p>
                   <span className={`inline-block ${routine.categoryColor} text-white px-2 py-1 rounded-full text-xs`}>
                     {categoryName}
                   </span>
