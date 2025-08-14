@@ -140,33 +140,6 @@ const routines: Routine[] = routineData
 export default function Routines() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  // Save and restore state from localStorage
-  useEffect(() => {
-    const savedState = localStorage.getItem('routinesPageState');
-    if (savedState) {
-      try {
-        const { searchTerm: savedSearch, selectedCategory: savedCategory } = JSON.parse(savedState);
-        if (savedSearch !== undefined) setSearchTerm(savedSearch);
-        if (savedCategory !== undefined) setSelectedCategory(savedCategory);
-      } catch (e) {
-        console.log('Failed to parse saved state');
-      }
-    }
-  }, []);
-
-  // Save state to localStorage whenever it changes (with debounce)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const stateToSave = {
-        searchTerm,
-        selectedCategory
-      };
-      localStorage.setItem('routinesPageState', JSON.stringify(stateToSave));
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, [searchTerm, selectedCategory]);
   
   const filteredRoutines = routines.filter(routine => {
     const matchesSearch = routine.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

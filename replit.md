@@ -5,6 +5,7 @@ This is a pediatric medical protocols web application for Hospital Regional de T
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Routines page behavior: Always reset to initial state (no filters/search preserved) when returning from routine pages.
 
 ## System Architecture
 
