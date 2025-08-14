@@ -241,16 +241,36 @@ export default function Routines() {
           ) : (
             filteredRoutines.map((routine) => {
               const categoryName = directories.find(dir => dir.id === routine.category)?.name || routine.category;
+              const isFirstRoutine = routine.title === "Acidentes por animais peçonhentos";
+              
+              const cardContent = (
+                <>
+                  <h3 className="text-white font-semibold mb-1">{routine.title}</h3>
+                  <p className="text-white/60 text-sm mb-3">
+                    {isFirstRoutine ? "Luiz Antônio" : routine.author}
+                  </p>
+                  <span className={`inline-block ${routine.categoryColor} text-white px-2 py-1 rounded-full text-xs`}>
+                    {categoryName}
+                  </span>
+                </>
+              );
+
+              if (isFirstRoutine) {
+                return (
+                  <Link key={routine.id} href="/routine/acidentes-por-animais-peconhentos">
+                    <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-colors">
+                      {cardContent}
+                    </GlassCard>
+                  </Link>
+                );
+              }
+
               return (
                 <GlassCard 
                   key={routine.id}
                   className="p-4 cursor-pointer"
                 >
-                  <h3 className="text-white font-semibold mb-1">{routine.title}</h3>
-                  <p className="text-white/60 text-sm mb-3">{routine.author}</p>
-                  <span className={`inline-block ${routine.categoryColor} text-white px-2 py-1 rounded-full text-xs`}>
-                    {categoryName}
-                  </span>
+                  {cardContent}
                 </GlassCard>
               );
             })
