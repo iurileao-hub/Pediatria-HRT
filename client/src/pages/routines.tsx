@@ -147,22 +147,25 @@ export default function Routines() {
     if (savedState) {
       try {
         const { searchTerm: savedSearch, selectedCategory: savedCategory } = JSON.parse(savedState);
-        setSearchTerm(savedSearch || "");
-        setSelectedCategory(savedCategory || "all");
+        if (savedSearch !== undefined) setSearchTerm(savedSearch);
+        if (savedCategory !== undefined) setSelectedCategory(savedCategory);
       } catch (e) {
-        // If parsing fails, use defaults
         console.log('Failed to parse saved state');
       }
     }
   }, []);
 
-  // Save state to localStorage whenever it changes
+  // Save state to localStorage whenever it changes (with debounce)
   useEffect(() => {
-    const stateToSave = {
-      searchTerm,
-      selectedCategory
-    };
-    localStorage.setItem('routinesPageState', JSON.stringify(stateToSave));
+    const timer = setTimeout(() => {
+      const stateToSave = {
+        searchTerm,
+        selectedCategory
+      };
+      localStorage.setItem('routinesPageState', JSON.stringify(stateToSave));
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, [searchTerm, selectedCategory]);
   
   const filteredRoutines = routines.filter(routine => {
