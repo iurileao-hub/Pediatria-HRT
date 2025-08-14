@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ArrowLeft, Search } from "lucide-react";
@@ -140,6 +140,30 @@ const routines: Routine[] = routineData
 export default function Routines() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  // Save and restore state from localStorage
+  useEffect(() => {
+    const savedState = localStorage.getItem('routinesPageState');
+    if (savedState) {
+      try {
+        const { searchTerm: savedSearch, selectedCategory: savedCategory } = JSON.parse(savedState);
+        setSearchTerm(savedSearch || "");
+        setSelectedCategory(savedCategory || "all");
+      } catch (e) {
+        // If parsing fails, use defaults
+        console.log('Failed to parse saved state');
+      }
+    }
+  }, []);
+
+  // Save state to localStorage whenever it changes
+  useEffect(() => {
+    const stateToSave = {
+      searchTerm,
+      selectedCategory
+    };
+    localStorage.setItem('routinesPageState', JSON.stringify(stateToSave));
+  }, [searchTerm, selectedCategory]);
   
   const filteredRoutines = routines.filter(routine => {
     const matchesSearch = routine.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

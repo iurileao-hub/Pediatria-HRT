@@ -16,6 +16,14 @@ export default function RoutineAnimaisPeconhentos() {
     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
   };
 
+  // Style classes for consistent theming
+  const textColor = isDarkMode ? 'text-gray-100' : 'text-gray-900';
+  const headingColor = isDarkMode ? 'text-white' : 'text-gray-900';
+  const subHeadingColor = isDarkMode ? 'text-gray-200' : 'text-gray-800';
+  const tableBackground = isDarkMode ? 'bg-gray-800' : 'bg-gray-50';
+  const tableBorder = isDarkMode ? 'border-gray-600' : 'border-gray-300';
+  const tableRowBorder = isDarkMode ? 'border-gray-700' : 'border-gray-200';
+
   return (
     <div className={`min-h-screen transition-all duration-300 ${
       isDarkMode 
@@ -51,19 +59,17 @@ export default function RoutineAnimaisPeconhentos() {
       <div className="max-w-4xl mx-auto px-6 py-16">
         {/* Title and author */}
         <header className="mb-12">
-          <h1 className="text-4xl font-serif font-bold mb-4 leading-tight">
+          <h1 className={`text-4xl font-serif font-bold mb-4 leading-tight ${headingColor}`}>
             Acidentes por Animais Peçonhentos
           </h1>
-          <p className={`text-xl font-serif italic ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <p className={`text-xl font-serif italic ${subHeadingColor}`}>
             Luiz Antônio
           </p>
         </header>
 
         {/* Content */}
         <div className="prose prose-lg max-w-none font-serif leading-relaxed">
-          <div className={`space-y-6 ${isDarkMode ? 'text-gray-100' : 'text-gray-800'}`}>
+          <div className={`space-y-6 ${textColor}`}>
             
             <p>
               São aqueles provocados por picadas ou mordeduras de animais dotados de glândulas secretoras e aparelhos inoculadores de veneno.
@@ -113,7 +119,7 @@ export default function RoutineAnimaisPeconhentos() {
               A seguir descreveremos os principais acidentes.
             </p>
 
-            <h2 className="text-3xl font-serif font-bold mt-12 mb-6">
+            <h2 className={`text-3xl font-serif font-bold mt-12 mb-6 ${headingColor}`}>
               Serpentes
             </h2>
 
@@ -121,7 +127,7 @@ export default function RoutineAnimaisPeconhentos() {
               As cobras venenosas do Brasil são facilmente identificáveis por causa da fosseta loreal que consiste em dois orifícios situados entre a narina e o olho, um em cada lado da cabeça (com exceção da coral verdadeira).
             </p>
 
-            <h3 className="text-2xl font-serif font-bold mt-10 mb-4">
+            <h3 className={`text-2xl font-serif font-bold mt-10 mb-4 ${headingColor}`}>
               Acidente Botrópico
             </h3>
 
@@ -129,7 +135,7 @@ export default function RoutineAnimaisPeconhentos() {
               Causado por serpentes do grupo das jararacas. Causa a maioria dos acidentes com cobras no Brasil – 75% a 85%. O Cerrado é o seu principal habitat. Possuem escamas, é o que as diferencia de outras espécies. Variadas tonalidades de marrom.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
@@ -137,74 +143,74 @@ export default function RoutineAnimaisPeconhentos() {
               Dor e inchaço no local da picada, às vezes com manchas arroxeadas e sangramento no ferimento causado pela picada; podem ocorrer sangramentos em gengivas, pele e urina. As complicações mais importantes são infecção e necrose na região da picada, choque e insuficiência renal.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Classificação e Soroterapia:
             </h4>
 
-            <div className={`overflow-x-auto mb-6 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'} rounded-lg p-4`}>
-              <table className="w-full text-sm">
+            <div className={`overflow-x-auto mb-6 ${tableBackground} rounded-lg p-4`}>
+              <table className={`w-full text-sm ${textColor}`}>
                 <thead>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-600' : 'border-gray-300'}`}>
-                    <th className="text-left p-2">Classificação</th>
-                    <th className="text-left p-2">Manifestações locais</th>
-                    <th className="text-left p-2">Manifestações sistêmicas</th>
-                    <th className="text-left p-2">Tempo de coagulação</th>
-                    <th className="text-left p-2">Tempo entre acidente e atendimento</th>
-                    <th className="text-left p-2">Soroterapia SAB/SABC/SABL</th>
+                  <tr className={`border-b ${tableBorder}`}>
+                    <th className={`text-left p-2 ${headingColor}`}>Classificação</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Manifestações locais</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Manifestações sistêmicas</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Tempo de coagulação</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Tempo entre acidente e atendimento</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Soroterapia SAB/SABC/SABL</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                    <td className="p-2 font-semibold">Mínima</td>
-                    <td className="p-2">mínimas ou ausentes</td>
-                    <td className="p-2">ausentes</td>
-                    <td className="p-2">normal</td>
-                    <td className="p-2">menor 6 horas</td>
-                    <td className="p-2">obs</td>
+                  <tr className={`border-b ${tableRowBorder}`}>
+                    <td className={`p-2 font-semibold ${textColor}`}>Mínima</td>
+                    <td className={`p-2 ${textColor}`}>mínimas ou ausentes</td>
+                    <td className={`p-2 ${textColor}`}>ausentes</td>
+                    <td className={`p-2 ${textColor}`}>normal</td>
+                    <td className={`p-2 ${textColor}`}>menor 6 horas</td>
+                    <td className={`p-2 ${textColor}`}>obs</td>
                   </tr>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                    <td className="p-2 font-semibold">Leve</td>
-                    <td className="p-2">discretas</td>
-                    <td className="p-2">ausentes</td>
-                    <td className="p-2">Normal ou alterado</td>
-                    <td className="p-2">menor que 6 horas</td>
-                    <td className="p-2">3 ampolas</td>
+                  <tr className={`border-b ${tableRowBorder}`}>
+                    <td className={`p-2 font-semibold ${textColor}`}>Leve</td>
+                    <td className={`p-2 ${textColor}`}>discretas</td>
+                    <td className={`p-2 ${textColor}`}>ausentes</td>
+                    <td className={`p-2 ${textColor}`}>Normal ou alterado</td>
+                    <td className={`p-2 ${textColor}`}>menor que 6 horas</td>
+                    <td className={`p-2 ${textColor}`}>3 ampolas</td>
                   </tr>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                    <td className="p-2 font-semibold">Moderada</td>
-                    <td className="p-2">evidentes</td>
-                    <td className="p-2">Ausentes</td>
-                    <td className="p-2">Normal ou alterado</td>
-                    <td className="p-2">6 horas</td>
-                    <td className="p-2">6 ampolas</td>
+                  <tr className={`border-b ${tableRowBorder}`}>
+                    <td className={`p-2 font-semibold ${textColor}`}>Moderada</td>
+                    <td className={`p-2 ${textColor}`}>evidentes</td>
+                    <td className={`p-2 ${textColor}`}>Ausentes</td>
+                    <td className={`p-2 ${textColor}`}>Normal ou alterado</td>
+                    <td className={`p-2 ${textColor}`}>6 horas</td>
+                    <td className={`p-2 ${textColor}`}>6 ampolas</td>
                   </tr>
                   <tr>
-                    <td className="p-2 font-semibold">Grave</td>
-                    <td className="p-2">intensas</td>
-                    <td className="p-2">presentes</td>
-                    <td className="p-2">alterado</td>
-                    <td className="p-2">maior que 6 horas</td>
-                    <td className="p-2">12 ampolas</td>
+                    <td className={`p-2 font-semibold ${textColor}`}>Grave</td>
+                    <td className={`p-2 ${textColor}`}>intensas</td>
+                    <td className={`p-2 ${textColor}`}>presentes</td>
+                    <td className={`p-2 ${textColor}`}>alterado</td>
+                    <td className={`p-2 ${textColor}`}>maior que 6 horas</td>
+                    <td className={`p-2 ${textColor}`}>12 ampolas</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <p className="text-sm italic">
+            <p className={`text-sm italic ${textColor}`}>
               SAB (soro antibotrópico); SABC (soro antibotrópico-crotálico); SABL (soro antibotrópico-laquético)
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Exames laboratoriais:
             </h4>
 
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className={`list-disc pl-6 space-y-2 ${textColor}`}>
               <li>Hemograma completo com leucocitose e neutrofilia com desvio para a esquerda;</li>
               <li>Ureia e creatinina, CK, DHL, AST, ALT, ureia e creatinina, TS, TP, TTPA, TC;</li>
               <li>EAS com proteinúria, hematúria e leucocitúria.</li>
             </ul>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Tratamento específico:
             </h4>
 
@@ -216,7 +222,7 @@ export default function RoutineAnimaisPeconhentos() {
               Se houver manifestação de envenenamento: Soro antibotrópico (SAB) ou na sua falta pode-se usar o soro antibotrópico-crotálico (SABC) ou soro antibotrópico-Laquético. Se o TC (tempo de coagulação) permanecer alterado após 24h, após a soroterapia, está indicada dose adicional. Para casos leves de 2 a 4 ampolas, moderados de 4 a 8 ampolas e graves 12 ampolas, conforme quadro 1.
             </p>
 
-            <h3 className="text-2xl font-serif font-bold mt-10 mb-4">
+            <h3 className={`text-2xl font-serif font-bold mt-10 mb-4 ${headingColor}`}>
               Acidente Laquético
             </h3>
 
@@ -228,7 +234,7 @@ export default function RoutineAnimaisPeconhentos() {
               Apresentam no corpo desenhos típicos na forma de losangos que alternam entre as cores amarela e preta. Uma importante característica morfológica destas cobras é que na cauda apresenta a última subfileira de escamas modificadas, sendo estas quilhadas e eriçadas além de apresentar um espinho terminal.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
@@ -236,17 +242,17 @@ export default function RoutineAnimaisPeconhentos() {
               Quadro semelhante ao acidente Botrópico, porém com evolução mais rápida e maior intensidade.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Exames laboratoriais:
             </h4>
 
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className={`list-disc pl-6 space-y-2 ${textColor}`}>
               <li>Hemograma completo;</li>
               <li>TC prolongado;</li>
               <li>Ureia e creatinina, eletrólitos e glicemia.</li>
             </ul>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Tratamento específico:
             </h4>
 
@@ -254,7 +260,7 @@ export default function RoutineAnimaisPeconhentos() {
               Soro antilaquético (SAL). Para casos moderados 10 ampolas e graves 20 ampolas.
             </p>
 
-            <h3 className="text-2xl font-serif font-bold mt-10 mb-4">
+            <h3 className={`text-2xl font-serif font-bold mt-10 mb-4 ${headingColor}`}>
               Acidente Crotálico
             </h3>
 
@@ -266,7 +272,7 @@ export default function RoutineAnimaisPeconhentos() {
               Uma das principais características desta cobra é a presença de um chocalho na parte final de sua cauda. Possuem cor marrom escuro com presença de anéis claros e finos na cauda.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
@@ -274,64 +280,64 @@ export default function RoutineAnimaisPeconhentos() {
               Sensação de formigamento no local, sem lesão evidente; os sinais e sintomas sistêmicos são precoces, como: dificuldade de manter os olhos abertos, com aspecto miastênico, visão turva ou dupla, dor e fraqueza muscular generalizadas, podendo evoluir até insuficiência respiratória e hematúria maciça.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Classificação e Soroterapia:
             </h4>
 
-            <div className={`overflow-x-auto mb-6 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'} rounded-lg p-4`}>
-              <table className="w-full text-sm">
+            <div className={`overflow-x-auto mb-6 ${tableBackground} rounded-lg p-4`}>
+              <table className={`w-full text-sm ${textColor}`}>
                 <thead>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-600' : 'border-gray-300'}`}>
-                    <th className="text-left p-2">Classificação</th>
-                    <th className="text-left p-2">Facies miastênica</th>
-                    <th className="text-left p-2">Mialgia</th>
-                    <th className="text-left p-2">Urina vermelha ou marrom</th>
-                    <th className="text-left p-2">Oligoanúria</th>
-                    <th className="text-left p-2">Tempo de coagulação</th>
-                    <th className="text-left p-2">Soroterapia SAC/SABC</th>
+                  <tr className={`border-b ${tableBorder}`}>
+                    <th className={`text-left p-2 ${headingColor}`}>Classificação</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Facies miastênica</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Mialgia</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Urina vermelha ou marrom</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Oligoanúria</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Tempo de coagulação</th>
+                    <th className={`text-left p-2 ${headingColor}`}>Soroterapia SAC/SABC</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                    <td className="p-2 font-semibold">Leve</td>
-                    <td className="p-2">Ausente ou tardia</td>
-                    <td className="p-2">Ausente ou discreta</td>
-                    <td className="p-2">Ausente</td>
-                    <td className="p-2">Ausente</td>
-                    <td className="p-2">Normal ou alterado</td>
-                    <td className="p-2">5 ampolas</td>
+                  <tr className={`border-b ${tableRowBorder}`}>
+                    <td className={`p-2 font-semibold ${textColor}`}>Leve</td>
+                    <td className={`p-2 ${textColor}`}>Ausente ou tardia</td>
+                    <td className={`p-2 ${textColor}`}>Ausente ou discreta</td>
+                    <td className={`p-2 ${textColor}`}>Ausente</td>
+                    <td className={`p-2 ${textColor}`}>Ausente</td>
+                    <td className={`p-2 ${textColor}`}>Normal ou alterado</td>
+                    <td className={`p-2 ${textColor}`}>5 ampolas</td>
                   </tr>
-                  <tr className={`border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                    <td className="p-2 font-semibold">Moderado</td>
-                    <td className="p-2">Discreta</td>
-                    <td className="p-2">Discreta</td>
-                    <td className="p-2">Ausente ou discreta</td>
-                    <td className="p-2">Ausente</td>
-                    <td className="p-2">Normal ou alterado</td>
-                    <td className="p-2">10 ampolas</td>
+                  <tr className={`border-b ${tableRowBorder}`}>
+                    <td className={`p-2 font-semibold ${textColor}`}>Moderado</td>
+                    <td className={`p-2 ${textColor}`}>Discreta</td>
+                    <td className={`p-2 ${textColor}`}>Discreta</td>
+                    <td className={`p-2 ${textColor}`}>Ausente ou discreta</td>
+                    <td className={`p-2 ${textColor}`}>Ausente</td>
+                    <td className={`p-2 ${textColor}`}>Normal ou alterado</td>
+                    <td className={`p-2 ${textColor}`}>10 ampolas</td>
                   </tr>
                   <tr>
-                    <td className="p-2 font-semibold">Grave</td>
-                    <td className="p-2">Evidente</td>
-                    <td className="p-2">Intensa</td>
-                    <td className="p-2">Evidente</td>
-                    <td className="p-2">Ausente ou presente</td>
-                    <td className="p-2">Normal ou alterado</td>
-                    <td className="p-2">20 ampolas</td>
+                    <td className={`p-2 font-semibold ${textColor}`}>Grave</td>
+                    <td className={`p-2 ${textColor}`}>Evidente</td>
+                    <td className={`p-2 ${textColor}`}>Intensa</td>
+                    <td className={`p-2 ${textColor}`}>Evidente</td>
+                    <td className={`p-2 ${textColor}`}>Ausente ou presente</td>
+                    <td className={`p-2 ${textColor}`}>Normal ou alterado</td>
+                    <td className={`p-2 ${textColor}`}>20 ampolas</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <p className="text-sm italic">
+            <p className={`text-sm italic ${textColor}`}>
               SAC (soro anticrotálico); SABC (soro antibotrópico-crotálico)
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Exames laboratoriais:
             </h4>
 
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className={`list-disc pl-6 space-y-2 ${textColor}`}>
               <li>Hemograma completo – leucocitose com neutrofilia (desvio para esquerda);</li>
               <li>TC prolongado;</li>
               <li>Ureia e creatinina, AST e ALT, CK, DHL, ácido úrico podem estar elevados quando mais grave;</li>
@@ -339,7 +345,7 @@ export default function RoutineAnimaisPeconhentos() {
               <li>EAS com mioglobinúria e proteinúria discreta.</li>
             </ul>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Tratamento específico:
             </h4>
 
@@ -347,7 +353,7 @@ export default function RoutineAnimaisPeconhentos() {
               Soro anticrotálico (SAC) ou na sua falta pode-se usar o soro antibotrópico-crotálico (SABC). Para casos leves 5 ampolas, moderados 10 ampolas e graves 20 ampolas.
             </p>
 
-            <h3 className="text-2xl font-serif font-bold mt-10 mb-4">
+            <h3 className={`text-2xl font-serif font-bold mt-10 mb-4 ${headingColor}`}>
               Acidente Elapídico
             </h3>
 
@@ -359,7 +365,7 @@ export default function RoutineAnimaisPeconhentos() {
               Possui coloração forte e facilmente reconhecida: listrada em preto, vermelho e amarelo. É considerada uma das mais peçonhentas do Brasil em função da alta toxidade de seu veneno. Uma vez picada, a pessoa pode morrer caso não receba atendimento médico rápido.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
@@ -371,7 +377,7 @@ export default function RoutineAnimaisPeconhentos() {
               No local da picada não se observa alteração importante.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Exames laboratoriais:
             </h4>
 
@@ -379,7 +385,7 @@ export default function RoutineAnimaisPeconhentos() {
               Hemograma completo e CK. Conforme a necessidade clínica.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Tratamento específico:
             </h4>
 
@@ -387,7 +393,11 @@ export default function RoutineAnimaisPeconhentos() {
               Soro antielapídico (SAE) 10 ampolas para todos os casos, devido à gravidade.
             </p>
 
-            <div className={`p-4 my-6 rounded-lg ${isDarkMode ? 'bg-yellow-900/30 border-yellow-600' : 'bg-yellow-50 border-yellow-300'} border`}>
+            <div className={`p-4 my-6 rounded-lg border ${
+              isDarkMode 
+                ? 'bg-yellow-900/30 border-yellow-600 text-yellow-100' 
+                : 'bg-yellow-50 border-yellow-300 text-yellow-900'
+            }`}>
               <p className="font-semibold">
                 <strong>Atenção:</strong> o bloqueio neuromuscular, causado pelo efeito neurotóxico do veneno, pode levar a insuficiência respiratória precoce e a indicação de anticolinesterásicos podem ser necessários!!!
               </p>
@@ -397,7 +407,7 @@ export default function RoutineAnimaisPeconhentos() {
               </ul>
             </div>
 
-            <h2 className="text-3xl font-serif font-bold mt-12 mb-6">
+            <h2 className={`text-3xl font-serif font-bold mt-12 mb-6 ${headingColor}`}>
               Escorpiões
             </h2>
 
@@ -405,7 +415,7 @@ export default function RoutineAnimaisPeconhentos() {
               Dentre os aracnídeos são os que causam mais acidentes. Os escorpiões amarelos (mais graves) e pretos ou marrons estão entre os dois tipos mais venenosos. Um ataque pode ser fatal se acometer uma criança. São pouco agressivos, tem hábitos noturnos, encontram-se em pilhas de madeira e pedras, cercas e residências.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
@@ -413,11 +423,11 @@ export default function RoutineAnimaisPeconhentos() {
               Após a picada ocorre dor de moderada a intensa, formigamento no local. Distúrbio de comportamento, alteração do nível de consciência, tremores, convulsão, náuseas e vômitos, sialorréia, dor abdominal, diarreia, taquipneica, hiperpneia, crepitações, taquicardia e hiper ou hipotensão arterial, sudorese, extremidades frias e pálidas, pulsos finos e tempo de enchimento capilar maior que 3" sugerem gravidade e o paciente deve ser observado de 6 a 12 horas.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Exames laboratoriais:
             </h4>
 
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className={`list-disc pl-6 space-y-2 ${textColor}`}>
               <li>Glicemia elevada nas primeiras 4 horas;</li>
               <li>Amilase elevada em 80% dos casos;</li>
               <li>Leucograma com leucocitose e neutrofilia;</li>
@@ -426,7 +436,7 @@ export default function RoutineAnimaisPeconhentos() {
               <li>Rx Tórax pode mostrar aumento de área cardíaca e edema pulmonar uni ou bilateral.</li>
             </ul>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Tratamento específico:
             </h4>
 
@@ -434,11 +444,11 @@ export default function RoutineAnimaisPeconhentos() {
               Soro antiescorpiônico (SAE) nos acidentes leves, a conduta é observação. Nos acidentes moderados, devem ser administrados 2 a 3 ampolas e nos graves de 4 a 6 ampolas.
             </p>
 
-            <h2 className="text-3xl font-serif font-bold mt-12 mb-6">
+            <h2 className={`text-3xl font-serif font-bold mt-12 mb-6 ${headingColor}`}>
               Aranhas
             </h2>
 
-            <h3 className="text-2xl font-serif font-bold mt-10 mb-4">
+            <h3 className={`text-2xl font-serif font-bold mt-10 mb-4 ${headingColor}`}>
               Phoneutria (armadeira)
             </h3>
 
@@ -446,7 +456,7 @@ export default function RoutineAnimaisPeconhentos() {
               Tem hábitos vespertinos e noturnos, são frequentes dentro de residências e na sua periferia. Gosta de ficar em entulhos, material de construção, lenhas e caixas de sapatos; também podem ser encontradas em árvores com grandes folhas e bananeiras. Raramente levam a quadro grave. Suas picadas ocorrem mais nos pés e mãos. É muito agressiva.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
@@ -454,7 +464,7 @@ export default function RoutineAnimaisPeconhentos() {
               Dor com ou sem irradiação e edema local, imediatamente após a picada, parestesia e sudorese. Se surgirem vômitos, hipertensão arterial, dificuldade respiratória, tremores, espasmos musculares devem ser tratados como acidente grave. Pode evoluir para choque e edema pulmonar.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Tratamento específico:
             </h4>
 
@@ -462,7 +472,7 @@ export default function RoutineAnimaisPeconhentos() {
               Soro antiaracnídeo (SAAr) de 2 a 4 ampolas IV para casos moderados e de 5 a 10 ampolas para casos graves. Crianças devem ser observadas por pelo menos 6 horas.
             </p>
 
-            <h3 className="text-2xl font-serif font-bold mt-10 mb-4">
+            <h3 className={`text-2xl font-serif font-bold mt-10 mb-4 ${headingColor}`}>
               Loxósceles (aranha marrom)
             </h3>
 
@@ -470,7 +480,7 @@ export default function RoutineAnimaisPeconhentos() {
               Hábitos noturnos, vive em pilhas de tijolos, telhas, atrás de móveis, cortinas e eventualmente nas roupas, jardins e gramas. São pouco agressivas. Corresponde à forma mais grave dos acidentes por aracnídeos no Brasil. Acomete mais a área central – tronco e membros proximais, ocorre quando está se vestindo.
             </p>
 
-            <h4 className="text-xl font-serif font-semibold mt-8 mb-3">
+            <h4 className={`text-xl font-serif font-semibold mt-8 mb-3 ${headingColor}`}>
               Manifestação clínica:
             </h4>
 
