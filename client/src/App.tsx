@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import Routines from "@/pages/routines";
-import RoutineAnimaisPeconhentos from "@/pages/routine-animais-peconhentos";
+import RoutineDynamic from "@/pages/routine-dynamic";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -13,7 +13,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/routines" component={Routines} />
-      <Route path="/routine/acidentes-por-animais-peconhentos" component={RoutineAnimaisPeconhentos} />
+      <Route path="/routine/:id" component={RoutineDynamic} />
       <Route component={NotFound} />
     </Switch>
   );
