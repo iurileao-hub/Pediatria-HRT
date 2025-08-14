@@ -19,20 +19,28 @@ export default function RoutineAnimaisPeconhentos() {
   return (
     <div
       style={{
-        minHeight: '100vh',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
         backgroundColor: isDarkMode ? '#111827' : '#ffffff',
         color: isDarkMode ? '#f3f4f6' : '#1f2937',
-        transition: 'all 0.3s'
+        transition: 'all 0.3s',
+        overflow: 'auto',
+        zIndex: 1000
       }}
     >
       {/* Header with theme toggle and close button */}
       <div style={{
-        position: 'fixed',
+        position: 'sticky',
         top: '16px',
         right: '16px',
-        zIndex: 50,
+        zIndex: 10,
         display: 'flex',
-        gap: '12px'
+        justifyContent: 'flex-end',
+        gap: '12px',
+        padding: '16px 16px 0 0'
       }}>
         <button
           onClick={toggleTheme}
@@ -69,7 +77,7 @@ export default function RoutineAnimaisPeconhentos() {
       <div style={{
         maxWidth: '1024px',
         margin: '0 auto',
-        padding: '64px 24px 24px 24px'
+        padding: '24px'
       }}>
         {/* Title and author */}
         <header style={{ marginBottom: '48px' }}>
