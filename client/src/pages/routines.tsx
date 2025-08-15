@@ -185,7 +185,7 @@ export default function Routines() {
         {/* Directory Cards - Horizontal Scroll */}
         <div className="mb-6 -mx-4">
           <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-3 pb-2" style={{ width: 'max-content', paddingLeft: '1rem', paddingRight: '1rem' }}>
+            <div className="flex gap-3 py-2" style={{ width: 'max-content', paddingLeft: '1rem', paddingRight: '1rem' }}>
               {directories.map((directory) => {
                 const getBackgroundColor = (color: string) => {
                   switch(color) {
