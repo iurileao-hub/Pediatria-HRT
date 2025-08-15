@@ -183,7 +183,7 @@ export default function Routines() {
         </div>
 
         {/* Directory Cards - Horizontal Scroll */}
-        <div className="mb-6 horizontal-scroll-container -mx-4">
+        <div className="mb-6 -mx-4">
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-3 pb-2" style={{ width: 'max-content', paddingLeft: '1rem', paddingRight: '1rem' }}>
               {directories.map((directory) => {
@@ -209,7 +209,7 @@ export default function Routines() {
                 return (
                   <div
                     key={directory.id}
-                    className={`p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
+                    className={`py-4 px-3 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
                       selectedCategory === directory.id 
                         ? 'ring-2 ring-white/50 scale-105' 
                         : 'hover:scale-102'
@@ -222,7 +222,7 @@ export default function Routines() {
                     }}
                     onClick={() => setSelectedCategory(directory.id)}
                   >
-                    <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full">
+                    <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full min-h-[2.5rem]">
                       {directory.name}
                     </h3>
                   </div>
@@ -230,9 +230,7 @@ export default function Routines() {
               })}
             </div>
           </div>
-          {/* Gradient fade effects */}
-          <div className="fade-left"></div>
-          <div className="fade-right"></div>
+
         </div>
         
         {/* Routines List */}
