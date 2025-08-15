@@ -209,7 +209,7 @@ export default function Routines() {
                 return (
                   <div
                     key={directory.id}
-                    className={`py-4 px-3 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
+                    className={`p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
                       selectedCategory === directory.id 
                         ? 'ring-2 ring-white/50 scale-105' 
                         : 'hover:scale-102'
@@ -222,7 +222,7 @@ export default function Routines() {
                     }}
                     onClick={() => setSelectedCategory(directory.id)}
                   >
-                    <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full min-h-[2.5rem]">
+                    <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full">
                       {directory.name}
                     </h3>
                   </div>
@@ -234,7 +234,7 @@ export default function Routines() {
         </div>
         
         {/* Routines List */}
-        <div className="w-full max-w-md mx-auto space-y-4">
+        <div className="w-full max-w-md mx-auto">
           {filteredRoutines.length === 0 ? (
             <GlassCard className="p-6 text-center">
               <p className="text-white/70">Nenhuma rotina encontrada para "{searchTerm}"</p>
@@ -267,11 +267,13 @@ export default function Routines() {
                 .replace(/^-|-$/g, ''); // Remove hífens no início e fim
 
               return (
-                <Link key={routine.id} href={`/routine/${routineId}`}>
-                  <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-colors">
-                    {cardContent}
-                  </GlassCard>
-                </Link>
+                <div key={routine.id} className="mb-4">
+                  <Link href={`/routine/${routineId}`}>
+                    <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-colors">
+                      {cardContent}
+                    </GlassCard>
+                  </Link>
+                </div>
               );
             })
           )}
