@@ -157,12 +157,12 @@ export default function Routines() {
         {/* Header with back button */}
         <div className="w-full max-w-md mx-auto mb-6">
           <GlassCard className="p-4 flex items-center">
-            <Link href="/">
+            <Link href="/" className="flex items-center">
               <button className="p-2 rounded-lg bg-white/20 mr-4 hover:bg-white/30 transition-colors">
                 <ArrowLeft className="w-5 h-5 text-white" />
               </button>
+              <h1 className="text-white text-lg font-semibold">Início</h1>
             </Link>
-            <h1 className="text-white text-lg font-semibold">Início</h1>
           </GlassCard>
         </div>
         
@@ -183,9 +183,9 @@ export default function Routines() {
         </div>
 
         {/* Directory Cards - Horizontal Scroll */}
-        <div className="mb-6 px-4">
+        <div className="mb-6 horizontal-scroll-container">
           <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-3 pb-2" style={{ width: 'max-content' }}>
+            <div className="flex gap-3 pb-2 px-4" style={{ width: 'max-content' }}>
               {directories.map((directory) => {
                 const getBackgroundColor = (color: string) => {
                   switch(color) {
@@ -209,7 +209,7 @@ export default function Routines() {
                 return (
                   <div
                     key={directory.id}
-                    className={`p-4 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
+                    className={`p-3 cursor-pointer min-w-[140px] flex-shrink-0 text-center transition-all duration-200 rounded-2xl ${
                       selectedCategory === directory.id 
                         ? 'ring-2 ring-white/50 scale-105' 
                         : 'hover:scale-102'
@@ -230,10 +230,13 @@ export default function Routines() {
               })}
             </div>
           </div>
+          {/* Gradient fade effects */}
+          <div className="fade-left"></div>
+          <div className="fade-right"></div>
         </div>
         
         {/* Routines List */}
-        <div className="w-full max-w-md mx-auto space-y-4">
+        <div className="w-full max-w-md mx-auto space-y-3">
           {filteredRoutines.length === 0 ? (
             <GlassCard className="p-6 text-center">
               <p className="text-white/70">Nenhuma rotina encontrada para "{searchTerm}"</p>

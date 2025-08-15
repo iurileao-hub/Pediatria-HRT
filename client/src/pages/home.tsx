@@ -29,7 +29,7 @@ export default function Home() {
         <div className="w-full max-w-sm mx-auto">
           <Link href="/routines">
             <GlassCard 
-              className="p-6 w-full text-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95 transition-transform duration-150" 
+              className="p-6 w-full text-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95 transition-transform duration-150 touch-manipulation touch-only" 
             >
               <div className="flex items-center justify-center mb-3">
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mr-3">
