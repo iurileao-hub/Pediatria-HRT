@@ -1,9 +1,23 @@
 import { RoutineData } from './routine-types';
 
+// Função auxiliar para gerar ID a partir do título
+function generateId(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+    .replace(/[()]/g, '') // Remove parênteses
+    .replace(/[^a-z0-9\s-]/g, '') // Remove caracteres especiais exceto espaços e hífens
+    .replace(/\s+/g, '-') // Substitui espaços por hífens
+    .replace(/-+/g, '-') // Remove hífens duplicados
+    .replace(/^-|-$/g, ''); // Remove hífens no início e fim
+}
+
 export const routineContents: RoutineData[] = [
+  // Emergency
   {
-    id: "acidentes-por-animais-peconhentos",
-    title: "Acidentes por Animais Peçonhentos",
+    id: generateId("Acidentes por animais peçonhentos"),
+    title: "Acidentes por animais peçonhentos",
     author: "Luiz Antônio",
     category: "Emergência",
     content: [
@@ -408,6 +422,881 @@ export const routineContents: RoutineData[] = [
         type: 'alert',
         alertType: 'info',
         text: '<strong>Nota importante:</strong> Para todos os acidentes por animais peçonhentos, é fundamental avaliar a situação vacinal antitetânica do paciente e proceder conforme protocolo. Manter sempre vigilância sobre possíveis reações anafiláticas ao soro.'
+      }
+    ]
+  },
+  {
+    id: generateId("Afogamento"),
+    title: "Afogamento",
+    author: "Autor a ser definido",
+    category: "Emergência",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Choque Séptico (Emergência)"),
+    title: "Choque Séptico (Emergência)",
+    author: "Autor a ser definido",
+    category: "Emergência",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Emergência Respiratória"),
+    title: "Emergência Respiratória",
+    author: "Autor a ser definido",
+    category: "Emergência",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Intoxicações Exógenas Agudas"),
+    title: "Intoxicações Exógenas Agudas",
+    author: "Autor a ser definido",
+    category: "Emergência",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Parada Cardiorrespiratória (PCR)"),
+    title: "Parada Cardiorrespiratória (PCR)",
+    author: "Autor a ser definido",
+    category: "Emergência",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Traumatismo Cranioencefálico (TCE)"),
+    title: "Traumatismo Cranioencefálico (TCE)",
+    author: "Autor a ser definido",
+    category: "Emergência",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Intensive Care
+  {
+    id: generateId("Choque Séptico (Aminas Vasoativas)"),
+    title: "Choque Séptico (Aminas Vasoativas)",
+    author: "Autor a ser definido",
+    category: "Terapia Intensiva",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Ventilação Mecânica (Conceitos Básicos)"),
+    title: "Ventilação Mecânica (Conceitos Básicos)",
+    author: "Autor a ser definido",
+    category: "Terapia Intensiva",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Distúrbios Ácido-Básicos"),
+    title: "Distúrbios Ácido-Básicos",
+    author: "Autor a ser definido",
+    category: "Terapia Intensiva",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Distúrbios Eletrolíticos"),
+    title: "Distúrbios Eletrolíticos",
+    author: "Autor a ser definido",
+    category: "Terapia Intensiva",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Punção Lombar"),
+    title: "Punção Lombar",
+    author: "Autor a ser definido",
+    category: "Terapia Intensiva",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Neonatology
+  {
+    id: generateId("Febre no Recém Nascido"),
+    title: "Febre no Recém Nascido",
+    author: "Autor a ser definido",
+    category: "Neonatologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Hidratação Venosa no RN"),
+    title: "Hidratação Venosa no RN",
+    author: "Autor a ser definido",
+    category: "Neonatologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Icterícia Neonatal"),
+    title: "Icterícia Neonatal",
+    author: "Autor a ser definido",
+    category: "Neonatologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Insuficiência Respiratória no RN"),
+    title: "Insuficiência Respiratória no RN",
+    author: "Autor a ser definido",
+    category: "Neonatologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Reanimação Neonatal"),
+    title: "Reanimação Neonatal",
+    author: "Autor a ser definido",
+    category: "Neonatologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Infants
+  {
+    id: generateId("Alimentação nos 2 primeiros anos de vida"),
+    title: "Alimentação nos 2 primeiros anos de vida",
+    author: "Autor a ser definido",
+    category: "Lactentes",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Desconforto Respiratório do Lactente (Bronquiolite Viral Aguda)"),
+    title: "Desconforto Respiratório do Lactente (Bronquiolite Viral Aguda)",
+    author: "Autor a ser definido",
+    category: "Lactentes",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Fórmulas Lácteas"),
+    title: "Fórmulas Lácteas",
+    author: "Autor a ser definido",
+    category: "Lactentes",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Alergia à Proteína do Leite de Vaca (APLV)"),
+    title: "Alergia à Proteína do Leite de Vaca (APLV)",
+    author: "Autor a ser definido",
+    category: "Lactentes",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Desidratação Hipernatrêmica"),
+    title: "Desidratação Hipernatrêmica",
+    author: "Autor a ser definido",
+    category: "Lactentes",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Cardiology
+  {
+    id: generateId("Crise de Hipóxia"),
+    title: "Crise de Hipóxia",
+    author: "Autor a ser definido",
+    category: "Cardiologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Doença de Kawasaki"),
+    title: "Doença de Kawasaki",
+    author: "Autor a ser definido",
+    category: "Cardiologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Endocardite Infecciosa"),
+    title: "Endocardite Infecciosa",
+    author: "Autor a ser definido",
+    category: "Cardiologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Febre Reumática (FR)"),
+    title: "Febre Reumática (FR)",
+    author: "Autor a ser definido",
+    category: "Cardiologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Hipertensão Arterial"),
+    title: "Hipertensão Arterial",
+    author: "Autor a ser definido",
+    category: "Cardiologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Insuficiência Cardíaca Congestiva (ICC)"),
+    title: "Insuficiência Cardíaca Congestiva (ICC)",
+    author: "Autor a ser definido",
+    category: "Cardiologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Pneumology
+  {
+    id: generateId("Asma (Crise Aguda)"),
+    title: "Asma (Crise Aguda)",
+    author: "Autor a ser definido",
+    category: "Pneumologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Crupe"),
+    title: "Crupe",
+    author: "Autor a ser definido",
+    category: "Pneumologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Derrame Pleural"),
+    title: "Derrame Pleural",
+    author: "Autor a ser definido",
+    category: "Pneumologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Obstrução de Via Aérea por Corpo Estranho (OVACE)"),
+    title: "Obstrução de Via Aérea por Corpo Estranho (OVACE)",
+    author: "Autor a ser definido",
+    category: "Pneumologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Pneumonias Bacterianas"),
+    title: "Pneumonias Bacterianas",
+    author: "Autor a ser definido",
+    category: "Pneumologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Tuberculose"),
+    title: "Tuberculose",
+    author: "Autor a ser definido",
+    category: "Pneumologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Hematology, Rheumatology and Nephrology
+  {
+    id: generateId("Anemia Falciforme"),
+    title: "Anemia Falciforme",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Anemia Ferropriva"),
+    title: "Anemia Ferropriva",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Artrite (Abordagem Inicial)"),
+    title: "Artrite (Abordagem Inicial)",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Artrite Séptica"),
+    title: "Artrite Séptica",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Artrites Reativas ou Reacionais"),
+    title: "Artrites Reativas ou Reacionais",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Distúrbio Metabólico / Litíase Renal / Cólica Nefrética"),
+    title: "Distúrbio Metabólico / Litíase Renal / Cólica Nefrética",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Glomerulonefrite Difusa Aguda (GNDA)"),
+    title: "Glomerulonefrite Difusa Aguda (GNDA)",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Hematúria"),
+    title: "Hematúria",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Púrpura de Henoch-Schönlein (PHS)"),
+    title: "Púrpura de Henoch-Schönlein (PHS)",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Púrpura Trombocitopênica Idiopática (PTI)"),
+    title: "Púrpura Trombocitopênica Idiopática (PTI)",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Síndrome Nefrótica (SN)"),
+    title: "Síndrome Nefrótica (SN)",
+    author: "Autor a ser definido",
+    category: "Hematologia, Reumatologia e Nefrologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Infectology
+  {
+    id: generateId("Coqueluche"),
+    title: "Coqueluche",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Dengue e outra Arboviroses"),
+    title: "Dengue e outra Arboviroses",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Hepatites Virais"),
+    title: "Hepatites Virais",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Infecções Tegumentares e Miosites"),
+    title: "Infecções Tegumentares e Miosites",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Leishmaniose Visceral"),
+    title: "Leishmaniose Visceral",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Mastoidite"),
+    title: "Mastoidite",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Meningites Bacterianas"),
+    title: "Meningites Bacterianas",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Mononucleose Infecciosa"),
+    title: "Mononucleose Infecciosa",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Osteomielite"),
+    title: "Osteomielite",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Parasitoses Intestinais"),
+    title: "Parasitoses Intestinais",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Primoinfecção e Encefalite Herpética"),
+    title: "Primoinfecção e Encefalite Herpética",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Varicela"),
+    title: "Varicela",
+    author: "Autor a ser definido",
+    category: "Infectologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Gastroenterology
+  {
+    id: generateId("Constipação Intestinal"),
+    title: "Constipação Intestinal",
+    author: "Autor a ser definido",
+    category: "Gastroenterologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Diarreias Agudas"),
+    title: "Diarreias Agudas",
+    author: "Autor a ser definido",
+    category: "Gastroenterologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Diarreias Infecciosas"),
+    title: "Diarreias Infecciosas",
+    author: "Autor a ser definido",
+    category: "Gastroenterologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Doença do Refluxo Gastroesofágico"),
+    title: "Doença do Refluxo Gastroesofágico",
+    author: "Autor a ser definido",
+    category: "Gastroenterologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Dor Abdominal Aguda"),
+    title: "Dor Abdominal Aguda",
+    author: "Autor a ser definido",
+    category: "Gastroenterologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Endocrinology
+  {
+    id: generateId("Cetoacidose Diabética"),
+    title: "Cetoacidose Diabética",
+    author: "Autor a ser definido",
+    category: "Endocrinologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Insulinoterapia"),
+    title: "Insulinoterapia",
+    author: "Autor a ser definido",
+    category: "Endocrinologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // Neurology
+  {
+    id: generateId("Cefaleias"),
+    title: "Cefaleias",
+    author: "Autor a ser definido",
+    category: "Neurologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Epilepsia e Estado de Mal Epiléptico"),
+    title: "Epilepsia e Estado de Mal Epiléptico",
+    author: "Autor a ser definido",
+    category: "Neurologia",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  // General Pediatrics and Puericulture
+  {
+    id: generateId("Adenomegalias"),
+    title: "Adenomegalias",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Dor de Crescimento"),
+    title: "Dor de Crescimento",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Faringotonsilite Aguda (IVAS 1)"),
+    title: "Faringotonsilite Aguda (IVAS 1)",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Maus Tratos e Abuso Sexual na Infância"),
+    title: "Maus Tratos e Abuso Sexual na Infância",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Otite Média Aguda (IVAS 2)"),
+    title: "Otite Média Aguda (IVAS 2)",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Rinossinusite Aguda (IVAS 3)"),
+    title: "Rinossinusite Aguda (IVAS 3)",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
+      }
+    ]
+  },
+  {
+    id: generateId("Urticária / Angioedema / Anafilaxia"),
+    title: "Urticária / Angioedema / Anafilaxia",
+    author: "Autor a ser definido",
+    category: "Pediatria Geral e Puericultura",
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Em breve'
       }
     ]
   }
