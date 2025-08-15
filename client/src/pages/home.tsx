@@ -40,9 +40,6 @@ export default function Home() {
               <h2 className="text-white text-lg font-semibold mb-2">
                 Acesso às rotinas da Pediatria HRT
               </h2>
-              <p className="text-white/80 text-sm">
-                Consulte protocolos e diretrizes médicas
-              </p>
               
               <div className="mt-4 flex justify-center">
                 <ChevronRight className="w-5 h-5 text-white/60" />
