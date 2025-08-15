@@ -185,12 +185,14 @@
   
   .fade-left {
     left: 0;
-    background: linear-gradient(to right, rgba(255, 138, 101, 1) 0%, rgba(255, 138, 101, 0.8) 50%, transparent 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
   }
   
   .fade-right {
     right: 0;
-    background: linear-gradient(to left, rgba(255, 138, 101, 1) 0%, rgba(255, 138, 101, 0.8) 50%, transparent 100%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
   }
 }
 
