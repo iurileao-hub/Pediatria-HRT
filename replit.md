@@ -115,25 +115,33 @@ The application now includes a comprehensive document conversion system that all
 
 ## Recent System Updates (August 18, 2025)
 
-### Conversion Completed - 74 Medical Routines Processed
-- **Pandoc batch conversion**: Successfully converted all 74 DOCX files from `attached_assets/Rotinas` using Pandoc
-- **Database populated**: All converted routines now available in the application with proper metadata
-- **Full HTML content**: Each routine contains complete HTML with medical protocols, procedures, and guidelines
+### PostgreSQL Implementation - Persistent Data Storage
+- **Database migration**: Successfully migrated from in-memory storage to PostgreSQL
+- **Data persistence**: All routine data now survives server restarts and deployments
+- **Performance optimization**: Removed auto-refresh loops causing performance issues
+- **Stable data layer**: 75 routines now permanently stored in database
 
-### Routing System Changed - Individual HTML Pages
-- **New navigation protocol**: Routine cards now function as direct links to individual HTML pages
-- **Clean HTML display**: Individual routine pages use professional medical document styling
-- **Breadcrumb navigation**: Clear path back to routines list from individual pages
-- **Dynamic content loading**: Real-time fetching of routine content via API
+### Complete System Reconversion - Enhanced Image Support
+- **Full reconversion**: All 75 DOCX files reprocessed with enhanced image extraction system
+- **Image preservation**: Implemented base64 embedding for images from DOCX documents
+- **Mammoth + Pandoc**: Dual conversion system with image extraction capabilities
+- **New routine added**: "Tratamento da Crise Aguda de Asma" successfully added to collection
+
+### Advanced Conversion Features
+- **Base64 image embedding**: Images automatically converted and embedded directly in HTML
+- **Multi-format support**: Support for PNG, JPEG, GIF, BMP, EMF, WMF image formats
+- **Automatic cleanup**: Temporary files and media directories properly managed
+- **Error resilience**: Robust error handling for conversion processes
 
 ### User Preferences Updated
 - **Routines page behavior**: Always reset filters and search when returning from routine pages (confirmed preference)
+- **Image priority**: User specifically requested image preservation from original DOCX documents
 - **Navigation flow**: Cards link directly to `/routine/:id` pages showing full HTML content
 
 ### Technical Implementation
-- **Backend API**: Added GET `/api/routines/:id` endpoint for individual routine retrieval
-- **Frontend routing**: Updated routine cards to use Link components for direct navigation
-- **Page styling**: Individual routine pages use clean, readable medical document format
-- **Error handling**: Proper loading states and error messages for missing routines
+- **Enhanced conversion service**: Updated `server/conversion-service.ts` with image extraction
+- **Automated scripts**: Created complete reconversion pipeline with `scripts/reconvert-all-with-images.js`
+- **Database integration**: PostgreSQL properly configured and operational
+- **API endpoints**: All endpoints functioning with persistent storage
 
 Date Updated: August 18, 2025
