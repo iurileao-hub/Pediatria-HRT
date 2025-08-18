@@ -61,7 +61,7 @@ export default function Routines() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   
   // Fetch routines from API
-  const { data: routines = [], isLoading, error } = useQuery({
+  const { data: routines = [], isLoading, error } = useQuery<Routine[]>({
     queryKey: ['/api/routines'],
   });
 
@@ -134,7 +134,6 @@ export default function Routines() {
                     case 'bg-amber-500/40': return 'rgba(245, 158, 11, 0.4)';
                     case 'bg-teal-500/40': return 'rgba(20, 184, 166, 0.4)';
                     case 'bg-indigo-500/40': return 'rgba(99, 102, 241, 0.4)';
-                    case 'bg-cyan-500/40': return 'rgba(6, 182, 212, 0.4)';
                     default: return 'rgba(255, 255, 255, 0.15)';
                   }
                 };
