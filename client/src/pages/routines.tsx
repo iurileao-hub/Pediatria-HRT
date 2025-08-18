@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ArrowLeft, Search, FileText } from "lucide-react";
 
@@ -59,17 +59,36 @@ const getCategoryColor = (category: string) => {
 export default function Routines() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const queryClient = useQueryClient();
   
-  // Fetch routines from API
-  const { data: routines = [], isLoading, error } = useQuery<Routine[]>({
+  // Fetch routines from API with fresh data and retry
+  const { data: routines = [], isLoading, error, refetch } = useQuery<Routine[]>({
     queryKey: ['/api/routines'],
+    refetchOnMount: true,
+    staleTime: 0, // Always consider data stale
+    gcTime: 0, // Don't cache data
+    retry: 3,
+    retryDelay: 1000,
   });
 
-  // Reset filters when component mounts (user preference)
+  // Reset filters when component mounts (user preference) and force refresh
   useEffect(() => {
     setSearchTerm("");
     setSelectedCategory("all");
-  }, []);
+    
+    // Force invalidate cache and refetch
+    queryClient.invalidateQueries({ queryKey: ['/api/routines'] });
+    
+    // Auto-refresh every 5 seconds if no data
+    const intervalId = setInterval(() => {
+      if (routines.length === 0 && !isLoading) {
+        console.log('No routines found, refetching...');
+        refetch();
+      }
+    }, 5000);
+    
+    return () => clearInterval(intervalId);
+  }, [queryClient, refetch, routines.length, isLoading]);
   
   const filteredRoutines = routines.filter((routine: Routine) => {
     const matchesSearch = routine.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -99,7 +118,7 @@ export default function Routines() {
         {/* Search Bar */}
         <div className="w-full max-w-md mx-auto mb-6">
           <GlassCard className="p-4">
-            <div className="relative">
+            <div className="relative mb-3">
               <input 
                 type="text" 
                 placeholder="Buscar rotinas..."
@@ -108,6 +127,16 @@ export default function Routines() {
                 className="w-full bg-white/20 border border-white/30 rounded-lg px-4 py-3 pl-10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
+            </div>
+            {/* Debug Info & Refresh Button */}
+            <div className="flex items-center justify-between text-xs text-white/60">
+              <span>Rotinas: {routines.length}</span>
+              <button 
+                onClick={() => refetch()}
+                className="px-3 py-1 bg-white/20 rounded-full hover:bg-white/30 transition-colors"
+              >
+                ↻ Atualizar
+              </button>
             </div>
           </GlassCard>
         </div>
@@ -186,12 +215,21 @@ export default function Routines() {
         <div className="w-full max-w-md mx-auto">
           {!isLoading && !error && filteredRoutines.length === 0 ? (
             <GlassCard className="p-6 text-center">
-              <p className="text-white/70">
+              <p className="text-white/70 mb-3">
                 {searchTerm 
                   ? `Nenhuma rotina encontrada para "${searchTerm}"`
                   : 'Nenhuma rotina encontrada'
                 }
               </p>
+              <p className="text-white/50 text-xs mb-3">
+                Total carregadas: {routines.length} | Estado: {isLoading ? 'Carregando...' : 'Pronto'}
+              </p>
+              <button 
+                onClick={() => refetch()}
+                className="px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors text-white text-sm"
+              >
+                Recarregar Rotinas
+              </button>
             </GlassCard>
           ) : (
             filteredRoutines.map((routine: Routine) => {
