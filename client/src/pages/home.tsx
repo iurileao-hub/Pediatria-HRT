@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { GlassCard } from "@/components/ui/glass-card";
 import { PediatriaLogo } from "@/components/pediatria-logo";
-import { FileText, ChevronRight, Upload } from "lucide-react";
+import { FileText, ChevronRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -25,8 +25,8 @@ export default function Home() {
           </GlassCard>
         </div>
         
-        {/* Navigation Cards */}
-        <div className="w-full max-w-sm mx-auto space-y-4">
+        {/* Navigation Card */}
+        <div className="w-full max-w-sm mx-auto">
           <Link href="/routines">
             <GlassCard 
               className="p-6 w-full text-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95 transition-transform duration-150 touch-manipulation touch-only" 
@@ -40,30 +40,6 @@ export default function Home() {
               <h2 className="text-white text-lg font-semibold mb-2">
                 Acesso às rotinas da Pediatria HRT
               </h2>
-              
-              <div className="mt-4 flex justify-center">
-                <ChevronRight className="w-5 h-5 text-white/60" />
-              </div>
-            </GlassCard>
-          </Link>
-
-          <Link href="/converter">
-            <GlassCard 
-              className="p-6 w-full text-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95 transition-transform duration-150 touch-manipulation touch-only" 
-            >
-              <div className="flex items-center justify-center mb-3">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mr-3">
-                  <Upload className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              
-              <h2 className="text-white text-lg font-semibold mb-2">
-                Conversor de Documentos DOCX
-              </h2>
-              
-              <p className="text-white/70 text-sm mb-3">
-                Converta arquivos DOCX para HTML
-              </p>
               
               <div className="mt-4 flex justify-center">
                 <ChevronRight className="w-5 h-5 text-white/60" />
