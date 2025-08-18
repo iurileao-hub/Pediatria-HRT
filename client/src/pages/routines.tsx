@@ -30,7 +30,10 @@ const directories: DirectoryCategory[] = [
   { id: "Gastroenterologia", name: "Gastroenterologia", color: "bg-amber-500/40" },
   { id: "Nefrologia", name: "Nefrologia", color: "bg-purple-500/40" },
   { id: "Endocrinologia", name: "Endocrinologia", color: "bg-teal-500/40" },
-  { id: "Neonatologia", name: "Neonatologia", color: "bg-pink-500/40" }
+  { id: "Neonatologia", name: "Neonatologia", color: "bg-pink-500/40" },
+  { id: "Hematologia", name: "Hematologia", color: "bg-violet-500/40" },
+  { id: "Reumatologia", name: "Reumatologia", color: "bg-orange-500/40" },
+  { id: "Alergia e Imunologia", name: "Alergia e Imunologia", color: "bg-cyan-500/40" }
 ];
 
 // Helper function to get category color
@@ -45,7 +48,10 @@ const getCategoryColor = (category: string) => {
     "Gastroenterologia": "bg-amber-500/40",
     "Nefrologia": "bg-purple-500/40",
     "Endocrinologia": "bg-teal-500/40",
-    "Neonatologia": "bg-pink-500/40"
+    "Neonatologia": "bg-pink-500/40",
+    "Hematologia": "bg-violet-500/40",
+    "Reumatologia": "bg-orange-500/40",
+    "Alergia e Imunologia": "bg-cyan-500/40"
   };
   return colorMap[category] || "bg-slate-500/40";
 };
@@ -123,6 +129,8 @@ export default function Routines() {
                     case 'bg-sky-500/40': return 'rgba(14, 165, 233, 0.4)';
                     case 'bg-purple-500/40': return 'rgba(168, 85, 247, 0.4)';
                     case 'bg-green-500/40': return 'rgba(34, 197, 94, 0.4)';
+                    case 'bg-violet-500/40': return 'rgba(139, 92, 246, 0.4)';
+                    case 'bg-cyan-500/40': return 'rgba(6, 182, 212, 0.4)';
                     case 'bg-amber-500/40': return 'rgba(245, 158, 11, 0.4)';
                     case 'bg-teal-500/40': return 'rgba(20, 184, 166, 0.4)';
                     case 'bg-indigo-500/40': return 'rgba(99, 102, 241, 0.4)';
