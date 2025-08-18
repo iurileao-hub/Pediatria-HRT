@@ -4,7 +4,7 @@ import IMG_5553 from "@assets/IMG_5553.webp";
 
 export function PediatriaLogo() {
   return (
-    <div className="w-32 h-32 mx-auto mb-4 relative">
+    <div className="w-40 h-40 mx-auto mb-4 relative">
       <img 
         src={IMG_5553} 
         alt="Logo Pediatria HRT - DF 1976"
