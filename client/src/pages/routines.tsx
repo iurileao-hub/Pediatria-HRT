@@ -71,24 +71,15 @@ export default function Routines() {
     retryDelay: 1000,
   });
 
-  // Reset filters when component mounts (user preference) and force refresh
+  // Reset filters when component mounts (user preference) and refresh data
   useEffect(() => {
     setSearchTerm("");
     setSelectedCategory("all");
     
-    // Force invalidate cache and refetch
+    // Force fresh data load on mount
     queryClient.invalidateQueries({ queryKey: ['/api/routines'] });
-    
-    // Auto-refresh every 5 seconds if no data
-    const intervalId = setInterval(() => {
-      if (routines.length === 0 && !isLoading) {
-        console.log('No routines found, refetching...');
-        refetch();
-      }
-    }, 5000);
-    
-    return () => clearInterval(intervalId);
-  }, [queryClient, refetch, routines.length, isLoading]);
+    refetch();
+  }, [queryClient, refetch]);
   
   const filteredRoutines = routines.filter((routine: Routine) => {
     const matchesSearch = routine.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
