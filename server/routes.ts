@@ -34,6 +34,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Rota para buscar uma rotina específica
+  app.get("/api/routines/:id", async (req, res) => {
+    try {
+      const routine = await storage.getRoutine(req.params.id);
+      if (!routine) {
+        return res.status(404).json({ error: "Rotina não encontrada" });
+      }
+      res.json(routine);
+    } catch (error) {
+      res.status(500).json({ error: "Erro ao buscar rotina" });
+    }
+  });
+
   // Rota para criar uma nova rotina (para scripts administrativos)
   app.post("/api/routines", async (req, res) => {
     try {

@@ -113,4 +113,27 @@ The application now includes a comprehensive document conversion system that all
 - **multer**: File upload handling middleware
 - **pandoc**: System-level document converter (installed via Nix)
 
-Date Added: August 18, 2025
+## Recent System Updates (August 18, 2025)
+
+### Conversion Completed - 74 Medical Routines Processed
+- **Pandoc batch conversion**: Successfully converted all 74 DOCX files from `attached_assets/Rotinas` using Pandoc
+- **Database populated**: All converted routines now available in the application with proper metadata
+- **Full HTML content**: Each routine contains complete HTML with medical protocols, procedures, and guidelines
+
+### Routing System Changed - Individual HTML Pages
+- **New navigation protocol**: Routine cards now function as direct links to individual HTML pages
+- **Clean HTML display**: Individual routine pages use professional medical document styling
+- **Breadcrumb navigation**: Clear path back to routines list from individual pages
+- **Dynamic content loading**: Real-time fetching of routine content via API
+
+### User Preferences Updated
+- **Routines page behavior**: Always reset filters and search when returning from routine pages (confirmed preference)
+- **Navigation flow**: Cards link directly to `/routine/:id` pages showing full HTML content
+
+### Technical Implementation
+- **Backend API**: Added GET `/api/routines/:id` endpoint for individual routine retrieval
+- **Frontend routing**: Updated routine cards to use Link components for direct navigation
+- **Page styling**: Individual routine pages use clean, readable medical document format
+- **Error handling**: Proper loading states and error messages for missing routines
+
+Date Updated: August 18, 2025

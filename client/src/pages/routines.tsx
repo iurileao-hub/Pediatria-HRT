@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { GlassCard } from "@/components/ui/glass-card";
-import { ArrowLeft, Search } from "lucide-react";
+import { ArrowLeft, Search, FileText } from "lucide-react";
 
 interface Routine {
   id: string;
   title: string;
   author: string;
   category: string;
-  categoryColor: string;
+  htmlContent?: string;
+  conversionMethod?: string;
 }
 
 interface DirectoryCategory {
@@ -19,129 +21,51 @@ interface DirectoryCategory {
 
 const directories: DirectoryCategory[] = [
   { id: "all", name: "Todas", color: "bg-slate-500/40" },
-  { id: "emergency", name: "Emergência", color: "bg-red-500/40" },
-  { id: "intensive-care", name: "Terapia Intensiva", color: "bg-orange-500/40" },
-  { id: "neonatology", name: "Neonatologia", color: "bg-pink-500/40" },
-  { id: "infants", name: "Lactentes", color: "bg-blue-500/40" },
-  { id: "cardiology", name: "Cardiologia", color: "bg-rose-500/40" },
-  { id: "pneumology", name: "Pneumologia", color: "bg-sky-500/40" },
-  { id: "hematology-rheumatology-nephrology", name: "Hematologia, Reumatologia e Nefrologia", color: "bg-purple-500/40" },
-  { id: "infectology", name: "Infectologia", color: "bg-green-500/40" },
-  { id: "gastroenterology", name: "Gastroenterologia", color: "bg-amber-500/40" },
-  { id: "endocrinology", name: "Endocrinologia", color: "bg-teal-500/40" },
-  { id: "neurology", name: "Neurologia", color: "bg-indigo-500/40" },
-  { id: "general-pediatrics", name: "Pediatria Geral e Puericultura", color: "bg-cyan-500/40" }
+  { id: "Geral", name: "Geral", color: "bg-slate-600/40" },
+  { id: "Emergência", name: "Emergência", color: "bg-red-500/40" },
+  { id: "Pneumologia", name: "Pneumologia", color: "bg-sky-500/40" },
+  { id: "Infectologia", name: "Infectologia", color: "bg-green-500/40" },
+  { id: "Cardiologia", name: "Cardiologia", color: "bg-rose-500/40" },
+  { id: "Neurologia", name: "Neurologia", color: "bg-indigo-500/40" },
+  { id: "Gastroenterologia", name: "Gastroenterologia", color: "bg-amber-500/40" },
+  { id: "Nefrologia", name: "Nefrologia", color: "bg-purple-500/40" },
+  { id: "Endocrinologia", name: "Endocrinologia", color: "bg-teal-500/40" },
+  { id: "Neonatologia", name: "Neonatologia", color: "bg-pink-500/40" }
 ];
 
-// 73 Medical Routines with proper category assignments
-const routineData: Omit<Routine, 'id'>[] = [
-  // Emergency
-  { title: "Acidentes por animais peçonhentos", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  { title: "Afogamento", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  { title: "Choque Séptico (Emergência)", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  { title: "Emergência Respiratória", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  { title: "Intoxicações Exógenas Agudas", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  { title: "Parada Cardiorrespiratória (PCR)", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  { title: "Traumatismo Cranioencefálico (TCE)", author: "Autor a ser definido", category: "emergency", categoryColor: "bg-red-500/40" },
-  
-  // Intensive Care
-  { title: "Choque Séptico (Aminas Vasoativas)", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
-  { title: "Ventilação Mecânica (Conceitos Básicos)", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
-  { title: "Distúrbios Ácido-Básicos", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
-  { title: "Distúrbios Eletrolíticos", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
-  { title: "Punção Lombar", author: "Autor a ser definido", category: "intensive-care", categoryColor: "bg-orange-500/40" },
-  
-  // Neonatology
-  { title: "Febre no Recém Nascido", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
-  { title: "Hidratação Venosa no RN", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
-  { title: "Icterícia Neonatal", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
-  { title: "Insuficiência Respiratória no RN", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
-  { title: "Reanimação Neonatal", author: "Autor a ser definido", category: "neonatology", categoryColor: "bg-pink-500/40" },
-  
-  // Infants
-  { title: "Alimentação nos 2 primeiros anos de vida", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
-  { title: "Desconforto Respiratório do Lactente (Bronquiolite Viral Aguda)", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
-  { title: "Fórmulas Lácteas", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
-  { title: "Alergia à Proteína do Leite de Vaca (APLV)", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
-  { title: "Desidratação Hipernatrêmica", author: "Autor a ser definido", category: "infants", categoryColor: "bg-blue-500/40" },
-  
-  // Cardiology
-  { title: "Crise de Hipóxia", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
-  { title: "Doença de Kawasaki", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
-  { title: "Endocardite Infecciosa", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
-  { title: "Febre Reumática (FR)", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
-  { title: "Hipertensão Arterial", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
-  { title: "Insuficiência Cardíaca Congestiva (ICC)", author: "Autor a ser definido", category: "cardiology", categoryColor: "bg-rose-500/40" },
-  
-  // Pneumology
-  { title: "Asma (Crise Aguda)", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
-  { title: "Crupe", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
-  { title: "Derrame Pleural", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
-  { title: "Obstrução de Via Aérea por Corpo Estranho (OVACE)", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
-  { title: "Pneumonias Bacterianas", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
-  { title: "Tuberculose", author: "Autor a ser definido", category: "pneumology", categoryColor: "bg-sky-500/40" },
-  
-  // Hematology, Rheumatology and Nephrology
-  { title: "Anemia Falciforme", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Anemia Ferropriva", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Artrite (Abordagem Inicial)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Artrite Séptica", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Artrites Reativas ou Reacionais", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Distúrbio Metabólico / Litíase Renal / Cólica Nefrética", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Glomerulonefrite Difusa Aguda (GNDA)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Hematúria", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Púrpura de Henoch-Schönlein (PHS)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Púrpura Trombocitopênica Idiopática (PTI)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  { title: "Síndrome Nefrótica (SN)", author: "Autor a ser definido", category: "hematology-rheumatology-nephrology", categoryColor: "bg-purple-500/40" },
-  
-  // Infectology
-  { title: "Coqueluche", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Dengue e outra Arboviroses", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Hepatites Virais", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Infecções Tegumentares e Miosites", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Leishmaniose Visceral", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Mastoidite", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Meningites Bacterianas", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Mononucleose Infecciosa", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Osteomielite", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Parasitoses Intestinais", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Primoinfecção e Encefalite Herpética", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  { title: "Varicela", author: "Autor a ser definido", category: "infectology", categoryColor: "bg-green-500/40" },
-  
-  // Gastroenterology
-  { title: "Constipação Intestinal", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
-  { title: "Diarreias Agudas", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
-  { title: "Diarreias Infecciosas", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
-  { title: "Doença do Refluxo Gastroesofágico", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
-  { title: "Dor Abdominal Aguda", author: "Autor a ser definido", category: "gastroenterology", categoryColor: "bg-amber-500/40" },
-  
-  // Endocrinology
-  { title: "Cetoacidose Diabética", author: "Autor a ser definido", category: "endocrinology", categoryColor: "bg-teal-500/40" },
-  { title: "Insulinoterapia", author: "Autor a ser definido", category: "endocrinology", categoryColor: "bg-teal-500/40" },
-  
-  // Neurology
-  { title: "Cefaleias", author: "Autor a ser definido", category: "neurology", categoryColor: "bg-indigo-500/40" },
-  { title: "Epilepsia e Estado de Mal Epiléptico", author: "Autor a ser definido", category: "neurology", categoryColor: "bg-indigo-500/40" },
-  
-  // General Pediatrics and Puericulture
-  { title: "Adenomegalias", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
-  { title: "Dor de Crescimento", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
-  { title: "Faringotonsilite Aguda (IVAS 1)", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
-  { title: "Maus Tratos e Abuso Sexual na Infância", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
-  { title: "Otite Média Aguda (IVAS 2)", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
-  { title: "Rinossinusite Aguda (IVAS 3)", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" },
-  { title: "Urticária / Angioedema / Anafilaxia", author: "Autor a ser definido", category: "general-pediatrics", categoryColor: "bg-cyan-500/40" }
-];
-
-const routines: Routine[] = routineData
-  .map((routine, index) => ({ ...routine, id: (index + 1).toString() }))
-  .sort((a, b) => a.title.localeCompare(b.title));
+// Helper function to get category color
+const getCategoryColor = (category: string) => {
+  const colorMap: Record<string, string> = {
+    "Geral": "bg-slate-600/40",
+    "Emergência": "bg-red-500/40", 
+    "Pneumologia": "bg-sky-500/40",
+    "Infectologia": "bg-green-500/40",
+    "Cardiologia": "bg-rose-500/40",
+    "Neurologia": "bg-indigo-500/40",
+    "Gastroenterologia": "bg-amber-500/40",
+    "Nefrologia": "bg-purple-500/40",
+    "Endocrinologia": "bg-teal-500/40",
+    "Neonatologia": "bg-pink-500/40"
+  };
+  return colorMap[category] || "bg-slate-500/40";
+};
 
 export default function Routines() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   
-  const filteredRoutines = routines.filter(routine => {
+  // Fetch routines from API
+  const { data: routines = [], isLoading, error } = useQuery({
+    queryKey: ['/api/routines'],
+  });
+
+  // Reset filters when component mounts (user preference)
+  useEffect(() => {
+    setSearchTerm("");
+    setSelectedCategory("all");
+  }, []);
+  
+  const filteredRoutines = routines.filter((routine: Routine) => {
     const matchesSearch = routine.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       routine.author.toLowerCase().includes(searchTerm.toLowerCase());
     
@@ -190,6 +114,7 @@ export default function Routines() {
                 const getBackgroundColor = (color: string) => {
                   switch(color) {
                     case 'bg-slate-500/40': return 'rgba(100, 116, 139, 0.4)';
+                    case 'bg-slate-600/40': return 'rgba(71, 85, 105, 0.4)';
                     case 'bg-red-500/40': return 'rgba(239, 68, 68, 0.4)';
                     case 'bg-orange-500/40': return 'rgba(249, 115, 22, 0.4)';
                     case 'bg-pink-500/40': return 'rgba(236, 72, 153, 0.4)';
@@ -230,63 +155,76 @@ export default function Routines() {
               })}
             </div>
           </div>
-
         </div>
+        
+        {/* Loading State */}
+        {isLoading && (
+          <div className="w-full max-w-md mx-auto">
+            <GlassCard className="p-6 text-center">
+              <p className="text-white/70">Carregando rotinas...</p>
+            </GlassCard>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="w-full max-w-md mx-auto">
+            <GlassCard className="p-6 text-center">
+              <p className="text-red-300">Erro ao carregar rotinas. Tente novamente.</p>
+            </GlassCard>
+          </div>
+        )}
         
         {/* Routines List */}
         <div className="w-full max-w-md mx-auto">
-          {filteredRoutines.length === 0 ? (
+          {!isLoading && !error && filteredRoutines.length === 0 ? (
             <GlassCard className="p-6 text-center">
-              <p className="text-white/70">Nenhuma rotina encontrada para "{searchTerm}"</p>
+              <p className="text-white/70">
+                {searchTerm 
+                  ? `Nenhuma rotina encontrada para "${searchTerm}"`
+                  : 'Nenhuma rotina encontrada'
+                }
+              </p>
             </GlassCard>
           ) : (
-            filteredRoutines.map((routine) => {
-              const categoryName = directories.find(dir => dir.id === routine.category)?.name || routine.category;
+            filteredRoutines.map((routine: Routine) => {
+              const categoryColor = getCategoryColor(routine.category);
               
-              const cardContent = (
-                <>
-                  <h3 className="text-white font-semibold mb-1">{routine.title}</h3>
-                  <p className="text-white/60 text-sm mb-3">
-                    {routine.author}
-                  </p>
-                  <span className={`inline-block ${routine.categoryColor} text-white px-2 py-1 rounded-full text-xs`}>
-                    {categoryName}
-                  </span>
-                </>
-              );
-
-              // Gerar o ID da rotina a partir do título
-              const routineId = routine.title
-                .toLowerCase()
-                .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-                .replace(/[()]/g, '') // Remove parênteses
-                .replace(/[^a-z0-9\s-]/g, '') // Remove caracteres especiais exceto espaços e hífens
-                .replace(/\s+/g, '-') // Substitui espaços por hífens
-                .replace(/-+/g, '-') // Remove hífens duplicados
-                .replace(/^-|-$/g, ''); // Remove hífens no início e fim
-
               return (
-                <div key={routine.id} className="mb-4">
-                  <Link href={`/routine/${routineId}`}>
-                    <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-colors">
-                      {cardContent}
-                    </GlassCard>
-                  </Link>
-                </div>
+                <Link key={routine.id} href={`/routine/${routine.id}`} className="block mb-4">
+                  <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-all duration-200 hover:scale-[1.02] group">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 mr-3">
+                        <div className={`w-10 h-10 rounded-lg ${categoryColor} flex items-center justify-center`}>
+                          <FileText className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+                      
+                      <div className="flex-grow min-w-0">
+                        <h3 className="text-white font-semibold mb-1 group-hover:text-white/90 transition-colors">
+                          {routine.title}
+                        </h3>
+                        <p className="text-white/60 text-sm mb-2">
+                          Autor: {routine.author}
+                        </p>
+                        
+                        <div className="flex items-center justify-between">
+                          <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`}>
+                            {routine.category}
+                          </span>
+                          {routine.conversionMethod && (
+                            <span className="text-white/50 text-xs">
+                              {routine.conversionMethod}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </GlassCard>
+                </Link>
               );
             })
           )}
-        </div>
-        
-        {/* Footer */}
-        <div className="mt-12 text-center">
-          <p className="text-white/60 text-xs">
-            {filteredRoutines.length} rotina{filteredRoutines.length !== 1 ? 's' : ''} 
-            {selectedCategory === "all" ? " disponível" : ` em ${directories.find(dir => dir.id === selectedCategory)?.name}`}
-            {filteredRoutines.length !== 1 && selectedCategory === "all" ? 'is' : ''}
-            {searchTerm && ` para "${searchTerm}"`}
-          </p>
         </div>
       </div>
     </div>
