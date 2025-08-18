@@ -58,3 +58,59 @@ Routines page behavior: Always reset to initial state (no filters/search preserv
 - **Carousel**: Embla Carousel React for image/content carousels
 
 The architecture follows a full-stack TypeScript approach with clear separation between client, server, and shared code. The system is designed for scalability with abstracted storage interfaces and modular component architecture.
+
+## Document Conversion System
+
+### Overview
+The application now includes a comprehensive document conversion system that allows users to convert DOCX files to HTML using two different methods: Mammoth.js and Pandoc. This system supports both single file conversion and batch processing of multiple files.
+
+### Features
+- **Dual Conversion Methods**: Support for both Mammoth.js (recommended for simple formatting) and Pandoc (better for complex documents)
+- **Batch Processing**: Ability to convert multiple DOCX files simultaneously
+- **Job Tracking**: Real-time monitoring of conversion jobs with progress indicators
+- **Routine Management**: Converted documents are automatically saved as medical routines
+- **File Upload**: Drag-and-drop interface with file validation
+- **Error Handling**: Comprehensive error reporting for failed conversions
+
+### Technical Implementation
+
+#### Backend Components
+- **Conversion Service** (`server/conversion-service.ts`): Core service handling document conversion using Mammoth.js and Pandoc
+- **Storage Layer**: Extended with support for routines and conversion jobs
+- **API Routes**: RESTful endpoints for conversion operations, job monitoring, and routine management
+- **File Handling**: Multer integration for secure file upload with validation
+
+#### Frontend Components
+- **Converter Page** (`client/src/pages/converter.tsx`): Complete interface for document conversion with real-time progress
+- **Navigation Integration**: Added converter access from home page
+- **State Management**: TanStack Query integration for real-time job monitoring
+- **UI Components**: File upload with drag-and-drop, progress indicators, and job status tracking
+
+#### Database Schema
+- **Routines Table**: Stores converted documents with metadata and HTML content
+- **Conversion Jobs Table**: Tracks batch conversion operations with progress and results
+- **Relationships**: Links between conversion jobs and resulting routines
+
+### API Endpoints
+- `POST /api/convert/single` - Convert single DOCX file
+- `POST /api/convert/batch` - Convert multiple DOCX files
+- `GET /api/convert/jobs` - List all conversion jobs
+- `GET /api/convert/job/:id` - Get specific job status
+- `GET /api/routines` - List all converted routines
+- `GET /api/routines/:id` - Get specific routine
+- `DELETE /api/routines/:id` - Delete routine
+
+### Usage Instructions
+1. Access the converter from the home page
+2. Select conversion method (Mammoth.js or Pandoc)
+3. Upload DOCX files via drag-and-drop or file selection
+4. Monitor conversion progress in real-time
+5. View and manage converted routines
+6. Access converted content as HTML in the routine viewer
+
+### Dependencies Added
+- **mammoth**: JavaScript library for converting DOCX to HTML
+- **multer**: File upload handling middleware
+- **pandoc**: System-level document converter (installed via Nix)
+
+Date Added: August 18, 2025
