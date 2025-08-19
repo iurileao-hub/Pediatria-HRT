@@ -62,15 +62,36 @@ The architecture follows a full-stack TypeScript approach with clear separation 
 ## Document Conversion System
 
 ### Overview
-The application now includes a comprehensive document conversion system that allows users to convert DOCX files to HTML using two different methods: Mammoth.js and Pandoc. This system supports both single file conversion and batch processing of multiple files.
+The application includes a comprehensive document conversion system that converts DOCX files to HTML using Pandoc with embedded base64 images. This system eliminates the need for separate image file management by embedding all images directly into the HTML content.
 
-### Features
-- **Dual Conversion Methods**: Support for both Mammoth.js (recommended for simple formatting) and Pandoc (better for complex documents)
-- **Batch Processing**: Ability to convert multiple DOCX files simultaneously
-- **Job Tracking**: Real-time monitoring of conversion jobs with progress indicators
-- **Routine Management**: Converted documents are automatically saved as medical routines
-- **File Upload**: Drag-and-drop interface with file validation
-- **Error Handling**: Comprehensive error reporting for failed conversions
+### Current Implementation (August 2025)
+- **Pandoc Conversion**: Uses Pandoc with `--embed-resources --standalone` flags for complete HTML generation
+- **Base64 Image Embedding**: All images from DOCX files are automatically converted to base64 and embedded in HTML
+- **Batch Processing**: Converts all 75 routine DOCX files in one operation
+- **No External Media**: Self-contained HTML files with no dependencies on external image files
+- **Comprehensive Reporting**: Detailed conversion reports with file sizes and image counts
+
+#### Conversion Scripts
+- `scripts/convert-docx-pandoc-base64.js`: Main batch conversion script using Pandoc
+  - Processes all DOCX files in `attached_assets/Rotinas/` directory
+  - Outputs HTML files to `attached_assets/Rotinas/html-output/`
+  - Generates comprehensive conversion report with statistics
+  - Handles image embedding automatically using Pandoc's `--embed-resources` flag
+
+#### File Structure
+```
+attached_assets/Rotinas/
+├── [75 DOCX files] (Original medical routine documents)
+└── html-output/
+    ├── [75 HTML files] (Converted files with base64 images)
+    └── conversion-report.json (Detailed conversion statistics)
+```
+
+#### Key Benefits
+- **Self-contained files**: No external dependencies or media directories
+- **Improved performance**: No network requests for images during HTML rendering
+- **Simplified deployment**: Single HTML files contain everything needed
+- **Better reliability**: No risk of missing or broken image links
 
 ### Technical Implementation
 
