@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
+import path from "path";
 import { storage } from "./storage";
 import { documentConverter } from "./conversion-service";
 import { insertRoutineSchema, insertConversionJobSchema } from "@shared/schema";
@@ -23,6 +24,19 @@ const upload = multer({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  
+  // Rota para servir arquivos públicos (EPUB, imagens, etc.)
+  app.get("/public-objects/*", (req, res) => {
+    const filePath = req.path.replace("/public-objects/", "");
+    const fullPath = path.join(process.cwd(), "attached_assets", filePath);
+    
+    res.sendFile(fullPath, (err) => {
+      if (err) {
+        console.error("Erro ao servir arquivo:", err);
+        res.status(404).json({ error: "Arquivo não encontrado" });
+      }
+    });
+  });
   
   // Rota para listar todas as rotinas
   app.get("/api/routines", async (req, res) => {

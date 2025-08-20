@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import Routines from "@/pages/routines";
 import RoutineDynamic from "@/pages/routine-dynamic";
+import { EpubViewerPage } from "@/pages/EpubViewerPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/routines" component={Routines} />
       <Route path="/routine/:id" component={RoutineDynamic} />
+      <Route path="/epub/:filename*" component={EpubViewerPage} />
       <Route component={NotFound} />
     </Switch>
   );

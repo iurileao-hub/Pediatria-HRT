@@ -1,7 +1,7 @@
 import { Link, useRoute } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { GlassCard } from "@/components/ui/glass-card";
-import { ArrowLeft, FileText, User, Calendar } from "lucide-react";
+import { ArrowLeft, FileText, User, Calendar, BookOpen } from "lucide-react";
 
 interface Routine {
   id: string;
@@ -174,6 +174,39 @@ export default function RoutineDynamic() {
                     {routine.category}
                   </span>
                 </div>
+                
+                {/* Botão EPUB para rotina específica */}
+                {routine.id === 'fad976ba-c78c-483e-b49e-3795b3c82195' && (
+                  <Link 
+                    href="/epub/Cópia de Acidente por animais peçonhentos 2022.epub"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.5rem 1rem',
+                      backgroundColor: 'rgba(255,255,255,0.2)',
+                      color: 'white',
+                      textDecoration: 'none',
+                      borderRadius: '8px',
+                      fontSize: '0.875rem',
+                      fontWeight: '500',
+                      border: '1px solid rgba(255,255,255,0.3)',
+                      transition: 'all 0.2s',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.3)';
+                      e.currentTarget.style.transform = 'scale(1.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    <BookOpen style={{ width: '16px', height: '16px' }} />
+                    <span>Ver em EPUB</span>
+                  </Link>
+                )}
                 
                 {routine.conversionMethod && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
