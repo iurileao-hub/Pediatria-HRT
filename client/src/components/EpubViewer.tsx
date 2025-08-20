@@ -50,78 +50,132 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
           spine: newBook.spine?.length
         });
 
-        // Renderizar com configurações simples
+        // Renderizar com configurações explícitas
         const newRendition = newBook.renderTo(viewerRef.current!, {
           width: '100%',
-          height: '600px'
+          height: '600px',
+          spread: 'none'
         });
 
         setRendition(newRendition);
 
         // Configurar eventos primeiro
         newRendition.on('displayed', (section: any) => {
-          console.log('Seção exibida:', section.href);
+          console.log('Seção exibida:', section.href, section);
           
-          // Aguardar e aplicar estilos forçados
+          // Debug: tentar inspecionar o conteúdo
           setTimeout(() => {
-            try {
-              // Método 1: Usar o sistema de temas do ePub.js
-              newRendition.themes.default({
-                'body': {
-                  'color': 'black !important',
-                  'background-color': 'white !important',
-                  'font-family': 'Arial, sans-serif !important',
-                  'font-size': '16px !important',
-                  'line-height': '1.5 !important',
-                  'padding': '20px !important'
-                },
-                'p, div, span, h1, h2, h3, h4, h5, h6': {
-                  'color': 'black !important'
-                }
-              });
-
-              // Método 2: Tentar acessar o iframe se possível
-              const iframe = viewerRef.current?.querySelector('iframe');
-              if (iframe) {
-                try {
-                  // Usar setTimeout para aguardar o iframe carregar
-                  setTimeout(() => {
-                    try {
-                      const doc = iframe.contentDocument || iframe.contentWindow?.document;
-                      if (doc) {
-                        const style = doc.createElement('style');
-                        style.innerHTML = `
-                          * { 
-                            color: black !important; 
-                            background: white !important;
-                          }
-                          body { 
-                            color: black !important; 
-                            background: white !important; 
-                            font-family: Arial, sans-serif !important;
-                            font-size: 16px !important;
-                            padding: 20px !important;
-                          }
-                        `;
-                        doc.head.appendChild(style);
-                        console.log('CSS aplicado diretamente no iframe');
-                      }
-                    } catch (e) {
-                      console.log('Cross-origin restriction no iframe');
-                    }
-                  }, 1000);
-                } catch (e) {
-                  console.log('Erro ao acessar iframe:', e);
-                }
+            const iframe = viewerRef.current?.querySelector('iframe');
+            console.log('Iframe encontrado:', !!iframe);
+            
+            if (iframe) {
+              console.log('Iframe src:', iframe.src);
+              console.log('Iframe dimensions:', iframe.offsetWidth, 'x', iframe.offsetHeight);
+              
+              // Forçar altura do iframe se estiver com altura zero
+              if (iframe.offsetHeight === 0) {
+                console.log('Iframe com altura zero, forçando altura');
+                iframe.style.height = '600px !important';
+                iframe.style.minHeight = '600px !important';
+                iframe.style.display = 'block !important';
+                iframe.style.width = '100% !important';
+                
+                // Aguardar um pouco e verificar novamente
+                setTimeout(() => {
+                  console.log('Verificando altura após forçar:', iframe.offsetHeight);
+                  if (iframe.offsetHeight === 0) {
+                    // Tentar recriar o rendition
+                    console.log('Ainda com altura zero, tentando resize manual');
+                    newRendition.resize('100%', '600px');
+                  }
+                }, 500);
               }
-
+              
+              try {
+                const doc = iframe.contentDocument || iframe.contentWindow?.document;
+                if (doc) {
+                  console.log('Document acessível');
+                  console.log('Body innerHTML length:', doc.body?.innerHTML?.length || 0);
+                  console.log('Body textContent length:', doc.body?.textContent?.length || 0);
+                  
+                  // Aplicar estilos mais agressivos
+                  const style = doc.createElement('style');
+                  style.innerHTML = `
+                    * { 
+                      color: #000000 !important; 
+                      background: #ffffff !important;
+                      visibility: visible !important;
+                      display: block !important;
+                    }
+                    body { 
+                      color: #000000 !important; 
+                      background: #ffffff !important; 
+                      font-family: Arial, sans-serif !important;
+                      font-size: 18px !important;
+                      padding: 20px !important;
+                      margin: 0 !important;
+                      min-height: 100vh !important;
+                    }
+                    p, div, span, h1, h2, h3, h4, h5, h6 {
+                      color: #000000 !important;
+                      display: block !important;
+                      visibility: visible !important;
+                    }
+                    p {
+                      margin: 15px 0 !important;
+                      line-height: 1.6 !important;
+                    }
+                  `;
+                  doc.head.appendChild(style);
+                  
+                  // Forçar texto para debug se necessário
+                  if (doc.body && doc.body.textContent?.length === 0) {
+                    console.log('Body vazio, tentando forçar conteúdo de debug');
+                    const debugDiv = doc.createElement('div');
+                    debugDiv.innerHTML = '<h1>Teste de Renderização</h1><p>Se você vê isto, o iframe está funcionando mas o conteúdo EPUB não está carregando.</p>';
+                    debugDiv.style.cssText = 'color: red !important; font-size: 20px !important; padding: 20px !important;';
+                    doc.body.appendChild(debugDiv);
+                  }
+                  
+                  console.log('CSS aplicado diretamente no iframe');
+                } else {
+                  console.log('Não foi possível acessar documento do iframe');
+                }
+              } catch (e) {
+                console.log('Cross-origin restriction no iframe:', e);
+              }
+            }
+            
+            // Método alternativo: usar sistema de temas do ePub.js
+            try {
+              newRendition.themes.default({
+                'html': { 'background': '#ffffff !important' },
+                'body': {
+                  'color': '#000000 !important',
+                  'background-color': '#ffffff !important',
+                  'font-family': 'Arial, sans-serif !important',
+                  'font-size': '18px !important',
+                  'line-height': '1.6 !important',
+                  'padding': '30px !important',
+                  'margin': '0 !important'
+                },
+                'p': {
+                  'color': '#000000 !important',
+                  'margin': '15px 0 !important'
+                },
+                'div': { 'color': '#000000 !important' },
+                'span': { 'color': '#000000 !important' },
+                'h1, h2, h3, h4, h5, h6': { 'color': '#000000 !important' }
+              });
+              console.log('Tema aplicado via ePub.js');
             } catch (e) {
-              console.error('Erro ao aplicar estilos:', e);
+              console.error('Erro ao aplicar tema:', e);
             }
           }, 500);
         });
 
         newRendition.on('relocated', (location: any) => {
+          console.log('Relocated event:', location);
           setCurrentLocation(location.start.cfi);
           
           // Calcular progresso básico
@@ -129,13 +183,18 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
             try {
               if (newBook.locations && newBook.locations.length > 0) {
                 const percentage = newBook.locations.percentageFromCfi(location.start.cfi);
+                console.log('Progresso via locations:', percentage * 100);
                 setProgress(percentage * 100);
               } else {
                 // Fallback: usar posição na spine
                 const currentSpine = newBook.spine.get(location.start.cfi);
                 if (currentSpine) {
                   const percentage = (currentSpine.index / newBook.spine.length) * 100;
+                  console.log('Progresso via spine:', percentage);
                   setProgress(percentage);
+                } else {
+                  // Fallback ainda mais básico - incrementar/decrementar manualmente
+                  console.log('Usando fallback de progresso manual');
                 }
               }
             } catch (e) {
@@ -283,12 +342,14 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
             ref={viewerRef} 
             className={`epub-viewer ${isLoading ? 'hidden' : ''}`}
             style={{ 
+              height: '600px',
               minHeight: '600px',
               width: '100%',
               border: '1px solid #e5e7eb',
               borderRadius: '8px',
               overflow: 'hidden',
-              backgroundColor: '#ffffff'
+              backgroundColor: '#ffffff',
+              display: 'block'
             }}
           />
         </CardContent>
