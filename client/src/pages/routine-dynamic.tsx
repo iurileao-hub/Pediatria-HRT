@@ -178,7 +178,7 @@ export default function RoutineDynamic() {
                 {/* Botão EPUB para rotina específica */}
                 {routine.id === 'fad976ba-c78c-483e-b49e-3795b3c82195' && (
                   <Link 
-                    href="/epub/Cópia de Acidente por animais peçonhentos 2022.epub"
+                    href="/epub/acidente-animais-1.epub"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',

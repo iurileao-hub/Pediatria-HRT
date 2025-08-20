@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
 import path from "path";
+import fs from "fs";
 import { storage } from "./storage";
 import { documentConverter } from "./conversion-service";
 import { insertRoutineSchema, insertConversionJobSchema } from "@shared/schema";
@@ -25,17 +26,61 @@ const upload = multer({
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
+  // Rota para listar arquivos EPUB disponíveis (para debug)
+  app.get("/api/epub-files", (req, res) => {
+    try {
+      const routinesDir = path.join(process.cwd(), "attached_assets", "Rotinas");
+      const files = fs.readdirSync(routinesDir);
+      const epubFiles = files.filter((f: string) => f.endsWith('.epub'));
+      res.json(epubFiles);
+    } catch (error) {
+      console.error("Erro ao listar arquivos EPUB:", error);
+      res.status(500).json({ error: "Erro interno" });
+    }
+  });
+  
   // Rota para servir arquivos públicos (EPUB, imagens, etc.)
   app.get("/public-objects/*", (req, res) => {
-    const filePath = req.path.replace("/public-objects/", "");
-    const fullPath = path.join(process.cwd(), "attached_assets", filePath);
-    
-    res.sendFile(fullPath, (err) => {
-      if (err) {
-        console.error("Erro ao servir arquivo:", err);
-        res.status(404).json({ error: "Arquivo não encontrado" });
+    try {
+      const filePath = decodeURIComponent(req.path.replace("/public-objects/", ""));
+      const fullPath = path.resolve(process.cwd(), "attached_assets", filePath);
+      
+      console.log("=== TENTATIVA DE SERVIR ARQUIVO ===");
+      console.log("URL original:", req.path);
+      console.log("Arquivo solicitado:", filePath);
+      console.log("Caminho completo:", fullPath);
+      
+      // Verificar se o arquivo existe antes de tentar servir
+      if (!fs.existsSync(fullPath)) {
+        console.error("Arquivo não encontrado:", fullPath);
+        
+        // Tentar encontrar arquivos similares para debug
+        const dir = path.dirname(fullPath);
+        const fileName = path.basename(fullPath);
+        console.log("Procurando em:", dir);
+        if (fs.existsSync(dir)) {
+          const filesInDir = fs.readdirSync(dir);
+          console.log("Arquivos na pasta:", filesInDir);
+          const epubFiles = filesInDir.filter((f: string) => f.endsWith('.epub'));
+          console.log("Arquivos EPUB encontrados:", epubFiles);
+        }
+        
+        return res.status(404).json({ error: "Arquivo não encontrado" });
       }
-    });
+      
+      console.log("Arquivo encontrado! Servindo...");
+      res.sendFile(fullPath, (err) => {
+        if (err) {
+          console.error("Erro ao servir arquivo:", err);
+          res.status(500).json({ error: "Erro interno do servidor" });
+        } else {
+          console.log("Arquivo servido com sucesso");
+        }
+      });
+    } catch (error) {
+      console.error("Erro no processamento da rota:", error);
+      res.status(500).json({ error: "Erro interno do servidor" });
+    }
   });
   
   // Rota para listar todas as rotinas

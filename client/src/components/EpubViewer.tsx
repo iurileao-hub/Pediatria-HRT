@@ -29,9 +29,19 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
         setIsLoading(true);
         setError(null);
 
+        console.log('Iniciando carregamento do EPUB:', epubPath);
+        
+        // Verificar se o arquivo existe fazendo uma requisição HEAD
+        const checkResponse = await fetch(epubPath, { method: 'HEAD' });
+        if (!checkResponse.ok) {
+          throw new Error(`Arquivo não encontrado: ${checkResponse.status}`);
+        }
+
         // Criar o livro
         const newBook = ePub(epubPath);
         setBook(newBook);
+
+        console.log('Livro criado, configurando renderização...');
 
         // Renderizar
         const newRendition = newBook.renderTo(viewerRef.current!, {
@@ -42,8 +52,12 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
 
         setRendition(newRendition);
 
+        console.log('Renderização configurada, exibindo livro...');
+
         // Exibir o livro
         await newRendition.display();
+
+        console.log('Livro exibido, configurando eventos...');
 
         // Configurar eventos de navegação
         newRendition.on('relocated', (location: any) => {
@@ -58,10 +72,11 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
         await newBook.ready;
         await newBook.locations.generate(1024);
 
+        console.log('EPUB carregado com sucesso');
         setIsLoading(false);
       } catch (err) {
         console.error('Erro ao carregar EPUB:', err);
-        setError('Erro ao carregar o arquivo EPUB');
+        setError(`Erro ao carregar o arquivo EPUB: ${err instanceof Error ? err.message : 'Erro desconhecido'}`);
         setIsLoading(false);
       }
     };
