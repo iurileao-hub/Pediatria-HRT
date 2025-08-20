@@ -31,52 +31,136 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
 
         console.log('Iniciando carregamento do EPUB:', epubPath);
         
-        // Verificar se o arquivo existe fazendo uma requisição HEAD
+        // Verificar se o arquivo existe
         const checkResponse = await fetch(epubPath, { method: 'HEAD' });
         if (!checkResponse.ok) {
           throw new Error(`Arquivo não encontrado: ${checkResponse.status}`);
         }
 
-        // Criar o livro
+        // Criar o livro com configurações básicas
         const newBook = ePub(epubPath);
         setBook(newBook);
 
-        console.log('Livro criado, configurando renderização...');
+        // Aguardar o livro estar pronto
+        await newBook.ready;
+        
+        console.log('Livro pronto. Metadados:', {
+          title: newBook.packaging?.metadata?.title,
+          creator: newBook.packaging?.metadata?.creator,
+          spine: newBook.spine?.length
+        });
 
-        // Renderizar
+        // Renderizar com configurações simples
         const newRendition = newBook.renderTo(viewerRef.current!, {
           width: '100%',
-          height: '600px',
-          spread: 'none'
+          height: '600px'
         });
 
         setRendition(newRendition);
 
-        console.log('Renderização configurada, exibindo livro...');
+        // Configurar eventos primeiro
+        newRendition.on('displayed', (section: any) => {
+          console.log('Seção exibida:', section.href);
+          
+          // Aguardar e aplicar estilos forçados
+          setTimeout(() => {
+            try {
+              // Método 1: Usar o sistema de temas do ePub.js
+              newRendition.themes.default({
+                'body': {
+                  'color': 'black !important',
+                  'background-color': 'white !important',
+                  'font-family': 'Arial, sans-serif !important',
+                  'font-size': '16px !important',
+                  'line-height': '1.5 !important',
+                  'padding': '20px !important'
+                },
+                'p, div, span, h1, h2, h3, h4, h5, h6': {
+                  'color': 'black !important'
+                }
+              });
 
-        // Exibir o livro
-        await newRendition.display();
+              // Método 2: Tentar acessar o iframe se possível
+              const iframe = viewerRef.current?.querySelector('iframe');
+              if (iframe) {
+                try {
+                  // Usar setTimeout para aguardar o iframe carregar
+                  setTimeout(() => {
+                    try {
+                      const doc = iframe.contentDocument || iframe.contentWindow?.document;
+                      if (doc) {
+                        const style = doc.createElement('style');
+                        style.innerHTML = `
+                          * { 
+                            color: black !important; 
+                            background: white !important;
+                          }
+                          body { 
+                            color: black !important; 
+                            background: white !important; 
+                            font-family: Arial, sans-serif !important;
+                            font-size: 16px !important;
+                            padding: 20px !important;
+                          }
+                        `;
+                        doc.head.appendChild(style);
+                        console.log('CSS aplicado diretamente no iframe');
+                      }
+                    } catch (e) {
+                      console.log('Cross-origin restriction no iframe');
+                    }
+                  }, 1000);
+                } catch (e) {
+                  console.log('Erro ao acessar iframe:', e);
+                }
+              }
 
-        console.log('Livro exibido, configurando eventos...');
+            } catch (e) {
+              console.error('Erro ao aplicar estilos:', e);
+            }
+          }, 500);
+        });
 
-        // Configurar eventos de navegação
         newRendition.on('relocated', (location: any) => {
           setCurrentLocation(location.start.cfi);
           
-          // Calcular progresso
-          const percentage = newBook.locations.percentageFromCfi(location.start.cfi);
-          setProgress(percentage * 100);
+          // Calcular progresso básico
+          if (newBook.spine && newBook.spine.length > 0) {
+            try {
+              if (newBook.locations && newBook.locations.length > 0) {
+                const percentage = newBook.locations.percentageFromCfi(location.start.cfi);
+                setProgress(percentage * 100);
+              } else {
+                // Fallback: usar posição na spine
+                const currentSpine = newBook.spine.get(location.start.cfi);
+                if (currentSpine) {
+                  const percentage = (currentSpine.index / newBook.spine.length) * 100;
+                  setProgress(percentage);
+                }
+              }
+            } catch (e) {
+              console.log('Erro ao calcular progresso:', e);
+            }
+          }
         });
 
-        // Gerar localizações para navegação
-        await newBook.ready;
-        await newBook.locations.generate(1024);
+        // Exibir primeira página
+        await newRendition.display();
+        
+        // Tentar gerar localizações para progresso mais preciso
+        try {
+          await newBook.locations.generate(1024);
+          console.log('Localizações geradas:', newBook.locations.length);
+        } catch (e) {
+          console.log('Não foi possível gerar localizações:', e);
+        }
 
         console.log('EPUB carregado com sucesso');
         setIsLoading(false);
+
       } catch (err) {
         console.error('Erro ao carregar EPUB:', err);
-        setError(`Erro ao carregar o arquivo EPUB: ${err instanceof Error ? err.message : 'Erro desconhecido'}`);
+        setError(err instanceof Error ? err.message : 'Erro desconhecido');
         setIsLoading(false);
       }
     };
@@ -88,16 +172,19 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
       if (rendition) {
         rendition.destroy();
       }
+      if (book) {
+        book.destroy();
+      }
     };
   }, [epubPath]);
 
-  const goNext = () => {
+  const nextPage = () => {
     if (rendition) {
       rendition.next();
     }
   };
 
-  const goPrev = () => {
+  const prevPage = () => {
     if (rendition) {
       rendition.prev();
     }
@@ -105,15 +192,15 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
 
   if (error) {
     return (
-      <Card className="max-w-4xl mx-auto m-6">
+      <Card className="w-full max-w-4xl mx-auto">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-red-600">
             <BookOpen className="h-5 w-5" />
-            Erro na Visualização
+            Erro ao carregar EPUB
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-red-600 dark:text-red-400 mb-4">{error}</p>
+          <p className="text-red-600 mb-4">{error}</p>
           {onClose && (
             <Button onClick={onClose} variant="outline">
               <Home className="h-4 w-4 mr-2" />
@@ -126,10 +213,10 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      {/* Header com título e controles */}
-      <Card className="mb-6">
-        <CardHeader>
+    <div className="w-full max-w-6xl mx-auto p-4 space-y-4">
+      {/* Header */}
+      <Card>
+        <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2">
               <BookOpen className="h-5 w-5" />
@@ -138,31 +225,56 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
             {onClose && (
               <Button onClick={onClose} variant="outline" size="sm">
                 <Home className="h-4 w-4 mr-2" />
-                Voltar às Rotinas
+                Voltar
               </Button>
             )}
           </div>
           
-          {/* Barra de progresso */}
-          {!isLoading && (
-            <div className="space-y-2">
-              <Progress value={progress} className="w-full" />
-              <p className="text-sm text-muted-foreground">
-                Progresso: {Math.round(progress)}%
-              </p>
-            </div>
-          )}
+          {/* Progress bar */}
+          <div className="space-y-2">
+            <Progress value={progress} className="w-full" />
+            <p className="text-sm text-muted-foreground">
+              Progresso: {Math.round(progress)}%
+            </p>
+          </div>
         </CardHeader>
       </Card>
 
-      {/* Área do visualizador */}
+      {/* Controls */}
+      <Card>
+        <CardContent className="pt-6">
+          <div className="flex items-center justify-center gap-4">
+            <Button 
+              onClick={prevPage} 
+              variant="outline" 
+              disabled={isLoading}
+              className="flex items-center gap-2"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Página Anterior
+            </Button>
+            
+            <Button 
+              onClick={nextPage} 
+              variant="outline" 
+              disabled={isLoading}
+              className="flex items-center gap-2"
+            >
+              Próxima Página
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Viewer */}
       <Card>
         <CardContent className="p-0">
           {isLoading && (
-            <div className="flex items-center justify-center h-96">
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-                <p>Carregando EPUB...</p>
+            <div className="flex items-center justify-center p-8">
+              <div className="text-center space-y-2">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                <p className="text-sm text-muted-foreground">Carregando EPUB...</p>
               </div>
             </div>
           )}
@@ -170,29 +282,30 @@ export function EpubViewer({ epubPath, title, onClose }: EpubViewerProps) {
           <div 
             ref={viewerRef} 
             className={`epub-viewer ${isLoading ? 'hidden' : ''}`}
-            style={{ minHeight: '600px' }}
+            style={{ 
+              minHeight: '600px',
+              width: '100%',
+              border: '1px solid #e5e7eb',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              backgroundColor: '#ffffff'
+            }}
           />
-          
-          {/* Controles de navegação */}
-          {!isLoading && rendition && (
-            <div className="flex justify-between items-center p-4 border-t">
-              <Button onClick={goPrev} variant="outline" size="sm">
-                <ChevronLeft className="h-4 w-4 mr-2" />
-                Anterior
-              </Button>
-              
-              <span className="text-sm text-muted-foreground">
-                Use as setas do teclado ou clique nos botões para navegar
-              </span>
-              
-              <Button onClick={goNext} variant="outline" size="sm">
-                Próxima
-                <ChevronRight className="h-4 w-4 ml-2" />
-              </Button>
-            </div>
-          )}
         </CardContent>
       </Card>
+
+      {/* Debug info */}
+      {!isLoading && (
+        <Card>
+          <CardContent className="pt-6">
+            <div className="text-xs text-muted-foreground space-y-1">
+              <p>URL do EPUB: {epubPath}</p>
+              <p>Status: {book ? 'Livro carregado' : 'Aguardando'}</p>
+              <p>Renderização: {rendition ? 'Ativa' : 'Inativa'}</p>
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
