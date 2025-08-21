@@ -169,7 +169,7 @@ export default function Routines() {
 
         {/* Routine Counter */}
         <div className="w-full max-w-md mx-auto mb-4">
-          <p className="text-white/70 text-sm font-medium" style={{ fontFamily: 'Georgia, serif' }}>
+          <p className="text-white/70 text-base font-medium text-center" style={{ fontFamily: 'Georgia, serif' }}>
             {filteredRoutines.length} Rotina{filteredRoutines.length !== 1 ? 's' : ''}
           </p>
         </div>
