@@ -41,6 +41,12 @@ const getCategoryColor = (category: string) => {
     "Endocrinologia": "bg-teal-500/40",
     "Pneumologia": "bg-sky-500/40"
   };
+  
+  // Log para debug se categoria não encontrada
+  if (!colorMap[category]) {
+    console.warn(`Categoria não reconhecida: "${category}"`);
+  }
+  
   return colorMap[category] || "bg-slate-500/40";
 };
 
