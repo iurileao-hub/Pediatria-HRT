@@ -169,7 +169,7 @@ export default function RoutineDynamic() {
         <div 
           style={{
             backgroundColor: '#ffffff',
-            padding: '3rem',
+            padding: '0rem',
             borderRadius: '12px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
             border: '1px solid #e5e7eb',
