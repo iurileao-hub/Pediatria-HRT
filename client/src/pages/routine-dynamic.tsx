@@ -107,16 +107,16 @@ export default function RoutineDynamic() {
       {/* Header with navigation */}
       <div style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        padding: '2rem 1rem',
+        padding: '1rem 1rem',
         color: 'white'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <Link href="/routines" style={{ 
             display: 'inline-flex', 
             alignItems: 'center', 
             color: 'white', 
             textDecoration: 'none',
-            marginBottom: '1rem',
+            marginBottom: '0.75rem',
             padding: '0.5rem 1rem',
             backgroundColor: 'rgba(255,255,255,0.1)',
             borderRadius: '8px',
@@ -126,25 +126,14 @@ export default function RoutineDynamic() {
             Voltar às rotinas
           </Link>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-            <div style={{
-              width: '60px',
-              height: '60px',
-              borderRadius: '12px',
-              backgroundColor: 'rgba(255,255,255,0.2)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <FileText style={{ width: '30px', height: '30px' }} />
-            </div>
-            
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
             <div>
               <h1 style={{
                 fontSize: '2rem',
                 fontWeight: 'bold',
                 margin: '0 0 0.5rem 0',
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                fontFamily: 'Georgia, serif'
               }}>
                 {routine.title}
               </h1>
@@ -152,7 +141,7 @@ export default function RoutineDynamic() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <User style={{ width: '16px', height: '16px' }} />
-                  <span>Autor: {routine.author}</span>
+                  <span style={{ fontFamily: 'Georgia, serif' }}>Autor: {routine.author}</span>
                 </div>
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -161,7 +150,8 @@ export default function RoutineDynamic() {
                     backgroundColor: 'rgba(255,255,255,0.2)',
                     borderRadius: '20px',
                     fontSize: '0.875rem',
-                    fontWeight: '500'
+                    fontWeight: '500',
+                    fontFamily: 'Georgia, serif'
                   }}>
                     {routine.category}
                   </span>
@@ -175,14 +165,17 @@ export default function RoutineDynamic() {
       </div>
 
       {/* Content */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem 1rem' }}>
         <div 
           style={{
             backgroundColor: '#ffffff',
-            padding: '2rem',
+            padding: '3rem',
             borderRadius: '12px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            border: '1px solid #e5e7eb'
+            border: '1px solid #e5e7eb',
+            fontFamily: 'Georgia, serif',
+            fontSize: '1.1rem',
+            lineHeight: '1.7'
           }}
           dangerouslySetInnerHTML={{ 
             __html: routine.htmlContent || '<p>Conteúdo não disponível.</p>' 
@@ -197,7 +190,7 @@ export default function RoutineDynamic() {
         padding: '2rem 1rem',
         marginTop: '2rem'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
           <Link 
             href="/routines"
             style={{

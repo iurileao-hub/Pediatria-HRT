@@ -222,22 +222,16 @@ export default function Routines() {
                 <Link key={routine.id} href={`/routine/${routine.id}`} className="block mb-4">
                   <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-all duration-200 hover:scale-[1.02] group">
                     <div className="flex items-start">
-                      <div className="flex-shrink-0 mr-3">
-                        <div className={`w-10 h-10 rounded-lg ${categoryColor} flex items-center justify-center`}>
-                          <FileText className="w-5 h-5 text-white" />
-                        </div>
-                      </div>
-                      
                       <div className="flex-grow min-w-0">
-                        <h3 className="text-white font-semibold mb-1 group-hover:text-white/90 transition-colors">
+                        <h3 className="text-white font-semibold mb-1 group-hover:text-white/90 transition-colors" style={{ fontFamily: 'Georgia, serif' }}>
                           {routine.title}
                         </h3>
-                        <p className="text-white/60 text-sm mb-2">
+                        <p className="text-white/60 text-sm mb-2" style={{ fontFamily: 'Georgia, serif' }}>
                           Autor: {routine.author}
                         </p>
                         
                         <div className="flex items-center justify-between">
-                          <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`}>
+                          <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`} style={{ fontFamily: 'Georgia, serif' }}>
                             {routine.category}
                           </span>
                         </div>

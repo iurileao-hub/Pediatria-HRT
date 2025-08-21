@@ -260,7 +260,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
 
       {/* Main content */}
       <div style={{
-        maxWidth: '1024px',
+        maxWidth: '1400px',
         margin: '0 auto',
         padding: '24px'
       }}>
