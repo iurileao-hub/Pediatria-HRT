@@ -7,16 +7,17 @@ import type { Routine } from "@shared/types";
 // Helper function to get category color
 const getCategoryColor = (category: string) => {
   const colorMap: Record<string, string> = {
-    "Geral": "bg-slate-600/40",
-    "Emergência": "bg-red-500/40", 
-    "Pneumologia": "bg-sky-500/40",
     "Infectologia": "bg-green-500/40",
+    "Emergência": "bg-red-500/40",
+    "HRN": "bg-blue-500/40",
+    "Gastroenterologia": "bg-amber-500/40",
+    "Neonatologia": "bg-pink-500/40",
     "Cardiologia": "bg-rose-500/40",
     "Neurologia": "bg-indigo-500/40",
-    "Gastroenterologia": "bg-amber-500/40",
-    "Nefrologia": "bg-purple-500/40",
+    "Lactentes": "bg-cyan-500/40",
+    "UTI": "bg-orange-500/40",
     "Endocrinologia": "bg-teal-500/40",
-    "Neonatologia": "bg-pink-500/40"
+    "Pneumologia": "bg-sky-500/40"
   };
   return colorMap[category] || "bg-slate-500/40";
 };

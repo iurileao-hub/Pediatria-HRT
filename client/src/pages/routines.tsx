@@ -13,37 +13,33 @@ interface DirectoryCategory {
 
 const directories: DirectoryCategory[] = [
   { id: "all", name: "Todas", color: "bg-slate-500/40" },
-  { id: "Geral", name: "Geral", color: "bg-slate-600/40" },
-  { id: "Emergência", name: "Emergência", color: "bg-red-500/40" },
-  { id: "Pneumologia", name: "Pneumologia", color: "bg-sky-500/40" },
   { id: "Infectologia", name: "Infectologia", color: "bg-green-500/40" },
+  { id: "Emergência", name: "Emergência", color: "bg-red-500/40" },
+  { id: "HRN", name: "HRN", color: "bg-blue-500/40" },
+  { id: "Gastroenterologia", name: "Gastroenterologia", color: "bg-amber-500/40" },
+  { id: "Neonatologia", name: "Neonatologia", color: "bg-pink-500/40" },
   { id: "Cardiologia", name: "Cardiologia", color: "bg-rose-500/40" },
   { id: "Neurologia", name: "Neurologia", color: "bg-indigo-500/40" },
-  { id: "Gastroenterologia", name: "Gastroenterologia", color: "bg-amber-500/40" },
-  { id: "Nefrologia", name: "Nefrologia", color: "bg-purple-500/40" },
+  { id: "Lactentes", name: "Lactentes", color: "bg-cyan-500/40" },
+  { id: "UTI", name: "UTI", color: "bg-orange-500/40" },
   { id: "Endocrinologia", name: "Endocrinologia", color: "bg-teal-500/40" },
-  { id: "Neonatologia", name: "Neonatologia", color: "bg-pink-500/40" },
-  { id: "Hematologia", name: "Hematologia", color: "bg-violet-500/40" },
-  { id: "Reumatologia", name: "Reumatologia", color: "bg-orange-500/40" },
-  { id: "Alergia e Imunologia", name: "Alergia e Imunologia", color: "bg-cyan-500/40" }
+  { id: "Pneumologia", name: "Pneumologia", color: "bg-sky-500/40" }
 ];
 
 // Helper function to get category color
 const getCategoryColor = (category: string) => {
   const colorMap: Record<string, string> = {
-    "Geral": "bg-slate-600/40",
-    "Emergência": "bg-red-500/40", 
-    "Pneumologia": "bg-sky-500/40",
     "Infectologia": "bg-green-500/40",
+    "Emergência": "bg-red-500/40",
+    "HRN": "bg-blue-500/40",
+    "Gastroenterologia": "bg-amber-500/40",
+    "Neonatologia": "bg-pink-500/40",
     "Cardiologia": "bg-rose-500/40",
     "Neurologia": "bg-indigo-500/40",
-    "Gastroenterologia": "bg-amber-500/40",
-    "Nefrologia": "bg-purple-500/40",
+    "Lactentes": "bg-cyan-500/40",
+    "UTI": "bg-orange-500/40",
     "Endocrinologia": "bg-teal-500/40",
-    "Neonatologia": "bg-pink-500/40",
-    "Hematologia": "bg-violet-500/40",
-    "Reumatologia": "bg-orange-500/40",
-    "Alergia e Imunologia": "bg-cyan-500/40"
+    "Pneumologia": "bg-sky-500/40"
   };
   return colorMap[category] || "bg-slate-500/40";
 };
