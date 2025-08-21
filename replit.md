@@ -165,4 +165,22 @@ attached_assets/Rotinas/
 - **Database integration**: PostgreSQL properly configured and operational
 - **API endpoints**: All endpoints functioning with persistent storage
 
-Date Updated: August 18, 2025
+### Recent Routine Updates (August 21, 2025)
+
+#### Individual Routine Reconversion
+- **Successfully updated two specific routines** from updated Word documents:
+  - "OBSTRUÇÃO DE VIA AÉREA POR CORPO ESTRANHO ROTINAS HRT LUIZ ANTÔNIO"
+  - "PARADA CARDIORESPIRATÓRIA ROTINAS HRT LUIZ ANTÔNIO"
+- **Conversion process**: Used Pandoc with `--embed-resources --standalone` flags for complete HTML generation
+- **Base64 image embedding**: All images automatically converted and embedded directly in HTML
+- **Database updates**: Routines successfully updated with new HTML content, conversion method set to "pandoc"
+- **Content sizes**: 300KB+ and 241KB+ respectively, indicating rich content with embedded images
+- **Timestamps**: Updated to reflect latest reconversion (August 21, 2025)
+
+#### Technical Implementation
+- Created temporary script to read converted HTML files and update specific database records
+- Used proper database queries to identify routines by filename patterns
+- Maintained data integrity by preserving all existing metadata while updating only HTML content
+- Conversion method tracking updated to reflect use of Pandoc over previous methods
+
+Date Updated: August 21, 2025
