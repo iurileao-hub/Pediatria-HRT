@@ -111,15 +111,7 @@ export default function Routines() {
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
             </div>
-            {/* Refresh Button */}
-            <div className="flex items-center justify-end text-xs text-white/60">
-              <button 
-                onClick={() => refetch()}
-                className="px-3 py-1 bg-white/20 rounded-full hover:bg-white/30 transition-colors"
-              >
-                ↻ Atualizar
-              </button>
-            </div>
+
           </GlassCard>
         </div>
 
