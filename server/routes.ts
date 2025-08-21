@@ -1,23 +1,16 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { fileStorage } from "./file-based-storage";
+import { PostgreSQLStorage } from "./postgres-storage";
+
+// Create PostgreSQL storage instance
+const postgresStorage = new PostgreSQLStorage();
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
   // Rota para listar todas as rotinas
   app.get("/api/routines", async (req, res) => {
     try {
-      const { category, search } = req.query;
-      let routines;
-
-      if (search && typeof search === 'string') {
-        routines = await fileStorage.searchRoutines(search);
-      } else if (category && typeof category === 'string') {
-        routines = await fileStorage.getRoutinesByCategory(category);
-      } else {
-        routines = await fileStorage.getAllRoutines();
-      }
-
+      const routines = await postgresStorage.getAllRoutines();
       res.json(routines);
     } catch (error) {
       console.error('Error fetching routines:', error);
@@ -28,7 +21,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Rota para buscar uma rotina específica com conteúdo HTML
   app.get("/api/routines/:id", async (req, res) => {
     try {
-      const routine = await fileStorage.getRoutine(req.params.id);
+      const routine = await postgresStorage.getRoutine(req.params.id);
       if (!routine) {
         return res.status(404).json({ error: "Rotina não encontrada" });
       }
@@ -42,7 +35,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Rota para listar categorias disponíveis
   app.get("/api/categories", async (req, res) => {
     try {
-      const categories = fileStorage.getCategories();
+      // Get distinct categories from PostgreSQL
+      const routines = await postgresStorage.getAllRoutines();
+      const categories = [...new Set(routines.map(r => r.category))].sort();
       res.json(categories);
     } catch (error) {
       console.error('Error fetching categories:', error);
