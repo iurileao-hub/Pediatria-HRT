@@ -220,10 +220,10 @@ export default function Routines() {
               
               return (
                 <Link key={routine.id} href={`/routine/${routine.id}`} className="block mb-4">
-                  <GlassCard className="p-4 cursor-pointer hover:bg-white/10 transition-all duration-200 hover:scale-[1.02] group">
+                  <GlassCard className="p-4 cursor-pointer">
                     <div className="flex items-start">
                       <div className="flex-grow min-w-0">
-                        <h3 className="text-white font-semibold mb-1 group-hover:text-white/90 transition-colors" style={{ fontFamily: 'Georgia, serif' }}>
+                        <h3 className="text-white font-semibold mb-1" style={{ fontFamily: 'Georgia, serif' }}>
                           {routine.title}
                         </h3>
                         <p className="text-white/60 text-sm mb-2" style={{ fontFamily: 'Georgia, serif' }}>

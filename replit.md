@@ -201,6 +201,16 @@ attached_assets/Rotinas/
   - Increased content padding from 2rem to 3rem for better typography spacing
   - Enhanced font size to 1.1rem with improved line height (1.7) for optimal readability
   
+- **UI Animation Refinement**: Removed hover animations from routine cards per user request
+  - Eliminated hover background effects, scaling, and color transitions
+  - Maintained click functionality while providing cleaner, distraction-free experience
+  - Preserved cursor pointer indication for usability
+  
+- **Author Data Restoration**: Successfully restored specific doctor names as authors
+  - Updated 64 routines with individual doctor names (Dr. Luiz Antônio, Dra. Bárbara, etc.)
+  - Only 11 routines remain with generic "HRT" where specific authorship couldn't be determined
+  - Improved professional credibility and content attribution
+  
 - **Consistent Design Application**: Applied changes across all routine display pages
   - RoutineDynamic page (main routine viewer)
   - RoutineTemplate component (full-screen routine viewer)
@@ -209,7 +219,8 @@ attached_assets/Rotinas/
 **Technical Implementation:**
 - Modified `client/src/index.css` for global Georgia font application
 - Updated `client/src/pages/routine-dynamic.tsx` with layout improvements
-- Enhanced `client/src/pages/routines.tsx` with typography consistency
+- Enhanced `client/src/pages/routines.tsx` with typography consistency and removed hover animations
 - Improved `client/src/components/RoutineTemplate.tsx` content area expansion
+- Database updates via SQL queries to restore doctor names from original mapping
 
 Date Updated: August 21, 2025
