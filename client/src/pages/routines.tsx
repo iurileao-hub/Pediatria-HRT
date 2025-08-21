@@ -166,6 +166,13 @@ export default function Routines() {
             </div>
           </div>
         </div>
+
+        {/* Routine Counter */}
+        <div className="w-full max-w-md mx-auto mb-4">
+          <p className="text-white/70 text-sm font-medium" style={{ fontFamily: 'Georgia, serif' }}>
+            {filteredRoutines.length} Rotina{filteredRoutines.length !== 1 ? 's' : ''}
+          </p>
+        </div>
         
         {/* Loading State */}
         {isLoading && (
