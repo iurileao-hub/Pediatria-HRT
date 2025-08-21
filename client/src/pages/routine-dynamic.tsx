@@ -2,15 +2,7 @@ import { Link, useRoute } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ArrowLeft, FileText, User, Calendar } from "lucide-react";
-
-interface Routine {
-  id: string;
-  title: string;
-  author: string;
-  category: string;
-  htmlContent: string;
-  conversionMethod?: string;
-}
+import type { Routine } from "@shared/types";
 
 // Helper function to get category color
 const getCategoryColor = (category: string) => {
@@ -175,14 +167,7 @@ export default function RoutineDynamic() {
                   </span>
                 </div>
                 
-                {routine.conversionMethod && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Calendar style={{ width: '16px', height: '16px' }} />
-                    <span style={{ fontSize: '0.875rem', opacity: 0.8 }}>
-                      Convertido via {routine.conversionMethod}
-                    </span>
-                  </div>
-                )}
+
               </div>
             </div>
           </div>

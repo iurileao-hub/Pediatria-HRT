@@ -3,15 +3,7 @@ import { Link } from "wouter";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ArrowLeft, Search, FileText } from "lucide-react";
-
-interface Routine {
-  id: string;
-  title: string;
-  author: string;
-  category: string;
-  htmlContent?: string;
-  conversionMethod?: string;
-}
+import type { Routine } from "@shared/types";
 
 interface DirectoryCategory {
   id: string;
@@ -248,11 +240,6 @@ export default function Routines() {
                           <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`}>
                             {routine.category}
                           </span>
-                          {routine.conversionMethod && (
-                            <span className="text-white/50 text-xs">
-                              {routine.conversionMethod}
-                            </span>
-                          )}
                         </div>
                       </div>
                     </div>
