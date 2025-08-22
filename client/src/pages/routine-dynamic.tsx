@@ -106,16 +106,19 @@ export default function RoutineDynamic() {
       lineHeight: '1.6'
     }}>
       {/* Navigation link above header */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem 1rem 0 1rem' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem 1rem 0 0rem' }}>
         <Link href="/routines" style={{ 
           display: 'inline-flex', 
           alignItems: 'center', 
           color: '#667eea', 
           fontSize: '1rem',
+          fontWeight: '750',
           textDecoration: 'none',
           padding: '0.5rem 1rem',
           backgroundColor: 'rgba(102, 126, 234, 0.1)',
           borderRadius: '8px',
+          borderColor: '#667eea',
+          borderWidth: '1px',  
           transition: 'background-color 0.2s'
         }}>
           <ArrowLeft style={{ width: '20px', height: '20px', marginRight: '0.5rem' }} />
@@ -128,8 +131,8 @@ export default function RoutineDynamic() {
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         padding: '1rem 1rem',
         color: 'white',
-        margin: '0.5rem 1rem',
-        borderRadius: '12px'
+        margin: '1rem 0rem',
+        borderRadius: '8px'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
@@ -187,6 +190,26 @@ export default function RoutineDynamic() {
             __html: routine.htmlContent || '<p>Conteúdo não disponível.</p>' 
           }}
         />
+        <Link 
+          href="/routines"
+          style={{
+            marginTop: '2rem',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.75rem 1.5rem',
+            backgroundColor: '#667eea',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            fontWeight: '750',
+            transition: 'background-color 0.2s'
+          }}
+        >
+          <ArrowLeft style={{ width: '18px', height: '18px' }} />
+          Voltar às rotinas
+        </Link>
       </div>
 
       {/* Footer */}
