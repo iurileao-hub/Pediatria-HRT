@@ -105,29 +105,33 @@ export default function RoutineDynamic() {
       fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
       lineHeight: '1.6'
     }}>
-      {/* Header with navigation */}
+      {/* Navigation link above header */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem 1rem 0 1rem' }}>
+        <Link href="/routines" style={{ 
+          display: 'inline-flex', 
+          alignItems: 'center', 
+          color: '#667eea', 
+          fontSize: '1rem',
+          textDecoration: 'none',
+          padding: '0.5rem 1rem',
+          backgroundColor: 'rgba(102, 126, 234, 0.1)',
+          borderRadius: '8px',
+          transition: 'background-color 0.2s'
+        }}>
+          <ArrowLeft style={{ width: '20px', height: '20px', marginRight: '0.5rem' }} />
+          Voltar às rotinas
+        </Link>
+      </div>
+      
+      {/* Header with rounded corners */}
       <div style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         padding: '1rem 1rem',
-        color: 'white'
+        color: 'white',
+        margin: '0.5rem 1rem',
+        borderRadius: '12px'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <Link href="/routines" style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            color: 'white', 
-            fontSize: '1rem',
-            textDecoration: 'none',
-            marginBottom: '0.75rem',
-            padding: '0.5rem 1rem',
-            backgroundColor: 'rgba(255,255,255,0.1)',
-            borderRadius: '8px',
-            transition: 'background-color 0.2s'
-          }}>
-            <ArrowLeft style={{ width: '20px', height: '20px', marginRight: '0.5rem' }} />
-            Voltar às rotinas
-          </Link>
-          
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
             <div>
               <h1 style={{
