@@ -103,7 +103,7 @@ export default function Routines() {
         {/* Search Bar */}
         <div className="w-full max-w-md mx-auto mb-6">
           <GlassCard className="p-4">
-            <div className="relative mb-3">
+            <div className="relative mb-1">
               <input 
                 type="text" 
                 placeholder="Buscar rotinas..."
@@ -159,7 +159,7 @@ export default function Routines() {
                     }}
                     onClick={() => setSelectedCategory(directory.id)}
                   >
-                    <h3 className="text-white text-sm font-medium leading-tight flex items-center justify-center h-full">
+                    <h3 className="text-white text-lg font-medium leading-tight flex items-center justify-center h-full">
                       {directory.name}
                     </h3>
                   </div>
@@ -226,12 +226,12 @@ export default function Routines() {
                         <h3 className="text-white font-semibold mb-1" style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
                           {routine.title}
                         </h3>
-                        <p className="text-white/60 text-sm mb-2" style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
+                        <p className="text-white/60 text-base mb-2" style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
                           Autor: {routine.author}
                         </p>
                         
                         <div className="flex items-center justify-between">
-                          <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`} style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
+                          <span className={`px-2 py-1 rounded text-sm font-medium text-white ${categoryColor}`} style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
                             {routine.category}
                           </span>
                         </div>

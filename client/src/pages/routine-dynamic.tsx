@@ -116,6 +116,7 @@ export default function RoutineDynamic() {
             display: 'inline-flex', 
             alignItems: 'center', 
             color: 'white', 
+            fontSize: '1rem',
             textDecoration: 'none',
             marginBottom: '0.75rem',
             padding: '0.5rem 1rem',
@@ -130,7 +131,7 @@ export default function RoutineDynamic() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
             <div>
               <h1 style={{
-                fontSize: '2rem',
+                fontSize: '1.5rem',
                 fontWeight: 'bold',
                 margin: '0 0 0.5rem 0',
                 textShadow: '0 2px 4px rgba(0,0,0,0.1)',
@@ -142,7 +143,7 @@ export default function RoutineDynamic() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <User style={{ width: '16px', height: '16px' }} />
-                  <span style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>Autor: {routine.author}</span>
+                  <span style={{ fontSize: '1rem', fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>Autor: {routine.author}</span>
                 </div>
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -150,7 +151,7 @@ export default function RoutineDynamic() {
                     padding: '0.25rem 0.75rem',
                     backgroundColor: 'rgba(255,255,255,0.2)',
                     borderRadius: '20px',
-                    fontSize: '0.875rem',
+                    fontSize: '1rem',
                     fontWeight: '500',
                     fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
                   }}>
@@ -203,6 +204,7 @@ export default function RoutineDynamic() {
               color: 'white',
               textDecoration: 'none',
               borderRadius: '8px',
+              fontSize: '1rem',
               fontWeight: '500',
               transition: 'background-color 0.2s'
             }}
