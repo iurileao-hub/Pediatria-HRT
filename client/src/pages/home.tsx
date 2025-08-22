@@ -19,7 +19,7 @@ export default function Home() {
             <h1 className="text-white text-xl font-semibold mb-2">
               Pediatria HRT
             </h1>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/80 text-base">
               Hospital Regional de Taguatinga
             </p>
           </GlassCard>
@@ -37,7 +37,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <h2 className="text-white text-lg font-semibold mb-2">
+              <h2 className="text-white text-xl font-semibold mb-2">
                 Acesso às rotinas da Pediatria HRT
               </h2>
               
@@ -51,7 +51,7 @@ export default function Home() {
         {/* Footer Information */}
         <div className="mt-12 text-center">
           <p className="text-white/60 text-xs">
-            © 2024 Hospital Regional de Taguatinga - DF
+            © 2025 Hospital Regional de Taguatinga - DF
           </p>
         </div>
       </div>
