@@ -1,17 +1,17 @@
 {
-  "timestamp": "2025-08-19T09:33:24.308Z",
+  "timestamp": "2025-08-22T00:07:44.386Z",
   "totalFiles": 75,
   "successful": 75,
   "failed": 0,
-  "totalBase64Images": 41,
+  "totalBase64Images": 54,
   "results": [
     {
       "filename": "ACIDENTES POR ANIMAIS PEÇONHENTOS ROTINAS HRT LUIZ ANTÔNIO.docx",
       "htmlFile": "ACIDENTES POR ANIMAIS PEÇONHENTOS ROTINAS HRT LUIZ ANTÔNIO.html",
       "success": true,
-      "fileSize": 35152,
-      "fileSizeKB": "34.33",
-      "base64ImageCount": 9,
+      "fileSize": 765568,
+      "fileSizeKB": "747.63",
+      "base64ImageCount": 14,
       "path": "/home/runner/workspace/attached_assets/Rotinas/html-output/ACIDENTES POR ANIMAIS PEÇONHENTOS ROTINAS HRT LUIZ ANTÔNIO.html"
     },
     {
@@ -531,9 +531,9 @@
       "filename": "OBSTRUÇÃO DE VIA AÉREA POR CORPO ESTRANHO ROTINAS HRT LUIZ ANTÔNIO.docx",
       "htmlFile": "OBSTRUÇÃO DE VIA AÉREA POR CORPO ESTRANHO ROTINAS HRT LUIZ ANTÔNIO.html",
       "success": true,
-      "fileSize": 8545,
-      "fileSizeKB": "8.34",
-      "base64ImageCount": 0,
+      "fileSize": 300495,
+      "fileSizeKB": "293.45",
+      "base64ImageCount": 5,
       "path": "/home/runner/workspace/attached_assets/Rotinas/html-output/OBSTRUÇÃO DE VIA AÉREA POR CORPO ESTRANHO ROTINAS HRT LUIZ ANTÔNIO.html"
     },
     {
@@ -549,9 +549,9 @@
       "filename": "PARADA CARDIORESPIRATÓRIA ROTINAS HRT LUIZ ANTÔNIO.docx",
       "htmlFile": "PARADA CARDIORESPIRATÓRIA ROTINAS HRT LUIZ ANTÔNIO.html",
       "success": true,
-      "fileSize": 15250,
-      "fileSizeKB": "14.89",
-      "base64ImageCount": 2,
+      "fileSize": 241775,
+      "fileSizeKB": "236.11",
+      "base64ImageCount": 5,
       "path": "/home/runner/workspace/attached_assets/Rotinas/html-output/PARADA CARDIORESPIRATÓRIA ROTINAS HRT LUIZ ANTÔNIO.html"
     },
     {
