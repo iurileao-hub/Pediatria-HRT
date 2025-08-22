@@ -6,12 +6,36 @@ const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: false, limit: '50mb' }));
 
-// Add health check endpoint for deployment services
+// Enhanced health check endpoint for deployment services
 app.get('/health', (_req, res) => {
+  // Set cache headers to prevent caching of health checks
+  res.set({
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+  
   res.status(200).json({ 
     status: 'ok', 
     timestamp: new Date().toISOString(),
-    uptime: process.uptime()
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development',
+    memory: process.memoryUsage(),
+    pid: process.pid
+  });
+});
+
+// Add readiness check endpoint specifically for deployment services
+app.get('/ready', (_req, res) => {
+  res.set({
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+  
+  res.status(200).json({ 
+    status: 'ready',
+    timestamp: new Date().toISOString()
   });
 });
 
@@ -75,11 +99,43 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
+  
+  // Enhanced server startup with better error handling
   server.listen({
     port,
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
+    log(`health check available at http://0.0.0.0:${port}/health`);
+    log(`readiness check available at http://0.0.0.0:${port}/ready`);
+  });
+  
+  // Handle server startup errors gracefully
+  server.on('error', (error: any) => {
+    if (error.code === 'EADDRINUSE') {
+      log(`Port ${port} is already in use`);
+      process.exit(1);
+    } else {
+      log(`Server error: ${error.message}`);
+      throw error;
+    }
+  });
+  
+  // Graceful shutdown handling
+  process.on('SIGINT', () => {
+    log('Received SIGINT, shutting down gracefully');
+    server.close(() => {
+      log('Server closed');
+      process.exit(0);
+    });
+  });
+  
+  process.on('SIGTERM', () => {
+    log('Received SIGTERM, shutting down gracefully');
+    server.close(() => {
+      log('Server closed');
+      process.exit(0);
+    });
   });
 })();
