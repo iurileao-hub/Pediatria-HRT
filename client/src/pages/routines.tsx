@@ -171,7 +171,7 @@ export default function Routines() {
 
         {/* Routine Counter */}
         <div className="w-full max-w-md mx-auto mb-4">
-          <p className="text-white/70 text-base font-medium text-center" style={{ fontFamily: 'Georgia, serif' }}>
+          <p className="text-white/70 text-base font-medium text-center" style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
             {filteredRoutines.length} Rotina{filteredRoutines.length !== 1 ? 's' : ''}
           </p>
         </div>
@@ -223,15 +223,15 @@ export default function Routines() {
                   <GlassCard className="p-4 cursor-pointer">
                     <div className="flex items-start">
                       <div className="flex-grow min-w-0">
-                        <h3 className="text-white font-semibold mb-1" style={{ fontFamily: 'Georgia, serif' }}>
+                        <h3 className="text-white font-semibold mb-1" style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
                           {routine.title}
                         </h3>
-                        <p className="text-white/60 text-sm mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+                        <p className="text-white/60 text-sm mb-2" style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
                           Autor: {routine.author}
                         </p>
                         
                         <div className="flex items-center justify-between">
-                          <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`} style={{ fontFamily: 'Georgia, serif' }}>
+                          <span className={`px-2 py-1 rounded text-xs font-medium text-white ${categoryColor}`} style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>
                             {routine.category}
                           </span>
                         </div>

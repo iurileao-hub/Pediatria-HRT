@@ -26,7 +26,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
   const renderContent = (item: RoutineContent, index: number) => {
     const baseStyle = {
       color: isDarkMode ? '#f3f4f6' : '#1f2937',
-      fontFamily: 'Cambria, serif'
+      fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
     };
 
     switch (item.type) {
@@ -116,7 +116,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
                         textAlign: 'left' as const,
                         padding: '8px',
                         color: isDarkMode ? '#ffffff' : '#1f2937',
-                        fontFamily: 'Cambria, serif'
+                        fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
                       }}
                     >
                       {header}
@@ -141,7 +141,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
                           padding: '8px',
                           color: isDarkMode ? '#f3f4f6' : '#1f2937',
                           fontWeight: cellIndex === 0 ? '600' : 'normal',
-                          fontFamily: 'Cambria, serif'
+                          fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
                         }}
                       >
                         {cell}
@@ -190,7 +190,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
               border: `1px solid ${alertColor.border}`,
               backgroundColor: alertColor.bg,
               color: alertColor.text,
-              fontFamily: 'Cambria, serif'
+              fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
             }}
             dangerouslySetInnerHTML={{ __html: item.text || '' }}
           />
@@ -268,7 +268,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
         <header style={{ marginBottom: '48px' }}>
           <h1 style={{
             fontSize: '2.5rem',
-            fontFamily: 'Cambria, serif',
+            fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
             fontWeight: 'bold',
             marginBottom: '16px',
             lineHeight: '1.2',
@@ -278,7 +278,7 @@ export default function RoutineTemplate({ title, author, content }: RoutineTempl
           </h1>
           <p style={{
             fontSize: '1.25rem',
-            fontFamily: 'Cambria, serif',
+            fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
             fontStyle: 'italic',
             color: isDarkMode ? '#d1d5db' : '#4b5563'
           }}>

@@ -102,7 +102,7 @@ export default function RoutineDynamic() {
       minHeight: '100vh', 
       backgroundColor: 'white',
       color: '#1a1a1a',
-      fontFamily: 'Cambria, Times, serif',
+      fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
       lineHeight: '1.6'
     }}>
       {/* Header with navigation */}
@@ -134,7 +134,7 @@ export default function RoutineDynamic() {
                 fontWeight: 'bold',
                 margin: '0 0 0.5rem 0',
                 textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                fontFamily: 'Cambria, serif'
+                fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
               }}>
                 {routine.title}
               </h1>
@@ -142,7 +142,7 @@ export default function RoutineDynamic() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <User style={{ width: '16px', height: '16px' }} />
-                  <span style={{ fontFamily: 'Cambria, serif' }}>Autor: {routine.author}</span>
+                  <span style={{ fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>Autor: {routine.author}</span>
                 </div>
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -152,7 +152,7 @@ export default function RoutineDynamic() {
                     borderRadius: '20px',
                     fontSize: '0.875rem',
                     fontWeight: '500',
-                    fontFamily: 'Cambria, serif'
+                    fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
                   }}>
                     {routine.category}
                   </span>
@@ -174,7 +174,7 @@ export default function RoutineDynamic() {
             borderRadius: '12px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
             border: '1px solid #e5e7eb',
-            fontFamily: 'Cambria, serif',
+            fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
             fontSize: '1.1rem',
             lineHeight: '1.7'
           }}
