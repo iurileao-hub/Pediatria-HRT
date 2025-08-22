@@ -190,7 +190,9 @@ export default function RoutineDynamic() {
             __html: routine.htmlContent || '<p>Conteúdo não disponível.</p>' 
           }}
         />
-        <Link 
+        {/* Footer */}
+        <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
+          <Link 
           href="/routines"
           style={{
             marginTop: '2rem',
@@ -209,35 +211,6 @@ export default function RoutineDynamic() {
         >
           <ArrowLeft style={{ width: '18px', height: '18px' }} />
           Voltar às rotinas
-        </Link>
-      </div>
-
-      {/* Footer */}
-      <div style={{
-        backgroundColor: '#f8f9fa',
-        borderTop: '1px solid #e5e7eb',
-        padding: '2rem 1rem',
-        marginTop: '2rem'
-      }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
-          <Link 
-            href="/routines"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.75rem 1.5rem',
-              backgroundColor: '#667eea',
-              color: 'white',
-              textDecoration: 'none',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontWeight: '500',
-              transition: 'background-color 0.2s'
-            }}
-          >
-            <ArrowLeft style={{ width: '18px', height: '18px' }} />
-            Voltar às rotinas
           </Link>
         </div>
       </div>

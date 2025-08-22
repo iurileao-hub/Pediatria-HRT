@@ -17,9 +17,9 @@ export default function Home() {
             <PediatriaLogo />
             
             <h1 className="text-white text-xl font-semibold mb-2">
-              Pediatria HRT
+              PEDIATRIA HRT
             </h1>
-            <p className="text-white/80 text-base">
+            <p className="text-white/80 text-lg">
               Hospital Regional de Taguatinga
             </p>
           </GlassCard>
