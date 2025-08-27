@@ -1,0 +1,20 @@
+[
+  {
+    "filename": "ROTINA INFECÇÃO DO TRATO URINÁRIO DANIA E FABRÍCIO HRN PED HRT.docx",
+    "title": "ROTINA INFECÇÃO DO TRATO URINÁRIO DANIA E FABRÍCIO HRN PED HRT",
+    "author": "Dra. Dania",
+    "category": "HRN",
+    "isNew": true,
+    "success": false,
+    "error": "ENOENT: no such file or directory, open 'attached_assets/Rotinas/html-output/ROTINA INFECÇÃO DO TRATO URINÁRIO DANIA E FABRÍCIO HRN PED HRT.html'"
+  },
+  {
+    "filename": "ROTINA ARRITMIAS NA INFANCIA.HRT.2019.docx",
+    "title": "ROTINA ARRITMIAS NA INFANCIA.HRT.2019",
+    "author": "Dra. Luciany",
+    "category": "Cardiologia",
+    "isNew": true,
+    "success": false,
+    "error": "ENOENT: no such file or directory, open 'attached_assets/Rotinas/html-output/ROTINA ARRITMIAS NA INFANCIA.HRT.2019.html'"
+  }
+]
