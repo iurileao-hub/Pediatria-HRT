@@ -174,7 +174,7 @@ export default function RoutineDynamic() {
       </div>
 
       {/* Content */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem 0rem' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0rem 0rem' }}>
         <div 
           style={{
             backgroundColor: '#ffffff',
