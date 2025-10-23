@@ -1,0 +1,677 @@
+[
+  {
+    "id": "e214e74a-bcf4-4f9d-934a-f13ff404c975",
+    "title": "Acidentes por Animais Peçonhentos",
+    "author": "Dr. Luiz Antônio",
+    "category": "Toxicologia",
+    "createdAt": "2025-10-23T00:12:50.998Z",
+    "updatedAt": "2025-10-23T00:12:50.998Z",
+    "dataFile": "/data/routines/e214e74a-bcf4-4f9d-934a-f13ff404c975.json"
+  },
+  {
+    "id": "b5d8c3ff-7bb1-493d-9526-0538be5d7eda",
+    "title": "Adenomegalias",
+    "author": "Dr. Marco",
+    "category": "Hematologia",
+    "createdAt": "2025-10-23T00:12:51.003Z",
+    "updatedAt": "2025-10-23T00:12:51.003Z",
+    "dataFile": "/data/routines/b5d8c3ff-7bb1-493d-9526-0538be5d7eda.json"
+  },
+  {
+    "id": "1b0ba470-b622-4fa2-9074-faed6696f366",
+    "title": "Afogamento",
+    "author": "Dra. Bárbara",
+    "category": "Emergência",
+    "createdAt": "2025-10-23T00:12:51.004Z",
+    "updatedAt": "2025-10-23T00:12:51.004Z",
+    "dataFile": "/data/routines/1b0ba470-b622-4fa2-9074-faed6696f366.json"
+  },
+  {
+    "id": "257c6060-da76-49fa-a5de-0ede047955aa",
+    "title": "Alergia à Proteína do Leite de Vaca",
+    "author": "Dra. Ana Luiza",
+    "category": "Gastroenterologia",
+    "createdAt": "2025-10-23T00:12:51.005Z",
+    "updatedAt": "2025-10-23T00:12:51.005Z",
+    "dataFile": "/data/routines/257c6060-da76-49fa-a5de-0ede047955aa.json"
+  },
+  {
+    "id": "387546e7-1ae7-464e-ba75-7a5b233ab361",
+    "title": "Alimentação nos 2 Primeiros Anos de Vida",
+    "author": "Dra. Bárbara",
+    "category": "Nutrologia",
+    "createdAt": "2025-10-23T00:12:51.007Z",
+    "updatedAt": "2025-10-23T00:12:51.007Z",
+    "dataFile": "/data/routines/387546e7-1ae7-464e-ba75-7a5b233ab361.json"
+  },
+  {
+    "id": "6346bc80-e463-4f19-b9b4-679a891084c3",
+    "title": "Anemia Falciforme",
+    "author": "Dr. Fabrício",
+    "category": "Hematologia",
+    "createdAt": "2025-10-23T00:12:51.008Z",
+    "updatedAt": "2025-10-23T00:12:51.008Z",
+    "dataFile": "/data/routines/6346bc80-e463-4f19-b9b4-679a891084c3.json"
+  },
+  {
+    "id": "3d9b8c2c-688f-40ca-83f0-5395bffcb3fe",
+    "title": "Anemia Ferropriva",
+    "author": "Dra. Ana Luisa",
+    "category": "Hematologia",
+    "createdAt": "2025-10-23T00:12:51.008Z",
+    "updatedAt": "2025-10-23T00:12:51.008Z",
+    "dataFile": "/data/routines/3d9b8c2c-688f-40ca-83f0-5395bffcb3fe.json"
+  },
+  {
+    "id": "85ebbfeb-6b62-48e9-ba1b-2c69936738fc",
+    "title": "Artrite - Abordagem Inicial",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.009Z",
+    "updatedAt": "2025-10-23T00:12:51.009Z",
+    "dataFile": "/data/routines/85ebbfeb-6b62-48e9-ba1b-2c69936738fc.json"
+  },
+  {
+    "id": "2322d52c-5760-4183-8bb9-facd91af81d0",
+    "title": "Artrite Séptica",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.009Z",
+    "updatedAt": "2025-10-23T00:12:51.009Z",
+    "dataFile": "/data/routines/2322d52c-5760-4183-8bb9-facd91af81d0.json"
+  },
+  {
+    "id": "a260ab16-0a54-4bae-82ed-bd19faf67686",
+    "title": "Artrites Reativas ou Reacionais",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.010Z",
+    "updatedAt": "2025-10-23T00:12:51.010Z",
+    "dataFile": "/data/routines/a260ab16-0a54-4bae-82ed-bd19faf67686.json"
+  },
+  {
+    "id": "26404af6-4365-47a6-94fb-1a1904db397a",
+    "title": "Cefaléias",
+    "author": "Dra. Manuela",
+    "category": "Neurologia",
+    "createdAt": "2025-10-23T00:12:51.010Z",
+    "updatedAt": "2025-10-23T00:12:51.010Z",
+    "dataFile": "/data/routines/26404af6-4365-47a6-94fb-1a1904db397a.json"
+  },
+  {
+    "id": "96a7d8fc-882d-40ed-82ff-06c534cd90cd",
+    "title": "Cetoacidose Diabética",
+    "author": "Dra. Roberta",
+    "category": "Endocrinologia",
+    "createdAt": "2025-10-23T00:12:51.010Z",
+    "updatedAt": "2025-10-23T00:12:51.010Z",
+    "dataFile": "/data/routines/96a7d8fc-882d-40ed-82ff-06c534cd90cd.json"
+  },
+  {
+    "id": "fd12c128-d1c0-4377-a32c-c5d5138bc03b",
+    "title": "Choque Séptico e Aminas Vasoativas",
+    "author": "Dr. Rafael",
+    "category": "UTI",
+    "createdAt": "2025-10-23T00:12:51.012Z",
+    "updatedAt": "2025-10-23T00:12:51.012Z",
+    "dataFile": "/data/routines/fd12c128-d1c0-4377-a32c-c5d5138bc03b.json"
+  },
+  {
+    "id": "dae648bc-1321-40e9-9f6c-b7f5bdd61372",
+    "title": "Conceitos Básicos de Ventilação Mecânica em Pediatria",
+    "author": "HRT",
+    "category": "UTI",
+    "createdAt": "2025-10-23T00:12:51.017Z",
+    "updatedAt": "2025-10-23T00:12:51.017Z",
+    "dataFile": "/data/routines/dae648bc-1321-40e9-9f6c-b7f5bdd61372.json"
+  },
+  {
+    "id": "dbaefd2e-3d91-47b7-b8de-4c52745540f0",
+    "title": "Constipação Intestinal",
+    "author": "Dra. Ana Beatriz",
+    "category": "Gastroenterologia",
+    "createdAt": "2025-10-23T00:12:51.019Z",
+    "updatedAt": "2025-10-23T00:12:51.019Z",
+    "dataFile": "/data/routines/dbaefd2e-3d91-47b7-b8de-4c52745540f0.json"
+  },
+  {
+    "id": "7b1d9181-9b5b-45da-9b29-47b32f2c77b8",
+    "title": "Convulsão Febril",
+    "author": "Dra. Manuela",
+    "category": "Neurologia",
+    "createdAt": "2025-10-23T00:12:51.020Z",
+    "updatedAt": "2025-10-23T00:12:51.020Z",
+    "dataFile": "/data/routines/7b1d9181-9b5b-45da-9b29-47b32f2c77b8.json"
+  },
+  {
+    "id": "572b1fee-fc09-4a7b-99af-1ccf3a54ca25",
+    "title": "Coqueluche",
+    "author": "Dr. Francisco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.020Z",
+    "updatedAt": "2025-10-23T00:12:51.020Z",
+    "dataFile": "/data/routines/572b1fee-fc09-4a7b-99af-1ccf3a54ca25.json"
+  },
+  {
+    "id": "1e1a8322-92de-4c9c-8646-e35c185860a6",
+    "title": "Crise de Hipóxia",
+    "author": "Dra. Luciany",
+    "category": "Cardiologia",
+    "createdAt": "2025-10-23T00:12:51.021Z",
+    "updatedAt": "2025-10-23T00:12:51.021Z",
+    "dataFile": "/data/routines/1e1a8322-92de-4c9c-8646-e35c185860a6.json"
+  },
+  {
+    "id": "a7fce724-6ff0-4956-a6b3-125f57d3f67a",
+    "title": "Crupe",
+    "author": "Dr. Renato",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.022Z",
+    "updatedAt": "2025-10-23T00:12:51.022Z",
+    "dataFile": "/data/routines/a7fce724-6ff0-4956-a6b3-125f57d3f67a.json"
+  },
+  {
+    "id": "5420b0ef-8c0e-424c-a743-de4230c585f9",
+    "title": "Dengue e Outras Arboviroses",
+    "author": "Dr. Marco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.023Z",
+    "updatedAt": "2025-10-23T00:12:51.023Z",
+    "dataFile": "/data/routines/5420b0ef-8c0e-424c-a743-de4230c585f9.json"
+  },
+  {
+    "id": "a43e9047-d9b1-4136-896c-b24a6e24fc5a",
+    "title": "Derrames Pleurais",
+    "author": "Dr. Fernando",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.023Z",
+    "updatedAt": "2025-10-23T00:12:51.023Z",
+    "dataFile": "/data/routines/a43e9047-d9b1-4136-896c-b24a6e24fc5a.json"
+  },
+  {
+    "id": "7495feb5-9910-4ec2-88ed-d4ee11aae7cd",
+    "title": "Desconforto Respiratório do Lactente - Bronquiolite Viral Aguda",
+    "author": "Dr. Kffuri",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.023Z",
+    "updatedAt": "2025-10-23T00:12:51.023Z",
+    "dataFile": "/data/routines/7495feb5-9910-4ec2-88ed-d4ee11aae7cd.json"
+  },
+  {
+    "id": "71afa837-1120-43fd-a348-f20bd1ce64fc",
+    "title": "Desidratação Hipernatrêmica no RN",
+    "author": "Dra. Cida",
+    "category": "Neonatologia",
+    "createdAt": "2025-10-23T00:12:51.024Z",
+    "updatedAt": "2025-10-23T00:12:51.024Z",
+    "dataFile": "/data/routines/71afa837-1120-43fd-a348-f20bd1ce64fc.json"
+  },
+  {
+    "id": "0d984c44-48ed-4ff9-b833-599f308210ac",
+    "title": "Diarréia Infecciosa",
+    "author": "HRT",
+    "category": "Gastroenterologia",
+    "createdAt": "2025-10-23T00:12:51.026Z",
+    "updatedAt": "2025-10-23T00:12:51.026Z",
+    "dataFile": "/data/routines/0d984c44-48ed-4ff9-b833-599f308210ac.json"
+  },
+  {
+    "id": "623ac078-8781-4588-8b3d-2b9e52954b10",
+    "title": "Diarréia Aguda",
+    "author": "Dr. Sérgio",
+    "category": "Gastroenterologia",
+    "createdAt": "2025-10-23T00:12:51.031Z",
+    "updatedAt": "2025-10-23T00:12:51.031Z",
+    "dataFile": "/data/routines/623ac078-8781-4588-8b3d-2b9e52954b10.json"
+  },
+  {
+    "id": "cef08108-566e-4c33-8cb0-b3291b63709a",
+    "title": "Distúrbio Metabólico - Litíse Renal e Cólica Nefrética",
+    "author": "Dr. Fabrício",
+    "category": "Nefrologia",
+    "createdAt": "2025-10-23T00:12:51.031Z",
+    "updatedAt": "2025-10-23T00:12:51.031Z",
+    "dataFile": "/data/routines/cef08108-566e-4c33-8cb0-b3291b63709a.json"
+  },
+  {
+    "id": "4f575339-a846-4ffa-892f-4e5b7686360c",
+    "title": "Distúrbios Eletrolíticos",
+    "author": "Dr. Francisco",
+    "category": "Nefrologia",
+    "createdAt": "2025-10-23T00:12:51.032Z",
+    "updatedAt": "2025-10-23T00:12:51.032Z",
+    "dataFile": "/data/routines/4f575339-a846-4ffa-892f-4e5b7686360c.json"
+  },
+  {
+    "id": "0f229f7f-0b95-49f0-8c07-16589ac9cbe9",
+    "title": "Distúrbios Ácido-Básicos",
+    "author": "Dr. Francisco",
+    "category": "Nefrologia",
+    "createdAt": "2025-10-23T00:12:51.032Z",
+    "updatedAt": "2025-10-23T00:12:51.032Z",
+    "dataFile": "/data/routines/0f229f7f-0b95-49f0-8c07-16589ac9cbe9.json"
+  },
+  {
+    "id": "526c190d-fb42-45c3-9f9a-eb6e9a06eed1",
+    "title": "Doença de Kawasaki",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.033Z",
+    "updatedAt": "2025-10-23T00:12:51.033Z",
+    "dataFile": "/data/routines/526c190d-fb42-45c3-9f9a-eb6e9a06eed1.json"
+  },
+  {
+    "id": "3d4a0a14-5c90-437c-9bfa-93a58b99113c",
+    "title": "Doença do Refluxo Gastroesofágico",
+    "author": "Dr. Francisco",
+    "category": "Gastroenterologia",
+    "createdAt": "2025-10-23T00:12:51.033Z",
+    "updatedAt": "2025-10-23T00:12:51.033Z",
+    "dataFile": "/data/routines/3d4a0a14-5c90-437c-9bfa-93a58b99113c.json"
+  },
+  {
+    "id": "217a8ec5-92e1-4f65-9b07-ef772ed2840d",
+    "title": "Dor Abdominal Aguda - Abordagem Inicial",
+    "author": "Dra. Ana Luiza",
+    "category": "Gastroenterologia",
+    "createdAt": "2025-10-23T00:12:51.034Z",
+    "updatedAt": "2025-10-23T00:12:51.034Z",
+    "dataFile": "/data/routines/217a8ec5-92e1-4f65-9b07-ef772ed2840d.json"
+  },
+  {
+    "id": "c95452b3-13ec-4175-ba27-b019a2a90786",
+    "title": "Dor de Crescimento",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.035Z",
+    "updatedAt": "2025-10-23T00:12:51.035Z",
+    "dataFile": "/data/routines/c95452b3-13ec-4175-ba27-b019a2a90786.json"
+  },
+  {
+    "id": "0104ca6b-f20e-43dd-a345-00117479d39c",
+    "title": "Emergência do Choque",
+    "author": "Dr. Luiz Antônio",
+    "category": "Emergência",
+    "createdAt": "2025-10-23T00:12:51.035Z",
+    "updatedAt": "2025-10-23T00:12:51.035Z",
+    "dataFile": "/data/routines/0104ca6b-f20e-43dd-a345-00117479d39c.json"
+  },
+  {
+    "id": "556d24be-1353-432e-908a-949922be3faf",
+    "title": "Emergência Respiratória",
+    "author": "Dr. Luiz Antônio",
+    "category": "Emergência",
+    "createdAt": "2025-10-23T00:12:51.036Z",
+    "updatedAt": "2025-10-23T00:12:51.036Z",
+    "dataFile": "/data/routines/556d24be-1353-432e-908a-949922be3faf.json"
+  },
+  {
+    "id": "848004be-f6dc-4c62-91bb-1f7ebff2a7c5",
+    "title": "Endocardite Infecciosa",
+    "author": "Dra. Luciany",
+    "category": "Cardiologia",
+    "createdAt": "2025-10-23T00:12:51.036Z",
+    "updatedAt": "2025-10-23T00:12:51.036Z",
+    "dataFile": "/data/routines/848004be-f6dc-4c62-91bb-1f7ebff2a7c5.json"
+  },
+  {
+    "id": "0f7d3433-6b04-4e60-aec7-cd9c421e7d67",
+    "title": "Epilepsia e Estado de Mal",
+    "author": "Dra. Manuela",
+    "category": "Neurologia",
+    "createdAt": "2025-10-23T00:12:51.036Z",
+    "updatedAt": "2025-10-23T00:12:51.036Z",
+    "dataFile": "/data/routines/0f7d3433-6b04-4e60-aec7-cd9c421e7d67.json"
+  },
+  {
+    "id": "065dae41-6f4b-467b-9ae3-15fca2d88307",
+    "title": "Febre no Recém Nascido",
+    "author": "Dra. Cida",
+    "category": "Neonatologia",
+    "createdAt": "2025-10-23T00:12:51.037Z",
+    "updatedAt": "2025-10-23T00:12:51.037Z",
+    "dataFile": "/data/routines/065dae41-6f4b-467b-9ae3-15fca2d88307.json"
+  },
+  {
+    "id": "cf5493ad-339a-42cd-b059-31af8e55face",
+    "title": "Febre Reumática",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.037Z",
+    "updatedAt": "2025-10-23T00:12:51.037Z",
+    "dataFile": "/data/routines/cf5493ad-339a-42cd-b059-31af8e55face.json"
+  },
+  {
+    "id": "d082dbb2-bdb7-47e2-9682-e7fc13252f98",
+    "title": "Fórmulas Lácteas",
+    "author": "Dr. Francisco",
+    "category": "Nutrologia",
+    "createdAt": "2025-10-23T00:12:51.038Z",
+    "updatedAt": "2025-10-23T00:12:51.038Z",
+    "dataFile": "/data/routines/d082dbb2-bdb7-47e2-9682-e7fc13252f98.json"
+  },
+  {
+    "id": "bc8235dc-b6d1-4690-a7ad-68278e8ee400",
+    "title": "Glomerulonefrite Difusa Aguda",
+    "author": "Dr. Fabrício",
+    "category": "Nefrologia",
+    "createdAt": "2025-10-23T00:12:51.038Z",
+    "updatedAt": "2025-10-23T00:12:51.038Z",
+    "dataFile": "/data/routines/bc8235dc-b6d1-4690-a7ad-68278e8ee400.json"
+  },
+  {
+    "id": "73e55fc9-9355-4d0d-80da-c9c369189e77",
+    "title": "Hematúria - Abordagem Inicial",
+    "author": "Dr. Fabrício",
+    "category": "Nefrologia",
+    "createdAt": "2025-10-23T00:12:51.038Z",
+    "updatedAt": "2025-10-23T00:12:51.038Z",
+    "dataFile": "/data/routines/73e55fc9-9355-4d0d-80da-c9c369189e77.json"
+  },
+  {
+    "id": "31b158ac-c62b-41ac-9921-6a2c0af6b9a6",
+    "title": "Hepatites Virais",
+    "author": "Dr. Marco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.039Z",
+    "updatedAt": "2025-10-23T00:12:51.039Z",
+    "dataFile": "/data/routines/31b158ac-c62b-41ac-9921-6a2c0af6b9a6.json"
+  },
+  {
+    "id": "4eb9fa8f-f9ca-48c7-80c2-2692864a1ea3",
+    "title": "Hidratação Venosa no RN",
+    "author": "Dr. Carlos Henrique",
+    "category": "Neonatologia",
+    "createdAt": "2025-10-23T00:12:51.039Z",
+    "updatedAt": "2025-10-23T00:12:51.039Z",
+    "dataFile": "/data/routines/4eb9fa8f-f9ca-48c7-80c2-2692864a1ea3.json"
+  },
+  {
+    "id": "f1e23c3a-0c49-44e7-9ea4-64da77d6b591",
+    "title": "Hipertensão Arterial na Infância",
+    "author": "Dra. Luciany",
+    "category": "Cardiologia",
+    "createdAt": "2025-10-23T00:12:51.040Z",
+    "updatedAt": "2025-10-23T00:12:51.040Z",
+    "dataFile": "/data/routines/f1e23c3a-0c49-44e7-9ea4-64da77d6b591.json"
+  },
+  {
+    "id": "963105b6-99d0-4986-81a1-8e1b44f8c2c0",
+    "title": "Icterícia Neonatal",
+    "author": "Dra. Cida",
+    "category": "Neonatologia",
+    "createdAt": "2025-10-23T00:12:51.040Z",
+    "updatedAt": "2025-10-23T00:12:51.040Z",
+    "dataFile": "/data/routines/963105b6-99d0-4986-81a1-8e1b44f8c2c0.json"
+  },
+  {
+    "id": "c5fd1576-421c-4cf9-9a57-e426367b2320",
+    "title": "Infecções Tegumentares e Miosites",
+    "author": "Dr. Marco e Dr. Iuri",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.041Z",
+    "updatedAt": "2025-10-23T00:12:51.041Z",
+    "dataFile": "/data/routines/c5fd1576-421c-4cf9-9a57-e426367b2320.json"
+  },
+  {
+    "id": "5c9f13cd-65e5-4625-b76a-d76d11f26f64",
+    "title": "Insuficiência Cardíaca Congestiva - ICC",
+    "author": "Dra. Luciany",
+    "category": "Cardiologia",
+    "createdAt": "2025-10-23T00:12:51.041Z",
+    "updatedAt": "2025-10-23T00:12:51.041Z",
+    "dataFile": "/data/routines/5c9f13cd-65e5-4625-b76a-d76d11f26f64.json"
+  },
+  {
+    "id": "c71986b3-2c28-4a2b-8ae3-9e4546da9a12",
+    "title": "Insuficiência Respiratória no RN",
+    "author": "Dra. Cida",
+    "category": "Neonatologia",
+    "createdAt": "2025-10-23T00:12:51.042Z",
+    "updatedAt": "2025-10-23T00:12:51.042Z",
+    "dataFile": "/data/routines/c71986b3-2c28-4a2b-8ae3-9e4546da9a12.json"
+  },
+  {
+    "id": "b837f91b-e9cf-4ddd-9045-c6410748ba94",
+    "title": "Insulinoterapia",
+    "author": "Dra. Roberta",
+    "category": "Endocrinologia",
+    "createdAt": "2025-10-23T00:12:51.042Z",
+    "updatedAt": "2025-10-23T00:12:51.042Z",
+    "dataFile": "/data/routines/b837f91b-e9cf-4ddd-9045-c6410748ba94.json"
+  },
+  {
+    "id": "6836e512-cc82-4882-acfb-be6d287ba8d4",
+    "title": "Intoxicações Agudas",
+    "author": "Dra. Ana Luiza",
+    "category": "Toxicologia",
+    "createdAt": "2025-10-23T00:12:51.043Z",
+    "updatedAt": "2025-10-23T00:12:51.043Z",
+    "dataFile": "/data/routines/6836e512-cc82-4882-acfb-be6d287ba8d4.json"
+  },
+  {
+    "id": "a19523b7-765e-4be8-8d24-e6f6efe4effb",
+    "title": "IVAS 1 - Faringotonsilite Aguda",
+    "author": "Dr. Renato",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.044Z",
+    "updatedAt": "2025-10-23T00:12:51.044Z",
+    "dataFile": "/data/routines/a19523b7-765e-4be8-8d24-e6f6efe4effb.json"
+  },
+  {
+    "id": "5ae0e47e-4a9e-4ab9-92de-86c74b2a36d6",
+    "title": "IVAS 2 - Otite Média Aguda",
+    "author": "Dr. Renato",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.044Z",
+    "updatedAt": "2025-10-23T00:12:51.044Z",
+    "dataFile": "/data/routines/5ae0e47e-4a9e-4ab9-92de-86c74b2a36d6.json"
+  },
+  {
+    "id": "18bbf7e7-9cb1-4d5d-90af-0500cab26e5b",
+    "title": "IVAS 3 - Rinossinusite Aguda",
+    "author": "Dr. Renato",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.044Z",
+    "updatedAt": "2025-10-23T00:12:51.044Z",
+    "dataFile": "/data/routines/18bbf7e7-9cb1-4d5d-90af-0500cab26e5b.json"
+  },
+  {
+    "id": "c4b5bd7c-d45e-4e72-a751-1e0509d292e0",
+    "title": "Leishmaniose Visceral",
+    "author": "Dr. Iuri",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.045Z",
+    "updatedAt": "2025-10-23T00:12:51.045Z",
+    "dataFile": "/data/routines/c4b5bd7c-d45e-4e72-a751-1e0509d292e0.json"
+  },
+  {
+    "id": "2b6c69f6-8ff7-419e-8e0c-1a14d7a3e7c1",
+    "title": "Mastoidite",
+    "author": "Dr. Marco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.045Z",
+    "updatedAt": "2025-10-23T00:12:51.045Z",
+    "dataFile": "/data/routines/2b6c69f6-8ff7-419e-8e0c-1a14d7a3e7c1.json"
+  },
+  {
+    "id": "fee79f3d-7e04-4218-bded-3df5b9faff33",
+    "title": "Maus Tratos e Abuso Sexual",
+    "author": "Dr. Renato",
+    "category": "Geral",
+    "createdAt": "2025-10-23T00:12:51.046Z",
+    "updatedAt": "2025-10-23T00:12:51.046Z",
+    "dataFile": "/data/routines/fee79f3d-7e04-4218-bded-3df5b9faff33.json"
+  },
+  {
+    "id": "d430ad3f-18a8-4d41-85c3-f8cac42287a7",
+    "title": "Meningites Bacterianas",
+    "author": "Dr. Marco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.047Z",
+    "updatedAt": "2025-10-23T00:12:51.047Z",
+    "dataFile": "/data/routines/d430ad3f-18a8-4d41-85c3-f8cac42287a7.json"
+  },
+  {
+    "id": "0d0bea28-aad5-41b2-9647-fca6230e48bf",
+    "title": "Mononucleose Infecciosa",
+    "author": "Dr. Marco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.048Z",
+    "updatedAt": "2025-10-23T00:12:51.048Z",
+    "dataFile": "/data/routines/0d0bea28-aad5-41b2-9647-fca6230e48bf.json"
+  },
+  {
+    "id": "0dee38d5-5657-4ca5-9a50-9ab1b40a2308",
+    "title": "Obstrução de Via Aérea por Corpo Estranho",
+    "author": "Dr. Luiz Antônio",
+    "category": "Emergência",
+    "createdAt": "2025-10-23T00:12:51.048Z",
+    "updatedAt": "2025-10-23T00:12:51.048Z",
+    "dataFile": "/data/routines/0dee38d5-5657-4ca5-9a50-9ab1b40a2308.json"
+  },
+  {
+    "id": "bb0fa605-c888-4541-89ef-5e75e3d81e75",
+    "title": "Osteomielite",
+    "author": "Dr. Fabrício",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.050Z",
+    "updatedAt": "2025-10-23T00:12:51.050Z",
+    "dataFile": "/data/routines/bb0fa605-c888-4541-89ef-5e75e3d81e75.json"
+  },
+  {
+    "id": "e32c730c-2c94-4be5-8f7a-0ee78b5e78ab",
+    "title": "Parada Cardiorespiratória",
+    "author": "Dr. Luiz Antônio",
+    "category": "Emergência",
+    "createdAt": "2025-10-23T00:12:51.051Z",
+    "updatedAt": "2025-10-23T00:12:51.051Z",
+    "dataFile": "/data/routines/e32c730c-2c94-4be5-8f7a-0ee78b5e78ab.json"
+  },
+  {
+    "id": "f9897c60-c5bf-47be-90fc-662e3999e840",
+    "title": "Parasitoses Intestinais",
+    "author": "Dra. Ana Luiza",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.052Z",
+    "updatedAt": "2025-10-23T00:12:51.052Z",
+    "dataFile": "/data/routines/f9897c60-c5bf-47be-90fc-662e3999e840.json"
+  },
+  {
+    "id": "30a2171b-6aab-4d06-af79-3ef562ff8741",
+    "title": "Pneumonias Bacterianas",
+    "author": "Dr. Fernando",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.053Z",
+    "updatedAt": "2025-10-23T00:12:51.053Z",
+    "dataFile": "/data/routines/30a2171b-6aab-4d06-af79-3ef562ff8741.json"
+  },
+  {
+    "id": "667b955a-9db2-491d-a31e-316b4afd50ec",
+    "title": "Primoinfecção e Encefalite Herpética",
+    "author": "Dr. Iuri",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.053Z",
+    "updatedAt": "2025-10-23T00:12:51.053Z",
+    "dataFile": "/data/routines/667b955a-9db2-491d-a31e-316b4afd50ec.json"
+  },
+  {
+    "id": "620abb08-25d2-4009-8d43-85b8a4eb2eaf",
+    "title": "Punção Lombar",
+    "author": "Dra. Manuela",
+    "category": "Neurologia",
+    "createdAt": "2025-10-23T00:12:51.053Z",
+    "updatedAt": "2025-10-23T00:12:51.053Z",
+    "dataFile": "/data/routines/620abb08-25d2-4009-8d43-85b8a4eb2eaf.json"
+  },
+  {
+    "id": "38706e25-2c34-432f-a1a0-dadd7963cb8c",
+    "title": "Púrpura de Henoch-Schönlein",
+    "author": "Dra. Dania",
+    "category": "Reumatologia",
+    "createdAt": "2025-10-23T00:12:51.054Z",
+    "updatedAt": "2025-10-23T00:12:51.054Z",
+    "dataFile": "/data/routines/38706e25-2c34-432f-a1a0-dadd7963cb8c.json"
+  },
+  {
+    "id": "39f4ca52-9706-4b55-880f-c95da46a166d",
+    "title": "Púrpura Trombocitopênica Imunológica",
+    "author": "Dra. Dania e Dr. Fabrício",
+    "category": "Hematologia",
+    "createdAt": "2025-10-23T00:12:51.054Z",
+    "updatedAt": "2025-10-23T00:12:51.054Z",
+    "dataFile": "/data/routines/39f4ca52-9706-4b55-880f-c95da46a166d.json"
+  },
+  {
+    "id": "6fad161a-966b-4d26-97e0-53f176e4eb62",
+    "title": "Reanimação do RN em Sala de Parto",
+    "author": "Dr. Carlos Henrique",
+    "category": "Neonatologia",
+    "createdAt": "2025-10-23T00:12:51.055Z",
+    "updatedAt": "2025-10-23T00:12:51.055Z",
+    "dataFile": "/data/routines/6fad161a-966b-4d26-97e0-53f176e4eb62.json"
+  },
+  {
+    "id": "e9cd72c6-1462-415b-862d-5582dfd485ac",
+    "title": "Sequência Rápida de Intubação",
+    "author": "Dr. Rafael",
+    "category": "UTI",
+    "createdAt": "2025-10-23T00:12:51.056Z",
+    "updatedAt": "2025-10-23T00:12:51.056Z",
+    "dataFile": "/data/routines/e9cd72c6-1462-415b-862d-5582dfd485ac.json"
+  },
+  {
+    "id": "fbac2486-7710-4603-99a9-6d54c38cbd84",
+    "title": "Síndrome Nefrótica",
+    "author": "Dra. Dania",
+    "category": "Nefrologia",
+    "createdAt": "2025-10-23T00:12:51.056Z",
+    "updatedAt": "2025-10-23T00:12:51.056Z",
+    "dataFile": "/data/routines/fbac2486-7710-4603-99a9-6d54c38cbd84.json"
+  },
+  {
+    "id": "55817b20-19dd-4626-b026-80646a8e6d33",
+    "title": "Tratamento da Crise Aguda de Asma",
+    "author": "Dr. Fernando",
+    "category": "Pneumologia",
+    "createdAt": "2025-10-23T00:12:51.057Z",
+    "updatedAt": "2025-10-23T00:12:51.057Z",
+    "dataFile": "/data/routines/55817b20-19dd-4626-b026-80646a8e6d33.json"
+  },
+  {
+    "id": "9a32279f-9e88-4c23-bbfe-f420f8b13910",
+    "title": "Traumatismo Cranioencefálico (TCE)",
+    "author": "Dra. Manuela",
+    "category": "Neurologia",
+    "createdAt": "2025-10-23T00:12:51.057Z",
+    "updatedAt": "2025-10-23T00:12:51.057Z",
+    "dataFile": "/data/routines/9a32279f-9e88-4c23-bbfe-f420f8b13910.json"
+  },
+  {
+    "id": "e4c20ef2-bd4d-4e90-b8db-17da433c5368",
+    "title": "Tuberculose na Infância",
+    "author": "Dr. Fernando",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.058Z",
+    "updatedAt": "2025-10-23T00:12:51.058Z",
+    "dataFile": "/data/routines/e4c20ef2-bd4d-4e90-b8db-17da433c5368.json"
+  },
+  {
+    "id": "b961624c-9006-4291-ba3b-2bc4a8d893e5",
+    "title": "Urticária, Angioedema e Anafilaxia",
+    "author": "Dra. Cristianne",
+    "category": "Imunologia",
+    "createdAt": "2025-10-23T00:12:51.066Z",
+    "updatedAt": "2025-10-23T00:12:51.066Z",
+    "dataFile": "/data/routines/b961624c-9006-4291-ba3b-2bc4a8d893e5.json"
+  },
+  {
+    "id": "0e6cdd5d-a581-4d16-b675-add936d2fdd8",
+    "title": "Varicela",
+    "author": "Dr. Marco",
+    "category": "Infectologia",
+    "createdAt": "2025-10-23T00:12:51.118Z",
+    "updatedAt": "2025-10-23T00:12:51.118Z",
+    "dataFile": "/data/routines/0e6cdd5d-a581-4d16-b675-add936d2fdd8.json"
+  }
+]

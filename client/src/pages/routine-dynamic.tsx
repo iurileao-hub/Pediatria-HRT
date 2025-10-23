@@ -1,8 +1,9 @@
 import { Link, useRoute } from "wouter";
-import { useQuery } from "@tanstack/react-query";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ArrowLeft, FileText, User, Calendar } from "lucide-react";
-import type { Routine } from "@shared/types";
+import { useLazyImages } from "@/components/LazyImage";
+import { useRoutine } from "@/hooks/useRoutines";
+import type { Routine } from "@/types/routine";
 
 // Helper function to get category color
 const getCategoryColor = (category: string) => {
@@ -26,18 +27,8 @@ export default function RoutineDynamic() {
   const [, params] = useRoute("/routine/:id");
   const routineId = params?.id;
 
-  // Fetch specific routine from API
-  const { data: routine, isLoading, error } = useQuery<Routine>({
-    queryKey: ['/api/routines', routineId],
-    queryFn: async () => {
-      const response = await fetch(`/api/routines/${routineId}`);
-      if (!response.ok) {
-        throw new Error('Rotina não encontrada');
-      }
-      return response.json();
-    },
-    enabled: !!routineId,
-  });
+  // Fetch specific routine from local JSON
+  const { data: routine, isLoading, error } = useRoutine(routineId);
 
   if (isLoading) {
     return (
@@ -53,9 +44,9 @@ export default function RoutineDynamic() {
                 </GlassCard>
               </Link>
             </div>
-            
+
             <GlassCard className="p-8 text-center">
-              <p className="text-white/70 text-lg">Carregando rotina...</p>
+              <p className="text-white/70 text-xl font-medium">Carregando rotina...</p>
             </GlassCard>
           </div>
         </div>
@@ -77,15 +68,15 @@ export default function RoutineDynamic() {
                 </GlassCard>
               </Link>
             </div>
-            
+
             <GlassCard className="p-8 text-center">
-              <h1 className="text-white text-2xl font-bold mb-4">
+              <h1 className="text-white text-3xl font-bold mb-4">
                 Rotina não encontrada
               </h1>
-              <p className="text-white/70 text-lg mb-6">
+              <p className="text-white/70 text-xl font-medium mb-6">
                 A rotina solicitada não existe ou não pôde ser carregada.
               </p>
-              <Link href="/routines" className="text-blue-300 underline hover:text-blue-200">
+              <Link href="/routines" className="text-blue-300 text-lg font-semibold underline hover:text-blue-200">
                 Clique aqui para voltar às rotinas
               </Link>
             </GlassCard>
@@ -97,76 +88,46 @@ export default function RoutineDynamic() {
 
   const categoryColor = getCategoryColor(routine.category);
 
+  // Process HTML content to add lazy loading to images
+  const processedHtmlContent = useLazyImages(routine.htmlContent);
+
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      backgroundColor: 'white',
-      color: '#1a1a1a',
-      fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
-      lineHeight: '1.6'
-    }}>
+    <div className="min-h-screen bg-white text-gray-900 font-crimson">
       {/* Navigation link above header */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem 1rem 0 0rem' }}>
-        <Link href="/routines" style={{ 
-          display: 'inline-flex', 
-          alignItems: 'center', 
-          color: '#667eea', 
-          fontSize: '1rem',
-          fontWeight: '750',
-          textDecoration: 'none',
-          padding: '0.5rem 1rem',
-          backgroundColor: 'rgba(102, 126, 234, 0.1)',
-          borderRadius: '8px',
-          borderColor: '#667eea',
-          borderWidth: '1px',  
-          transition: 'background-color 0.2s'
-        }}>
-          <ArrowLeft style={{ width: '20px', height: '20px', marginRight: '0.5rem' }} />
+      <div className="max-w-7xl mx-auto px-2 pt-4">
+        <Link
+          href="/routines"
+          className="inline-flex items-center text-indigo-500 text-lg font-bold no-underline p-2 px-4 bg-indigo-50 rounded-lg border border-indigo-500 transition-colors hover:bg-indigo-100"
+          data-testid="link-back-to-routines-top"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2" />
           Voltar às rotinas
         </Link>
       </div>
-      
+
       {/* Header with rounded corners */}
-      <div style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        padding: '1rem 1rem',
-        color: 'white',
-        margin: '1rem 0rem',
-        borderRadius: '8px'
-      }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+      <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-4 text-white m-2 rounded-lg">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-2">
             <div>
-              <h1 style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                margin: '0 0 0.5rem 0',
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
-              }}>
+              <h1 className="text-3xl font-bold mb-2 font-crimson drop-shadow-md" data-testid="text-routine-title">
                 {routine.title}
               </h1>
-              
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <User style={{ width: '16px', height: '16px' }} />
-                  <span style={{ fontSize: '1rem', fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif' }}>Autor: {routine.author}</span>
+
+              <div className="flex items-center gap-6 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <User className="w-4 h-4" />
+                  <span className="text-lg font-semibold font-crimson" data-testid="text-routine-author">Autor: {routine.author}</span>
                 </div>
-                
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{
-                    padding: '0.25rem 0.75rem',
-                    backgroundColor: 'rgba(255,255,255,0.2)',
-                    borderRadius: '20px',
-                    fontSize: '1rem',
-                    fontWeight: '500',
-                    fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif'
-                  }}>
+
+                <div className="flex items-center gap-2">
+                  <span
+                    className="py-1 px-3 bg-white/20 rounded-full text-lg font-semibold font-crimson"
+                    data-testid="text-routine-category"
+                  >
                     {routine.category}
                   </span>
                 </div>
-                
-
               </div>
             </div>
           </div>
@@ -174,43 +135,23 @@ export default function RoutineDynamic() {
       </div>
 
       {/* Content */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0rem 0rem' }}>
-        <div 
-          style={{
-            backgroundColor: '#ffffff',
-            padding: '1rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            border: '1px solid #e5e7eb',
-            fontFamily: '"Crimson Text", Cambria, "Book Antiqua", Georgia, serif',
-            fontSize: '1.1rem',
-            lineHeight: '1.7'
-          }}
-          dangerouslySetInnerHTML={{ 
-            __html: routine.htmlContent || '<p>Conteúdo não disponível.</p>' 
+      <div className="max-w-7xl mx-auto px-2">
+        <div
+          className="bg-white p-4 rounded-xl shadow-md border border-gray-200 font-crimson text-xl font-medium leading-relaxed prose prose-lg max-w-none"
+          data-testid="text-routine-content"
+          dangerouslySetInnerHTML={{
+            __html: processedHtmlContent || '<p>Conteúdo não disponível.</p>'
           }}
         />
         {/* Footer */}
-        <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
-          <Link 
-          href="/routines"
-          style={{
-            marginTop: '2rem',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.75rem 1.5rem',
-            backgroundColor: '#667eea',
-            color: 'white',
-            textDecoration: 'none',
-            borderRadius: '8px',
-            fontSize: '1rem',
-            fontWeight: '750',
-            transition: 'background-color 0.2s'
-          }}
-        >
-          <ArrowLeft style={{ width: '18px', height: '18px' }} />
-          Voltar às rotinas
+        <div className="max-w-7xl mx-auto text-center py-8">
+          <Link
+            href="/routines"
+            className="inline-flex items-center gap-2 py-3 px-6 bg-indigo-500 text-white no-underline rounded-lg text-lg font-bold transition-colors hover:bg-indigo-600"
+            data-testid="link-back-to-routines-bottom"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Voltar às rotinas
           </Link>
         </div>
       </div>
