@@ -2,72 +2,29 @@
 
 Sistema digital de referência para rotinas e protocolos clínicos pediátricos do Hospital Regional de Taguatinga (HRT).
 
-## 📋 Sobre o Projeto
+**Progressive Web App (PWA)** com 75+ rotinas médicas pediátricas organizadas por categoria, com busca em tempo real e interface moderna.
 
-Aplicação web frontend-only que disponibiliza **75+ rotinas médicas pediátricas** em formato HTML com imagens incorporadas, organizadas por categorias e com busca em tempo real.
+## ✨ Funcionalidades
 
-### Funcionalidades
+- 📚 **75+ Rotinas Médicas** organizadas em 16 categorias
+- 🔍 **Busca em Tempo Real** por título, autor ou categoria
+- 📱 **PWA** instalável com cache offline
+- ⚡ **Performance Otimizada** com lazy loading de imagens
+- 🎨 **Interface Moderna** com design glass-morphism
+- 🌐 **100% Frontend** sem necessidade de backend
 
-- ✅ **Biblioteca de Rotinas**: 75+ protocolos clínicos pediátricos
-- 🔍 **Busca em Tempo Real**: Pesquisa por título, autor ou categoria
-- 🏷️ **16 Categorias Médicas**: Infectologia, Emergência, Neonatologia, Cardiologia, etc.
-- 📱 **Design Responsivo**: Interface glass-morphism com tema sunset
-- ⚡ **Performance Otimizada**: Dados estáticos em JSON, carregamento lazy
-- 🎨 **Tipografia Profissional**: Fonte Georgia para legibilidade médica
-
-## 🏗️ Arquitetura
-
-### Stack Tecnológico
-
-**Frontend**
-- React 18.3.1 + TypeScript 5.6.3
-- Vite 5.4.19 (build tool)
-- Wouter (roteamento leve)
-- Tailwind CSS 3.4.17
-- shadcn/ui + Radix UI
-- DOMPurify (sanitização HTML)
-
-**Dados**
-- JSON estáticos em `/public/data/`
-- Estrutura híbrida: index + arquivos individuais
-- ~20KB index + 75 arquivos de rotinas
-
-## 📂 Estrutura do Projeto
-
-```
-Pediatria-HRT/
-├── client/                    # Aplicação React
-│   ├── src/
-│   │   ├── components/       # Componentes UI
-│   │   ├── pages/            # Páginas da aplicação
-│   │   ├── hooks/            # useRoutines, etc.
-│   │   ├── types/            # TypeScript types
-│   │   └── lib/              # Utils e helpers
-│   └── index.html
-├── public/
-│   └── data/
-│       ├── routines-index.json    # Metadata (20KB)
-│       └── routines/              # 75 arquivos JSON individuais
-│           ├── {uuid}.json
-│           └── ...
-├── dist/                     # Build de produção (gerado)
-├── vite.config.ts
-├── vercel.json              # Configuração Vercel
-└── package.json
-```
-
-## 🚀 Desenvolvimento
+## 🚀 Início Rápido
 
 ### Pré-requisitos
 
 - Node.js 20+
 - npm
 
-### Instalação
+### Instalação e Desenvolvimento
 
 ```bash
 # Clonar repositório
-git clone https://github.com/seu-usuario/Pediatria-HRT.git
+git clone https://github.com/iurileao-hub/Pediatria-HRT.git
 cd Pediatria-HRT
 
 # Instalar dependências
@@ -77,188 +34,127 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`
+Acesse em `http://localhost:5173`
 
 ### Scripts Disponíveis
 
 ```bash
-npm run dev      # Servidor de desenvolvimento com HMR
+npm run dev      # Desenvolvimento com hot reload
 npm run build    # Build de produção
-npm run preview  # Preview do build local
-npm run check    # Verificação de tipos TypeScript
+npm run preview  # Preview do build local (porta 4173)
+npm run check    # Verificação TypeScript
+npm run analyze  # Análise do bundle (visualizer)
 ```
+
+## 🛠️ Stack Tecnológico
+
+**Frontend**
+- React 18.3 + TypeScript 5.6
+- Vite 5.4 (build tool)
+- Wouter (roteamento SPA)
+- Tailwind CSS 3.4 + shadcn/ui
+- PWA com Workbox (Service Worker)
+
+**Dados**
+- Arquivos JSON estáticos em `/public/data/`
+- 75 rotinas individuais + índice central
+- Total: ~20MB de conteúdo médico
 
 ## 📦 Deploy
 
-### Vercel (Recomendado)
+### Vercel (Automático)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/seu-usuario/Pediatria-HRT)
+O projeto está configurado para deploy automático no Vercel via GitHub:
 
-**Passos manuais:**
+```bash
+git push origin main  # Deploy automático
+```
 
-1. Instalar Vercel CLI: `npm i -g vercel`
-2. Fazer login: `vercel login`
-3. Deploy: `vercel --prod`
+### Deploy Manual
 
-A configuração está em `vercel.json`:
-- Build automático com Vite
-- Cache agressivo para `/data/*` (1 ano)
-- Headers de segurança
-- SPA routing configurado
-
-### Outras Plataformas
-
-**Netlify:**
 ```bash
 npm run build
-# Fazer deploy da pasta dist/
+# Deploy da pasta dist/ para qualquer CDN/hosting
 ```
 
-**GitHub Pages:**
-- Ajustar `base` em `vite.config.ts`
-- Usar GitHub Actions para build
+**Outras plataformas compatíveis:** Netlify, Cloudflare Pages, GitHub Pages
 
-**Cloudflare Pages:**
-- Build command: `npm run build`
-- Output directory: `dist`
+## 📂 Estrutura do Projeto
 
-## 📊 Dados
-
-### Estrutura de Dados
-
-**`routines-index.json`** (lista de rotinas):
-```json
-[
-  {
-    "id": "uuid",
-    "title": "Título da Rotina",
-    "author": "Dr. Nome",
-    "category": "Categoria",
-    "createdAt": "2025-01-15T...",
-    "updatedAt": "2025-01-15T...",
-    "dataFile": "/data/routines/uuid.json"
-  }
-]
+```
+Pediatria-HRT/
+├── client/
+│   ├── src/
+│   │   ├── components/     # Componentes React
+│   │   ├── pages/          # Páginas (Home, Routines, etc)
+│   │   ├── hooks/          # useRoutines, etc
+│   │   └── lib/            # Utilities
+│   └── index.html
+├── public/
+│   └── data/
+│       ├── routines-index.json      # Índice de rotinas
+│       └── routines/{uuid}.json     # 75 rotinas individuais
+├── dist/                   # Build de produção (gerado)
+├── vite.config.ts
+├── vercel.json            # Config Vercel
+└── package.json
 ```
 
-**`routines/{uuid}.json`** (rotina completa):
-```json
-{
-  "id": "uuid",
-  "title": "Título da Rotina",
-  "author": "Dr. Nome",
-  "category": "Categoria",
-  "htmlContent": "<h1>Conteúdo HTML completo...</h1>",
-  "originalFilename": "arquivo.docx",
-  "conversionMethod": "mammoth",
-  "createdAt": "2025-01-15T...",
-  "updatedAt": "2025-01-15T..."
-}
-```
+## 📊 Categorias Médicas
 
-### Categorias Disponíveis
+Cardiologia • Emergência • Endocrinologia • Gastroenterologia • Geral • Hematologia • Imunologia • Infectologia • Nefrologia • Neonatologia • Neurologia • Nutrologia • Pneumologia • Reumatologia • Toxicologia • UTI
 
-- Cardiologia
-- Emergência
-- Endocrinologia
-- Gastroenterologia
-- Geral
-- Hematologia
-- Imunologia
-- Infectologia
-- Nefrologia
-- Neonatologia
-- Neurologia
-- Nutrologia
-- Pneumologia
-- Reumatologia
-- Toxicologia
-- UTI
+## 🔧 Configuração
 
-## 🔒 Segurança
+### Vite (vite.config.ts)
 
-- ✅ DOMPurify para sanitização de HTML
-- ✅ Headers de segurança configurados
-- ✅ Sem dados sensíveis no frontend
-- ✅ HTTPS obrigatório em produção
+- **PWA** configurado com estratégia de cache
+- **Build otimizado** com code splitting
+- **Public directory** apontando para `/public`
+- **Aliases** configurados (`@/` → `client/src/`)
 
-## 📝 Adicionando Novas Rotinas
+### Vercel (vercel.json)
 
-Para adicionar uma nova rotina:
-
-1. Converter DOCX para HTML (usar Mammoth.js ou similar)
-2. Criar arquivo JSON em `public/data/routines/{uuid}.json`
-3. Atualizar `public/data/routines-index.json`
-4. Commit e push (deploy automático no Vercel)
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **SPA routing** com fallback para `index.html`
+- **Cache otimizado** para `/data/*` e `/assets/*`
+- **Headers de segurança** configurados
 
 ## 🎨 Customização
 
-### Temas e Cores
+### Cores e Temas
 
-Editar `client/src/index.css` e `tailwind.config.ts` para ajustar:
-- Cores das categorias
-- Tema sunset gradient
-- Efeitos glass-morphism
+Edite `client/src/lib/categories.ts` para ajustar cores das categorias médicas.
 
 ### Fontes
 
-Atualmente usa Georgia (serif). Para trocar:
-1. Importar fonte em `client/index.html`
-2. Atualizar `fontFamily` em `client/src/index.css`
-
-## 🔧 Tecnologias Detalhadas
-
-### Frontend
-- **React**: UI declarativa
-- **TypeScript**: Type safety
-- **Vite**: Build rápido e HMR
-- **Wouter**: Roteamento (3KB)
-- **Tailwind CSS**: Utility-first CSS
-- **shadcn/ui**: Componentes acessíveis
-- **Framer Motion**: Animações suaves
-- **DOMPurify**: Sanitização XSS
-
-### Build & Deploy
-- **Vite**: Bundler moderno
-- **Vercel**: Hospedagem e CDN
-- **esbuild**: Transformações rápidas
+O projeto usa a fonte **Crimson Text** (Google Fonts). Para alterar, edite `client/index.html` e `client/src/index.css`.
 
 ## 📈 Performance
 
-- **First Load**: ~200ms
-- **Lista de Rotinas**: 20KB (index JSON)
-- **Rotina Individual**: ~280KB (cached após primeira visita)
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices)
+- ⚡ **First Load:** ~200ms
+- 📦 **Bundle Size:** ~300KB (gzip)
+- 🎯 **Lighthouse Score:** 95+ em todas as métricas
+- 💾 **PWA Cache:** Funciona offline após primeira visita
 
-## 🌳 Branches
+## 🔒 Segurança
 
-- `main`: Código de produção (frontend-only)
-- `source-documents`: Arquivos DOCX originais (27MB, preservação histórica)
+- ✅ Headers de segurança via Vercel
+- ✅ Content Security Policy
+- ✅ Sem dados sensíveis expostos
+- ✅ HTTPS obrigatório em produção
 
-## 📄 Licença
+## 📝 Licença
 
-MIT License - Veja [LICENSE](LICENSE) para detalhes.
+MIT License - Código aberto para uso educacional e médico.
 
-## 👥 Autores
+## 👥 Autor
 
-Desenvolvido para o Hospital Regional de Taguatinga (HRT)
+Desenvolvido para o **Hospital Regional de Taguatinga (HRT)**
 Departamento de Pediatria
-
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Por favor:
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📞 Suporte
-
-Para questões técnicas ou sugestões, abra uma [issue](https://github.com/seu-usuario/Pediatria-HRT/issues).
 
 ---
 
-**Versão**: 2.0.0 (Frontend-only)
-**Última atualização**: Janeiro 2025
+**Versão:** 2.0.0
+**Última atualização:** Outubro 2025
