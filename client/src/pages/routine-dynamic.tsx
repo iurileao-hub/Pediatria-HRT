@@ -4,24 +4,7 @@ import { ArrowLeft, FileText, User, Calendar } from "lucide-react";
 import { useLazyImages } from "@/components/LazyImage";
 import { useRoutine } from "@/hooks/useRoutines";
 import type { Routine } from "@/types/routine";
-
-// Helper function to get category color
-const getCategoryColor = (category: string) => {
-  const colorMap: Record<string, string> = {
-    "Infectologia": "bg-green-500/40",
-    "Emergência": "bg-red-500/40",
-    "HRN": "bg-blue-500/40",
-    "Gastroenterologia": "bg-amber-500/40",
-    "Neonatologia": "bg-pink-500/40",
-    "Cardiologia": "bg-rose-500/40",
-    "Neurologia": "bg-indigo-500/40",
-    "Lactentes": "bg-cyan-500/40",
-    "UTI": "bg-orange-500/40",
-    "Endocrinologia": "bg-teal-500/40",
-    "Pneumologia": "bg-sky-500/40"
-  };
-  return colorMap[category] || "bg-slate-500/40";
-};
+import { getCategoryColor } from "@/lib/categories";
 
 export default function RoutineDynamic() {
   const [, params] = useRoute("/routine/:id");
