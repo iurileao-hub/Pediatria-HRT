@@ -37,3 +37,12 @@ yarn-error.log*
 
 # Vite
 vite.config.ts.*
+
+# Replit specific files (should not be in repo)
+.local/
+.config/
+.replit*
+.upm/
+
+# Claude AI files
+.claude/
