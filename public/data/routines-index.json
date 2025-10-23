@@ -3,7 +3,7 @@
     "id": "e214e74a-bcf4-4f9d-934a-f13ff404c975",
     "title": "Acidentes por Animais Peçonhentos",
     "author": "Dr. Luiz Antônio",
-    "category": "Toxicologia",
+    "category": "Emergência",
     "createdAt": "2025-10-23T00:12:50.998Z",
     "updatedAt": "2025-10-23T00:12:50.998Z",
     "dataFile": "/data/routines/e214e74a-bcf4-4f9d-934a-f13ff404c975.json"
@@ -12,7 +12,7 @@
     "id": "b5d8c3ff-7bb1-493d-9526-0538be5d7eda",
     "title": "Adenomegalias",
     "author": "Dr. Marco",
-    "category": "Hematologia",
+    "category": "Infectologia",
     "createdAt": "2025-10-23T00:12:51.003Z",
     "updatedAt": "2025-10-23T00:12:51.003Z",
     "dataFile": "/data/routines/b5d8c3ff-7bb1-493d-9526-0538be5d7eda.json"
@@ -39,7 +39,7 @@
     "id": "387546e7-1ae7-464e-ba75-7a5b233ab361",
     "title": "Alimentação nos 2 Primeiros Anos de Vida",
     "author": "Dra. Bárbara",
-    "category": "Nutrologia",
+    "category": "Lactentes",
     "createdAt": "2025-10-23T00:12:51.007Z",
     "updatedAt": "2025-10-23T00:12:51.007Z",
     "dataFile": "/data/routines/387546e7-1ae7-464e-ba75-7a5b233ab361.json"
@@ -48,7 +48,7 @@
     "id": "6346bc80-e463-4f19-b9b4-679a891084c3",
     "title": "Anemia Falciforme",
     "author": "Dr. Fabrício",
-    "category": "Hematologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.008Z",
     "updatedAt": "2025-10-23T00:12:51.008Z",
     "dataFile": "/data/routines/6346bc80-e463-4f19-b9b4-679a891084c3.json"
@@ -57,7 +57,7 @@
     "id": "3d9b8c2c-688f-40ca-83f0-5395bffcb3fe",
     "title": "Anemia Ferropriva",
     "author": "Dra. Ana Luisa",
-    "category": "Hematologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.008Z",
     "updatedAt": "2025-10-23T00:12:51.008Z",
     "dataFile": "/data/routines/3d9b8c2c-688f-40ca-83f0-5395bffcb3fe.json"
@@ -66,7 +66,7 @@
     "id": "85ebbfeb-6b62-48e9-ba1b-2c69936738fc",
     "title": "Artrite - Abordagem Inicial",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.009Z",
     "updatedAt": "2025-10-23T00:12:51.009Z",
     "dataFile": "/data/routines/85ebbfeb-6b62-48e9-ba1b-2c69936738fc.json"
@@ -75,7 +75,7 @@
     "id": "2322d52c-5760-4183-8bb9-facd91af81d0",
     "title": "Artrite Séptica",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.009Z",
     "updatedAt": "2025-10-23T00:12:51.009Z",
     "dataFile": "/data/routines/2322d52c-5760-4183-8bb9-facd91af81d0.json"
@@ -84,7 +84,7 @@
     "id": "a260ab16-0a54-4bae-82ed-bd19faf67686",
     "title": "Artrites Reativas ou Reacionais",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.010Z",
     "updatedAt": "2025-10-23T00:12:51.010Z",
     "dataFile": "/data/routines/a260ab16-0a54-4bae-82ed-bd19faf67686.json"
@@ -228,7 +228,7 @@
     "id": "cef08108-566e-4c33-8cb0-b3291b63709a",
     "title": "Distúrbio Metabólico - Litíse Renal e Cólica Nefrética",
     "author": "Dr. Fabrício",
-    "category": "Nefrologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.031Z",
     "updatedAt": "2025-10-23T00:12:51.031Z",
     "dataFile": "/data/routines/cef08108-566e-4c33-8cb0-b3291b63709a.json"
@@ -237,7 +237,7 @@
     "id": "4f575339-a846-4ffa-892f-4e5b7686360c",
     "title": "Distúrbios Eletrolíticos",
     "author": "Dr. Francisco",
-    "category": "Nefrologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.032Z",
     "updatedAt": "2025-10-23T00:12:51.032Z",
     "dataFile": "/data/routines/4f575339-a846-4ffa-892f-4e5b7686360c.json"
@@ -246,7 +246,7 @@
     "id": "0f229f7f-0b95-49f0-8c07-16589ac9cbe9",
     "title": "Distúrbios Ácido-Básicos",
     "author": "Dr. Francisco",
-    "category": "Nefrologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.032Z",
     "updatedAt": "2025-10-23T00:12:51.032Z",
     "dataFile": "/data/routines/0f229f7f-0b95-49f0-8c07-16589ac9cbe9.json"
@@ -255,7 +255,7 @@
     "id": "526c190d-fb42-45c3-9f9a-eb6e9a06eed1",
     "title": "Doença de Kawasaki",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.033Z",
     "updatedAt": "2025-10-23T00:12:51.033Z",
     "dataFile": "/data/routines/526c190d-fb42-45c3-9f9a-eb6e9a06eed1.json"
@@ -282,7 +282,7 @@
     "id": "c95452b3-13ec-4175-ba27-b019a2a90786",
     "title": "Dor de Crescimento",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.035Z",
     "updatedAt": "2025-10-23T00:12:51.035Z",
     "dataFile": "/data/routines/c95452b3-13ec-4175-ba27-b019a2a90786.json"
@@ -336,7 +336,7 @@
     "id": "cf5493ad-339a-42cd-b059-31af8e55face",
     "title": "Febre Reumática",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.037Z",
     "updatedAt": "2025-10-23T00:12:51.037Z",
     "dataFile": "/data/routines/cf5493ad-339a-42cd-b059-31af8e55face.json"
@@ -345,7 +345,7 @@
     "id": "d082dbb2-bdb7-47e2-9682-e7fc13252f98",
     "title": "Fórmulas Lácteas",
     "author": "Dr. Francisco",
-    "category": "Nutrologia",
+    "category": "Lactentes",
     "createdAt": "2025-10-23T00:12:51.038Z",
     "updatedAt": "2025-10-23T00:12:51.038Z",
     "dataFile": "/data/routines/d082dbb2-bdb7-47e2-9682-e7fc13252f98.json"
@@ -354,7 +354,7 @@
     "id": "bc8235dc-b6d1-4690-a7ad-68278e8ee400",
     "title": "Glomerulonefrite Difusa Aguda",
     "author": "Dr. Fabrício",
-    "category": "Nefrologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.038Z",
     "updatedAt": "2025-10-23T00:12:51.038Z",
     "dataFile": "/data/routines/bc8235dc-b6d1-4690-a7ad-68278e8ee400.json"
@@ -363,7 +363,7 @@
     "id": "73e55fc9-9355-4d0d-80da-c9c369189e77",
     "title": "Hematúria - Abordagem Inicial",
     "author": "Dr. Fabrício",
-    "category": "Nefrologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.038Z",
     "updatedAt": "2025-10-23T00:12:51.038Z",
     "dataFile": "/data/routines/73e55fc9-9355-4d0d-80da-c9c369189e77.json"
@@ -444,7 +444,7 @@
     "id": "6836e512-cc82-4882-acfb-be6d287ba8d4",
     "title": "Intoxicações Agudas",
     "author": "Dra. Ana Luiza",
-    "category": "Toxicologia",
+    "category": "Emergência",
     "createdAt": "2025-10-23T00:12:51.043Z",
     "updatedAt": "2025-10-23T00:12:51.043Z",
     "dataFile": "/data/routines/6836e512-cc82-4882-acfb-be6d287ba8d4.json"
@@ -498,7 +498,7 @@
     "id": "fee79f3d-7e04-4218-bded-3df5b9faff33",
     "title": "Maus Tratos e Abuso Sexual",
     "author": "Dr. Renato",
-    "category": "Geral",
+    "category": "Emergência",
     "createdAt": "2025-10-23T00:12:51.046Z",
     "updatedAt": "2025-10-23T00:12:51.046Z",
     "dataFile": "/data/routines/fee79f3d-7e04-4218-bded-3df5b9faff33.json"
@@ -588,7 +588,7 @@
     "id": "38706e25-2c34-432f-a1a0-dadd7963cb8c",
     "title": "Púrpura de Henoch-Schönlein",
     "author": "Dra. Dania",
-    "category": "Reumatologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.054Z",
     "updatedAt": "2025-10-23T00:12:51.054Z",
     "dataFile": "/data/routines/38706e25-2c34-432f-a1a0-dadd7963cb8c.json"
@@ -597,7 +597,7 @@
     "id": "39f4ca52-9706-4b55-880f-c95da46a166d",
     "title": "Púrpura Trombocitopênica Imunológica",
     "author": "Dra. Dania e Dr. Fabrício",
-    "category": "Hematologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.054Z",
     "updatedAt": "2025-10-23T00:12:51.054Z",
     "dataFile": "/data/routines/39f4ca52-9706-4b55-880f-c95da46a166d.json"
@@ -624,7 +624,7 @@
     "id": "fbac2486-7710-4603-99a9-6d54c38cbd84",
     "title": "Síndrome Nefrótica",
     "author": "Dra. Dania",
-    "category": "Nefrologia",
+    "category": "HRN",
     "createdAt": "2025-10-23T00:12:51.056Z",
     "updatedAt": "2025-10-23T00:12:51.056Z",
     "dataFile": "/data/routines/fbac2486-7710-4603-99a9-6d54c38cbd84.json"
@@ -660,7 +660,7 @@
     "id": "b961624c-9006-4291-ba3b-2bc4a8d893e5",
     "title": "Urticária, Angioedema e Anafilaxia",
     "author": "Dra. Cristianne",
-    "category": "Imunologia",
+    "category": "Emergência",
     "createdAt": "2025-10-23T00:12:51.066Z",
     "updatedAt": "2025-10-23T00:12:51.066Z",
     "dataFile": "/data/routines/b961624c-9006-4291-ba3b-2bc4a8d893e5.json"
