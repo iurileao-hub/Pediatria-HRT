@@ -192,7 +192,7 @@
     "id": "7495feb5-9910-4ec2-88ed-d4ee11aae7cd",
     "title": "Desconforto Respiratório do Lactente - Bronquiolite Viral Aguda",
     "author": "Dr. Kffuri",
-    "category": "Pneumologia",
+    "category": "Lactentes",
     "createdAt": "2025-10-23T00:12:51.023Z",
     "updatedAt": "2025-10-23T00:12:51.023Z",
     "dataFile": "/data/routines/7495feb5-9910-4ec2-88ed-d4ee11aae7cd.json"
@@ -651,7 +651,7 @@
     "id": "e4c20ef2-bd4d-4e90-b8db-17da433c5368",
     "title": "Tuberculose na Infância",
     "author": "Dr. Fernando",
-    "category": "Infectologia",
+    "category": "Pneumologia",
     "createdAt": "2025-10-23T00:12:51.058Z",
     "updatedAt": "2025-10-23T00:12:51.058Z",
     "dataFile": "/data/routines/e4c20ef2-bd4d-4e90-b8db-17da433c5368.json"
